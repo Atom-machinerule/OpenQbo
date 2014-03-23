@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Workspace>
+  <ConfigDictionary>
+    
+  <CurrentConfigs><Project>Project/STM3210E-EVAL</Project></CurrentConfigs></ConfigDictionary>
+  <Desktop>
+    <Static>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>260</Column0><Column1>15</Column1><Column2>12</Column2><Column3>0</Column3></ColumnWidths>
+      </Workspace>
+    <Build><ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1224</ColumnWidth1><ColumnWidth2>326</ColumnWidth2><ColumnWidth3>81</ColumnWidth3></Build><TerminalIO/><Debug-Log><ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1632</ColumnWidth1></Debug-Log></Static>
+    <Windows>
+      
+    <Wnd2>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-17633-12923</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              
+            <NodeDict><ExpandedNode>Project</ExpandedNode><ExpandedNode>Project/CMSIS</ExpandedNode><ExpandedNode>Project/Doc</ExpandedNode><ExpandedNode>Project/EWARMv5</ExpandedNode><ExpandedNode>Project/Output</ExpandedNode><ExpandedNode>Project/STM32_EVAL</ExpandedNode><ExpandedNode>Project/STM32_EVAL/stm32_eval.c</ExpandedNode><ExpandedNode>Project/StdPeriph_Driver</ExpandedNode><ExpandedNode>Project/User</ExpandedNode></NodeDict></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd2><Wnd3><Tabs><Tab><Identity>TabID-9262-29274</Identity><TabName>Build</TabName><Factory>Build</Factory><Session/></Tab><Tab><Identity>TabID-13047-30022</Identity><TabName>Debug Log</TabName><Factory>Debug-Log</Factory><Session/></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd3></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\funcionesLinea.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>80</SelStart><SelEnd>80</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\funcionesLinea.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>913</SelStart><SelEnd>913</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\sistema_inercial.cpp</Filename><XPos>0</XPos><YPos>36</YPos><SelStart>114</SelStart><SelEnd>114</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\sistema_inercial.h</Filename><XPos>0</XPos><YPos>33</YPos><SelStart>274</SelStart><SelEnd>289</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h</Filename><XPos>0</XPos><YPos>114</YPos><SelStart>5523</SelStart><SelEnd>5562</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c</Filename><XPos>0</XPos><YPos>285</YPos><SelStart>9082</SelStart><SelEnd>9090</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h</Filename><XPos>0</XPos><YPos>810</YPos><SelStart>36158</SelStart><SelEnd>36158</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_tim.c</Filename><XPos>0</XPos><YPos>1244</YPos><SelStart>46698</SelStart><SelEnd>46698</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\funcionesMotores.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>1959</SelStart><SelEnd>1959</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\funcionesMotores.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>494</SelStart><SelEnd>500</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\main.c</Filename><XPos>0</XPos><YPos>517</YPos><SelStart>18958</SelStart><SelEnd>18962</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\stm32f10x_it.h</Filename><XPos>0</XPos><YPos>30</YPos><SelStart>1973</SelStart><SelEnd>1973</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\stm32f10x_it.c</Filename><XPos>0</XPos><YPos>18</YPos><SelStart>1539</SelStart><SelEnd>1539</SelEnd></Tab><ActiveTab>12</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h</Filename><XPos>0</XPos><YPos>297</YPos><SelStart>22205</SelStart><SelEnd>22205</SelEnd></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-02861528><key>iaridepm.enu1</key></Toolbar-02861528></Sizes></Row0></Top><Left><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>590</Bottom><Right>324</Right><x>-2</x><y>-2</y><xscreen>114</xscreen><yscreen>151</yscreen><sizeHorzCX>67536</sizeHorzCX><sizeHorzCY>192848</sizeHorzCY><sizeVertCX>193128</sizeVertCX><sizeVertCY>756066</sizeVertCY></Rect></Wnd2></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>149</Bottom><Right>1690</Right><x>-2</x><y>-2</y><xscreen>1692</xscreen><yscreen>151</yscreen><sizeHorzCX>1002370</sizeHorzCX><sizeHorzCY>192848</sizeHorzCY><sizeVertCX>67536</sizeVertCX><sizeVertCY>192848</sizeVertCY></Rect></Wnd3></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Workspace>
+
+
