@@ -1,0 +1,49 @@
+qbo_listen v1.3
+02-01-2013
+
+=== Copyright ===
+
+Copyright (C) 2012-2013 Thecorpora SL
+
+=== License ===
+
+Qbo_listen  is licensed under the GPL license making it free and open source software.
+
+Qbo_listen License includes a special exception allowing to link to Julius lib. The reason is that, Juliuslib license is, probably, not compatible with the GPL because Julius license is similar to Original BSD License. 
+
+Qbo_listen license includes the same exception of the sstream library http://gcc.gnu.org/onlinedocs/libstdc++/manual/license.html#manual.intro.status.license.gpl
+
+=== Description  ===
+
+
+=== Building ===
+
+Dependencies:
+    julius
+    libjulius-dev
+    libasound2-dev
+
+rosmake
+
+=== Run ===
+
+
+=== Arvhive Contents ===
+
+=== Changelog ===
+
+qbo_listen v1.3
+	* Added new grammars for qbo_questions
+
+qbo_listen v1.0
+	* First release
+-- Sergio Merino <s.merino@openqbo.org>  16-02-2012
+
+=== Homepage ===
+
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_listen
+
+=== Contact ===
+
+Sergio Merino <s.merino@openqbo.org>
+

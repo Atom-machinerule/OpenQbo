@@ -1,0 +1,35 @@
+qbo_arduino v1.0
+10-04-2012
+
+=== Copyright ===
+
+Copyright (C) 2012 Thecorpora Inc.
+
+=== Description  ===
+
+This is the arduino libraries and projects that are used by the QBoards.
+
+=== Building ===
+
+Copy the contents of the libraries folder to your Arduino installation libraries folder and the contents of the sketchbook folder to your Arduino installation projects folder.
+Now you can open the QBoards firmware projects with the Arduino IDE. Its names are QBoard1Firm for the QBoard1 and QBoard2Firm for the Qboard2.
+
+=== Archive Contents ===
+
+./sketchbook/*
+./libraries/*
+./README	This file
+
+=== Changelog ===
+
+qbo_arduino v1.0
+	* First release
+-- Miguel Angel Julian <miguel.a.j@openqbo.org>  10-04-2012
+
+=== Homepage ===
+
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_arduino
+
+=== Contact ===
+
+Miguel Angel Julian <miguel.a.j@openqbo.org>

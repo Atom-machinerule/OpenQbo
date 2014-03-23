@@ -1,0 +1,9 @@
+#!/bin/bash
+DIRNAME=/opt/ros/electric/stacks/qbo_stack/qbo_listen/config/LM
+if [ -d "$DIRNAME" ]; then
+    echo "Doing a backup of LM..."
+    TIME=`date +%s`
+    DSTDIRNAME=`echo $DIRNAME-$TIME`
+    cp -rf $DIRNAME $DSTDIRNAME
+    # Control will enter here if $DIRECTORY exists.
+fi

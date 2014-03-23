@@ -1,0 +1,8 @@
+<launch>
+         <node name="qbo_system_info" pkg="qbo_system_info" type="plugin_system.py" output="screen">
+         </node>
+
+         <node name="qbo_say_ip" pkg="qbo_say_ip" type="qbo_say_ip.py" output="screen">
+         </node>
+</launch>
+

@@ -1,0 +1,10 @@
+Package: qboros-electric-qbo-cereal-port
+Source: qboros-electric-qbo-cereal-port
+Version: 1.0-openqbo0
+Section: OpenQbo
+Priority: standard
+Architecture: amd64
+Maintainer: Miguel Angel Julian <miguel.a.j@openqbo.org>
+Homepage: http://openqbo.org/software/qbo_cereal_port
+Description: Simple C++ serial port class for ROS.
+ Simple C++ serial port class for ROS.

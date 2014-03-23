@@ -1,0 +1,22 @@
+#######################################
+# Syntax Coloring Map ServoTimeTimer1
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+ServoTimeTimer1  KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+attach KEYWORD2
+detach KEYWORD2
+write KEYWORD2
+read KEYWORD2
+attached KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout android:id="@+id/RelativeLayout"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent" android:background="@drawable/login9" android:paddingLeft="20sp" android:paddingRight="20sp">
+	
+    
+    
+	<RelativeLayout android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:id="@+id/rl_button_login"
+		android:layout_alignParentBottom="true"
+		android:layout_centerHorizontal="true" android:layout_marginBottom="10sp">
+		<Button android:layout_width="wrap_content" android:id="@+id/button_login"
+			android:layout_height="wrap_content" android:text="@string/button_login"
+			android:width="120sp" android:height="10sp"
+			android:layout_marginBottom="10sp" android:layout_marginTop="10sp"
+			android:background="@drawable/button_login_selector"></Button>
+	</RelativeLayout>
+	<RelativeLayout android:layout_height="wrap_content"
+		android:id="@+id/rl_button_editTexts" android:layout_centerHorizontal="true"
+		android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_marginTop="40sp">
+		<TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/welcome_to_qbo" android:id="@+id/text_qbo_login" android:layout_centerHorizontal="true"></TextView>
+		<EditText android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:width="200sp"
+			android:id="@+id/editText_ip"
+			android:layout_marginBottom="5sp" android:layout_below="@+id/text_qbo_login" android:layout_centerHorizontal="true" android:hint="@string/edittext_login_ip" android:background="@+drawable/edittext" android:paddingLeft="5sp" android:layout_marginTop="50sp"  android:inputType="numberDecimal" android:digits="0123456789."></EditText>
+		<EditText android:id="@+id/editText_username" android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:maxWidth="200sp" android:width="200sp" android:layout_below="@+id/editText_ip"
+			android:layout_marginBottom="5sp" android:imeOptions="actionSend|flagNoEnterAction" android:layout_centerHorizontal="true" android:hint="@string/edittext_login_username" android:background="@+drawable/edittext" android:paddingLeft="5sp" android:inputType="textPersonName"></EditText>
+		<EditText android:id="@+id/editText_password" android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_below="@+id/editText_username" android:width="200sp"			
+			android:layout_centerHorizontal="true" android:hint="@string/edittext_login_pwd" android:background="@+drawable/edittext" android:paddingLeft="5sp" android:inputType="textPassword" android:layout_marginBottom="5sp"></EditText>		
+        <EditText android:id="@+id/editText_aes" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_below="@+id/editText_password" android:width="200sp"         
+            android:layout_centerHorizontal="true" android:hint="@string/edittext_login_aesPwd" android:background="@+drawable/edittext" android:paddingLeft="5sp" android:inputType="textPassword"></EditText>
+        		
+	</RelativeLayout>
+	<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:src="@drawable/qbo_label_login" android:layout_alignParentLeft="true" android:id="@+id/qbo_label"></ImageView>
+	<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:src="@drawable/android_label_login" android:layout_alignParentTop="true" android:id="@+id/android_label"></ImageView>
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateOnly="true" android:visibility="gone">
+		
+    </ProgressBar>
+</RelativeLayout>

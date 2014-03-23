@@ -1,0 +1,13 @@
+<package>
+  <description>
+  Record the image published in a topic
+  </description>
+  <author>Sergio Merino</author>
+  <license>GPL</license>
+
+  <depend package="image_transport"/>
+  <depend package="cv_bridge"/>
+  <depend package="opencv2"/>
+  <depend package="roscpp"/>
+  <depend package="sensor_msgs"/>
+</package>

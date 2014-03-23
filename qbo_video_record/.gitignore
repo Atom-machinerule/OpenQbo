@@ -1,0 +1,5 @@
+bin
+build
+*.swp
+src/qbo_video_record/
+srv_gen/

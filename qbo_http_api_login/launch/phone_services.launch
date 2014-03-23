@@ -1,0 +1,10 @@
+<launch>
+          <!-- launch sip client for voice-->
+<!--         <include file="$(find qbo_linphone)/launch/launch_on_robot.launch" /> -->
+
+         <node name="qbo_http_api_login" pkg="qbo_http_api_login" type="qbo_http_api_login.py" output="screen">
+         </node>
+         <node name="qbo_mjpeg_server" pkg="qbo_mjpeg_server" type="mjpeg_server" output="screen">
+         </node>
+</launch>
+

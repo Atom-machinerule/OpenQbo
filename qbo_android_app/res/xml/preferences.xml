@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- This is a primitive example showing the different types of preferences available. -->
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/preferences_connection_settings_title">
+
+         <EditTextPreference
+                android:key="ip"
+                android:title="@string/preferences_ip_title"
+                android:defaultValue="192.168.1.43"           
+                android:dialogTitle="@string/preferences_ip_dialog_title" />
+         <!--<EditTextPreference
+                android:key="portImg"
+                android:title="@string/preferences_img_title"
+                android:defaultValue="8080"
+                android:summary="@string/preferences_img_summary"
+                android:dialogTitle="@string/preferences_img_dialog_title" />
+ 		 <EditTextPreference
+                android:key="portCmd"
+                android:title="@string/preferences_cmd_title"
+                android:defaultValue="8880"
+                android:summary="@string/preferences_cmd_summary"
+                android:dialogTitle="@string/preferences_cmd_dialog_title" />
+           <EditTextPreference
+                android:key="portSip"
+                android:title="Telepresence Port"
+                android:defaultValue="50060"
+                android:summary="Port for SIP protocol, for example 50060"
+                android:dialogTitle="Please, insert the Port of your Qbo" />-->
+    </PreferenceCategory>
+
+   
+
+	<PreferenceCategory android:title="@string/preferences_aplication_settings_title">
+	<!-- 	<CheckBoxPreference
+                android:key="debug"
+                android:title="Debug"
+                android:defaultValue="false"
+                />
+                
+                <CheckBoxPreference
+                android:key="showFps"
+                android:title="Show FPS"
+                android:defaultValue="false"
+                /> -->
+	
+<!--  		<ListPreference
+			android:key="imageType" 
+			android:defaultValue="0"
+			android:title="Display Image"			
+			android:entries=""@array/imageTypesArray"
+			android:entryValues=""@array/imageTypesValuesArray">
+		</ListPreference>-->
+      
+      	<CheckBoxPreference
+                android:key="checkbox_language_recognition"
+                android:title="@string/preferences_input_text_title"
+                android:defaultValue="true"
+                android:summaryOff="@string/preferences_input_text_summary_off"
+                android:summaryOn="@string/preferences_input_text_summary_on"
+        />
+      
+      
+	<!-- 	<ListPreference
+     		android:dependency="checkbox_language_recognition"		
+			android:key="language" 
+			android:defaultValue="en"
+			android:title="Language recognition"			
+			android:entries=""@array/languagesArray"
+			android:entryValues=""@array/languagesValuesArray">
+		</ListPreference> -->
+		
+    </PreferenceCategory>
+    
+ <PreferenceCategory
+            android:title="@string/preferences_aplication_performance_title">
+            
+            
+       <ListPreference           
+            android:key="quality" 
+            android:defaultValue="@string/quality_normal"
+            android:title="@string/preferences_quality_title"  
+            android:entries="@array/imgQualitiesArray"
+            android:entryValues="@array/imgQualitiesValuesArray">
+        </ListPreference> 
+       
+        <EditTextPreference 
+                android:defaultValue="0.3"
+                android:key="linearSpeed"                
+                android:title="@string/preferences_linear_speed_title"
+                android:dialogTitle="@string/preferences_linear_speed_dialog_title" />  
+                    
+        <EditTextPreference                       
+                android:defaultValue="0.8"
+                android:key="angularSpeed"                
+                android:title="@string/preferences_angular_speed_title"
+                android:dialogTitle="@string/preferences_angular_speed_dialog_title"/> 
+                
+     <!--    <EditTextPreference 
+                android:defaultValue="3"
+                android:key="linearSensitivity"                
+                android:title="Linear Sensitivity"
+                android:dialogTitle="Insert linear sensitivity" />  
+                    
+        <EditTextPreference                       
+                android:defaultValue="3"
+                android:key="angularSensitivity"                
+                android:title="Angular Sensitivity"
+                android:dialogTitle="Insert angular sensitivity"/>      
+        <EditTextPreference
+                android:key="delay"
+                android:title="Time refresh"
+                android:defaultValue="10"
+                android:summary=""
+                android:dialogTitle="Insert time refresh" />
+      -->
+
+    </PreferenceCategory>
+  
+
+</PreferenceScreen>

@@ -1,0 +1,15 @@
+<launch>
+	 <node name="qbo_stereo_selector" pkg="qbo_stereo_selector" type="qbo_stereo_selector">
+	<param name="distance_filter_threshold" value="0.7"/> 
+	</node>
+
+	 <node name="hand_gesture_node" pkg="qbo_music_player" type="hand_gesture_node" respawn="true" output="screen">
+	 	<param name="certainty_threshold" value="0.05"/>
+	 	<param name="stabilizer_max" value="6"/>
+	 	<param name="stabilizer_threshold" value="4"/>
+	 </node>
+	 
+	<node name="music_master" pkg="qbo_music_player" type="music_master.py" output="screen" >
+	 </node> 
+
+</launch>

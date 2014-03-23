@@ -1,0 +1,5 @@
+*.pyc
+src/qbo_talk/
+build/
+bin/
+srv_gen/

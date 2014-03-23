@@ -1,0 +1,24 @@
+qbo_qbo_http_api_login v1.2
+26-03-2012
+
+=== Copyright ===
+
+Copyright (C) 2012-2013 Thecorpora Inc.
+
+=== Description  ===
+
+This node makes the Q.bo to behave like a REST web server
+
+
+=== Run ===
+
+run qbo_http_api_login qbo_http_api_login.py
+
+== Homepage ===
+
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_http_api_login
+
+=== Contact ===
+
+Miguel Angel Julian <miguel.a.j@openqbo.org>
+Daniel Cuadrado <daniel.cuadrado@openqbo.org>

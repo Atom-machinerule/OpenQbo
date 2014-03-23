@@ -1,0 +1,11 @@
+Package: qboros-electric-qbo-video-record
+Source: qboros-electric-qbo-video-record
+Version: 1.0-openqbo0
+Section: OpenQbo
+Priority: standard
+Depends: ffmpeg
+Architecture: amd64
+Maintainer: Sergio Merino <s.merino@openqbo.org>
+Homepage: http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_video_record
+Description: Ros node to record audio and video.
+ This node can record audio and video to a theora file.

@@ -1,0 +1,33 @@
+pan_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: pan_joint
+    joint_speed: 1.17
+    joint_compliance_margin: 1
+    joint_compliance_slope: 128
+    joint_compliance_punch: 1
+    joint_torque_limit: 0.8
+    motor:
+        id: 3
+        init: 512
+        min: 20
+        max: 1003
+
+tilt_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: tilt_joint
+    joint_speed: 1.17
+    joint_compliance_margin: 5
+    joint_compliance_slope: 254
+    joint_compliance_punch: 1
+    joint_torque_limit: 0.5
+    motor:
+        id: 4
+        init: 512
+        min: 0
+        max: 1023

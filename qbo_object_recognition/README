@@ -1,0 +1,32 @@
+qbo_object_recognition v1.0
+
+=== Copyright ===
+
+Copyright (C) 2012 Thecorpora Inc.
+
+=== Description  ===
+
+Object recognition node
+
+=== Building ===
+
+rosmake
+
+=== Run ===
+
+
+=== Arvhive Contents ===
+
+
+
+=== Changelog ===
+
+qbo_object_recognition v1.0
+
+=== Homepage ===
+
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_object_recognition
+
+=== Contact ===
+
+Arturo Bajuelos <arturo@openqbo.org>

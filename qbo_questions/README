@@ -1,0 +1,59 @@
+qbo_questions v1.2
+02-01-2013
+
+=== Copyright ===
+
+Copyright (C) 2012-2013 Thecorpora Inc.
+
+=== Description  ===
+
+Answer questions
+
+=== Building ===
+
+rosmake
+
+=== Run ===
+
+rosrun qbo_questions questions.py
+
+roslaunch qbo_questions qbo_questions_ES.launch
+
+roslaunch qbo_questions qbo_questions_EN.launch
+
+
+=== Arvhive Contents ===
+
+./manifest.xml	Ros information file
+./Authors	Author of the code
+./Makefile	Makefile File for compilation
+./src/questions.py Source code under GPL v2 License
+./control	File to generate .deb packages
+./LINCESES	The complete text of the licenses used
+./CMakeLists.txt	CMakelist file for compilation
+./README	This file
+
+=== Changelog ===
+
+qbo_questions v1.2
+    * Added plugins support
+
+qbo_questions v1.1
+    * Now dialogues are taken from config folder
+    * Several languages supported
+-- Daniel Cuadrado <daniel.cuadrado@openqbo.org>
+
+
+qbo_questions v1.0
+	* First release
+-- Sergio Merino <s.merino@openqbo.org>  20-02-2012
+
+
+=== Homepage ===
+
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_questions
+
+=== Contact ===
+
+Sergio Merino <s.merino@openqbo.org>
+Daniel Cuadrado <daniel.cuadrado@openqbo.org>

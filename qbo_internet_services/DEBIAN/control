@@ -1,0 +1,11 @@
+Package: qboros-electric-qbo-internet-services
+Source: qboros-electric-qbo-internet-services
+Version: 1.0-openqbo0
+Section: OpenQbo
+Depends: ros-electric-ros, python
+Priority: standard
+Architecture: amd64
+Maintainer: Sergio Merino <s.merino@openqbo.org>
+Homepage: http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_internet_services
+Description: This package is a ros node to connect to internet services
+ This node will provide a ROS interface to access to some internet services.

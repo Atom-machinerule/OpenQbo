@@ -1,0 +1,35 @@
+qbo_music_player v1.0
+28-02-2012
+
+=== Copyright ===
+
+Copyright (C) 2012 Thecorpora Inc.
+
+=== Description  ===
+
+Node that play music using hand gesture and using xmms music player
+
+=== Building ===
+
+rosmake
+
+=== Run ===
+
+This node could be execute using the launcher. With that launchers you could set with parameters to set and which value.
+
+=== Arvhive Contents ===
+
+
+
+=== Changelog ===
+
+qbo_music_player v1.0
+
+=== Homepage ===
+
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_music_player
+
+=== Contact ===
+
+Arturo Bajuelos <arturo@openqbo.org>
+Miguel Ángel Julián <miguel.a.j@openqbo.org>

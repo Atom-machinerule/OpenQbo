@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.thecorpora.qbo.androidapk"
+    android:versionCode="2"
+    android:versionName="2.0" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.USE_SIP" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /> <!-- in order to make AudioManager.isWiredHeadsetOn() works -->
+
+    <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="13"/>
+
+    <supports-screens android:anyDensity="true"/> 
+
+    <application
+        android:debuggable="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name" >
+        <activity
+            android:name=".MainActivity"
+            android:allowTaskReparenting="false"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name=".LogInActivity"
+            android:allowTaskReparenting="false"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".QboPreferences" >
+        </activity>
+
+        <receiver android:name=".HeadPhones_Receiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.HEADSET_PLUG" >
+                </action>
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".HeadPhone_IntentService" >
+        </service>
+    </application>
+
+</manifest>

@@ -1,0 +1,24 @@
+<package>
+  <description brief="qbo_arduqbo">
+
+     qbo_arduqbo
+
+  </description>
+  <author>Miguel Angel Julian</author>
+  <license>GPLv2, LGPLv2.1</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_arduqbo</url>
+  <depend package="roscpp"/>
+  <depend package="rospy"/>
+  <depend package="std_msgs"/>
+  <depend package="tf"/>
+  <depend package="sensor_msgs"/>
+  <depend package="geometry_msgs"/>
+  <depend package="nav_msgs"/>
+  <depend package="std_srvs"/>
+  <depend package="qbo_cereal_port"/>
+  <!-- <depend package="pcl"/> -->
+
+</package>
+
+

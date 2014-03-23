@@ -1,0 +1,41 @@
+qbo_cereal_port v1.0
+10-04-2012
+
+=== Copyright ===
+
+Copyright (C) 2012 Thecorpora Inc.
+
+=== Description  ===
+
+This a fork of the cereal_port C++ serial communication library. This version adds a reset to the Arduino boards when the serial port opens.
+You can find the original code and more documentation at the following web:
+http://www.ros.org/wiki/cereal_port
+
+=== Building ===
+
+rosmake
+
+=== Arvhive Contents ===
+
+./manifest.xml	Ros information file
+./Makefile	Makefile File for compilation
+./src/*         Source code under GPL v2 License
+./include/*     Include files of the library under GPL v2 License
+./control	File to generate .deb packages
+./LINCESES	The complete text of the licenses used
+./CMakeLists.txt	CMakelist file for compilation
+./README	This file
+
+=== Changelog ===
+
+qbo_cereal_port v1.0
+	* First release
+-- Miguel Angel Julian <miguel.a.j@openqbo.org>  10-04-2012
+
+=== Homepage ===
+
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_cereal_port
+
+=== Contact ===
+
+Miguel Angel Julian <miguel.a.j@openqbo.org>

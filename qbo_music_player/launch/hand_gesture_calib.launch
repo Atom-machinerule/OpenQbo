@@ -1,0 +1,12 @@
+<launch>
+
+	 <node name="qbo_stereo_selector" pkg="qbo_stereo_selector" type="qbo_stereo_selector">
+	<param name="distance_filter_threshold" value="0.7"/>
+	 </node>
+
+	 <node name="hang_gesture_calib" pkg="qbo_music_player" type="hand_gesture_calib" args="play stop next prev volume_up volume_down" output="screen"> 
+	 </node>
+	 	<param name="/hand_gesture_calib/images_per_gesture" value="30"/>	 
+		<param name="/hang_gesture_calib/replace_images" value="true" />
+
+</launch>

@@ -1,0 +1,11 @@
+Package: qboros-electric-qbo-say-ip
+Source: qboros-electric-qbo-say-ip
+Version: 1.0-openqbo0
+Section: OpenQbo
+Depends: python, ros-electric-ros, ros-electric-common-msgs, qboros-electric-qbo-listen, qboros-electric-qbo-talk, qboros-electric-qbo-system-info
+Priority: standard
+Architecture: amd64
+Maintainer: Sergio Merino <s.merino@openqbo.org>
+Homepage: http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_say_ip
+Description: Extract the ip from and say it
+ This package will publish send to festival node the IP

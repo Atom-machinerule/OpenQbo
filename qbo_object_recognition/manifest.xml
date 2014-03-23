@@ -1,0 +1,22 @@
+<package>
+  <description brief="qbo_object_recognition">
+
+     qbo_object_recognition
+
+  </description>
+  <author>Arturo Bajuelos</author>
+  <license>GPLv2, LGPLv2.1</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/qbo_object_recognition</url>
+  <depend package="roscpp"/>
+  <depend package="opencv2"/>
+  <depend package="cv_bridge"/>
+  <depend package="sensor_msgs"/>
+  <depend package="qbo_talk"/>
+  <depend package="qbo_listen"/>
+  <depend package="std_msgs"/>
+  <depend package="qbo_self_recognizer"/>
+
+</package>
+
+

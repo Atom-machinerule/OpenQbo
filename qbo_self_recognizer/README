@@ -1,0 +1,45 @@
+=== Copyright ===
+
+Copyright (C) 2012 Thecorpora SL
+ 
+=== License ===
+GPL v2.0
+LGPL v2.1
+
+=== Description  ===
+
+Uses Qbo's nose signals to verify if a spotted Qbo is a reflection in the mirror
+
+=== Run ===
+
+Run the node:
+$rosrun qbo_self_recognizer qbo_detector_node
+
+Call the service:
+$rosservice call qbo_self_recognizer/recognize
+
+=== Archive Contents ===
+
+AUTHORS
+CMakeLists.txt
+control
+LICENSES
+mainpage.dox
+Makefile
+manifest.xml
+README
+
+src/qbo_detector.cpp
+src/qbo_detector.h
+srv/QboRecognize.srv
+
+=== Changelog ===
+ 
+qbo_self_recognizer v1.0
+
+=== Homepage ===
+
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_self_recognizer
+ 
+=== Contact ===
+Arturo Bajuelos <arturo@openqbo.org>

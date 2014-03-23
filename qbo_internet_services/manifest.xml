@@ -1,0 +1,13 @@
+<package>
+  <description brief="qbo_internet_services">
+
+     qbo_internet_services
+
+  </description>
+  <author>Sergio Merino/s.merino@openqbo.org</author>
+  <license>GPL v2.0, LGPL v2.1</license>
+  <depend package="std_msgs"/>
+  <depend package="rospy"/>
+
+</package>
+

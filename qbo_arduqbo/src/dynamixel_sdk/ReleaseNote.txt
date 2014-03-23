@@ -1,0 +1,12 @@
+==============================================
+    Dynamixel SDK for Win32 v1.02
+==============================================
+
+- Fixed bug that status packet included error flag is treated "RX_TIMEOUT".
+
+
+===================================
+   Dynamixel SDK for Linux v1.00
+===================================
+
+- First released

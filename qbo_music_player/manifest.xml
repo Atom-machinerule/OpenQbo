@@ -1,0 +1,21 @@
+<package>
+  <description brief="qbo_music_player">
+
+     qbo_music_player
+
+  </description>
+  <author>Arturo Bajuelos</author>
+  <license>GPLv2</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/qbo_music_player</url>
+  <depend package="roscpp"/>
+  <depend package="rospy"/>
+  <depend package="opencv2"/>
+  <depend package="cv_bridge"/>
+  <depend package="sensor_msgs"/>
+  <depend package="std_msgs"/>
+  <depend package="qbo_talk"/>
+
+</package>
+
+

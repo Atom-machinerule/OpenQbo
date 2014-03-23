@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Qbo</string>
+    <color name="black">#50000000</color>
+    <string name="acceptButton">Aceptar</string>
+    <string name="cancelButton">Cancelar</string>
+    <string name="insertText">Por favor introduzca el texto que quiera que diga Q.bo</string>
+    <color name="green">#2506c80f</color>
+    <string name="connect">Conectar</string>
+    <string name="disconnect">Desconectar</string>
+    <string name="about">Acerca de</string>
+    <string name="settings">Configuración</string>
+    <string name="telepresenceOn">Telepresencia On</string>
+    <string name="telepresenceOff">Telepresencia Off</string>
+    
+    <string name="left_eye">Ojo izquierdo</string>
+    <string name="right_eye">Ojo derecho</string>
+    <string name="monocular">Monocular</string>
+    <string name="object_tracking">Seguimiento de Objetos</string>
+	<string name="face_detector">Detector de Caras</string>
+    <string name="disparity_image">Imagen de dispariedad</string>
+    <string name="nearest_object_tracking">Seguimiento del objeto más cercano</string>
+    <string name="three_d">Anaglifo 3D</string>   
+    
+
+    <string name="voip_not_supported">VOIP no disponible</string>
+    <string name="sip_api_not_supported">Sip Api no disponible</string>
+    
+    
+	<string name="speech_recognition_not_available">El reconocimiento de voz no está disponible. Comprueba si estás conectado a Internet o si tu dispositivo tiene esta funcinalidad</string>
+    <string name="speaker_on">Altavoz Encendido</string>    
+    <string name="speaker_off">Altavoz Apagado</string>
+    
+    
+    <string name="microphone_on">Micrófono On</string>
+    <string name="microphone_off">Micrófono Off</string>
+    <string name="roi_successfully_selected">ROI seleccionada </string>
+    <string name="disconnected">Desconectado</string>
+    <string name="not_possible_2_connect_sip">No es posible conectar con el servidor SIP, por favor intente hacer login otra vez.</string>
+  
+    <string name="user_password_correct">"Usuario o contraseña incorrectos"</string>
+    
+    <string name="welcome_to_qbo">Bienvenido a la apliación Android para Q.bo</string>
+     
+    <string name="button_login">Login</string> 
+    
+    <string name="what_would_u_like_to_say">¿Qué quieres que diga?</string>
+    
+    <string name="nor_3g_neither_wifi">Necesitas una conexión a internet para usar esta apliación</string>
+    
+    <string name="button_accept">Aceptar</string> 
+    <string name="button_cancel">Cancelar</string> 
+     
+     <string name="edittext_login_ip">IP</string>
+     <string name="edittext_login_username">Nombre usuario</string>
+     <string name="edittext_login_pwd">Contraseña</string>
+     <string name="edittext_login_aesPwd">Contraseña AES</string>
+     
+     
+     <!-- Preferences strings -->     
+     <string name="preferences_image_port">Puerto para imagenes, por ejemplo 8080</string>
+     <string name="preferences_cmd_port">Puerto para comandos, por ejemplo 8880</string>
+     <string name="preferences_ip">IP del robot, por ejemplo 192.168.1.53</string>
+     <string name="preferences_quality">Calidad de Imagen (de 0 a 100, siendo 100 la mejor calidad)</string>
+     
+     <string name="preferences_dialog_ok">Ups, Ok!</string>
+     <string name="preferences_port_hastobe_number">El Puerto tiene que ser un número como, por ejemplo, 8880</string>
+     <string name="preferences_time_hastobe_number">El Tiempo tiene que ser un número en milisegundos como, por ejemplo, 1000, para 1 segundo</string>
+     <string name="preferences_time_summary_part_one">Cada</string>
+     <string name="preferences_time_summary_part_two">milisegundos</string>
+     <string name="preferences_quality_hastobe_number">La Calidad tiene que ser un número como, por ejemplo, 50</string>
+     <string name="preferences_quality_cannotbe_greater">No puede ser mayor que 100</string>
+     
+     
+     
+     <string name="preferences_speed_hastobe_number">La velocidad tiene que ser un número como, por ejemplo, 8</string>
+     <string name="preferences_sensitivity_hastobe_number">La Sensibilidad tiene que ser un número como, por ejemplo, 3</string>
+     
+     
+     
+     
+     <string name="preferences_sp_label">Español</string>
+     <string name="preferences_en_label">English</string>
+     <string name="preferences_fr_label">Français</string> 
+     
+     
+     
+     <string name="preferences_connection_settings_title">Configuración de conexión</string>
+     <string name="preferences_aplication_settings_title">Configuración de la apliación</string>  
+     <string name="preferences_aplication_performance_title">Rendimiento de la Aplicación</string>        
+     
+     <string name="preferences_ip_title">IP</string>        
+     <string name="preferences_ip_dialog_title">Por favor introduzca la IP del robot</string>   
+          
+     <string name="preferences_img_title">Puerto de imagenes</string>
+     <string name="preferences_img_dialog_title">Por favor escriba el Puerto de su robot</string>
+     <string name="preferences_img_summary">El Puerto de imagenes de su robot, como por ejmplo 8080</string>
+     
+     <string name="preferences_cmd_title">Puerto de comandos</string>
+     <string name="preferences_cmd_dialog_title">Por favor escriba el Puerto de su robot</string>
+     <string name="preferences_cmd_summary">El Puerto de comandos, como por ejemplo 8880</string>
+    
+          <string name="preferences_input_text_title">Introducir texto</string>
+     <string name="preferences_input_text_summary_off">Mediante teclado</string>
+     <string name="preferences_input_text_summary_on">Mediante reconocimiento de voz</string>
+     
+     <string name="preferences_quality_title">Calidad de imagenes</string>
+     <string name="preferences_quality_dialog_title">Altos valores podría afectar la fluidez en el video</string>
+          
+     <string name="preferences_linear_speed_title">Velocidad lineal</string>
+     <string name="preferences_linear_speed_dialog_title">Introduzca velocidad lineal</string>
+     
+     <string name="preferences_angular_speed_title">Velocidad angular</string>
+     <string name="preferences_angular_speed_dialog_title">Introduzca velocidad angular</string>
+     
+     
+     <string name="preferences_top_quality_label">Máxima</string>
+     <string name="preferences_high_quality_label">Alta</string>
+     <string name="preferences_normal_quality_label">Normal</string>
+     <string name="preferences_medium_quality_label">Medio</string>
+     <string name="preferences_low_quality_label">Baja</string>
+     
+     
+     <string name="quality_top">100</string>
+     <string name="quality_high">75</string>
+     <string name="quality_normal">50</string>
+     <string name="quality_medium">25</string>
+     <string name="quality_low">15</string>
+     
+    <string-array name="imageTypesArray">
+   		<item>@string/left_eye</item> 
+   		<item>@string/right_eye</item>
+   		<item>@string/monocular</item>
+   		<item>@string/object_tracking</item> 
+   		<item>@string/face_detector</item>
+   		<item>@string/disparity_image</item>
+   		<item>@string/nearest_object_tracking</item>
+   		<item>@string/three_d</item> 
+    </string-array>
+    
+    <string-array name="imageTypesValuesArray">
+    	<item>0</item>
+   		<item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>      
+    </string-array>
+      
+
+    
+    <string-array name="languagesValuesArray">
+    	<item>"sp"</item>
+   		<item>"en"</item>
+        <item>"fr"</item>
+    </string-array>
+    
+    
+    <string-array name="languagesArray">
+        <item>@string/preferences_sp_label</item> 
+        <item>@string/preferences_en_label</item>
+        <item>@string/preferences_fr_label</item>                   
+    </string-array>   
+    
+    
+    
+    <string-array name="imgQualitiesArray">
+        <item>@string/preferences_top_quality_label</item> 
+        <item>@string/preferences_high_quality_label</item>
+        <item>@string/preferences_normal_quality_label</item>
+        <item>@string/preferences_medium_quality_label</item> 
+        <item>@string/preferences_low_quality_label</item>                  
+    </string-array>   
+    
+    <string-array name="imgQualitiesValuesArray">
+        <item>@string/quality_top</item>
+        <item>@string/quality_high</item>
+        <item>@string/quality_normal</item>
+        <item>@string/quality_medium</item>
+        <item>@string/quality_low</item>
+    </string-array> 
+    
+</resources>

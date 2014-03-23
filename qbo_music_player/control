@@ -1,0 +1,10 @@
+Package: qboros-electric-qbo-music-player
+Source: qboros-electric-qbo-music-player
+Version: 1.0-openqbo0
+Priority: standard
+Section: OpenQbo
+Architecture: amd64
+Depends: qboros-electric-qbo-stereo-selector, qboros-electric-qbo-talk
+Maintainer: Arturo Bajuelos <arturo@openqbo.org>
+Homepage: http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_music_player
+Description: ROS packages with nodes that enables to control the music player XMMS2 using hand gesture recognition.

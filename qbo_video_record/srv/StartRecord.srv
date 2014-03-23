@@ -1,0 +1,4 @@
+string imageTopic
+string directory
+---
+bool result

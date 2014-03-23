@@ -1,0 +1,74 @@
+port1: /dev/ttyUSB0
+port2: /dev/ttyUSB1
+timeout1: 0.35
+timeout2: 0.35
+rate: 6.0
+controllers: {
+    "j_con": {
+        type: joint_controller,
+        joints: ["head_pan_joint","head_tilt_joint"],
+        rate: 6.0,
+        topic: /cmd_joints
+    },
+    "b_con": {
+        type: base_controller,
+        rate: 15.0,
+        topic: /cmd_vel,
+        odom_topic: /odom,
+        tf_odom_broadcast: true
+    },
+    "m_con": {
+        type: mouth_controller,
+        topic: /cmd_mouth
+    },
+    "n_con": {
+        type: nose_controller,
+        topic: /cmd_nose
+    },
+    "lcd_con": {
+        type: lcd_controller,
+        topic: /cmd_lcd
+    },
+    "bat_con": {
+        type: battery_controller,
+        topic: /battery_state,
+        rate: 0.0066
+    },
+    "mic_con": {
+        type: mics_controller,
+        rate: 5.0,
+        topic: /cmd_mics,
+        mics_topic: /mics_state
+    },
+    "imu_con": {
+        type: imu_controller,
+        rate: 15.0,
+        topic: /imu_state
+    },
+    "sens_con": {
+        type: sensors_controller,
+        rate: 5.0,
+        topic: /distance_sensors_state,
+        sensors: {
+          front: {
+            front_left_srf10: { type: srf10, address: 230, frame_id: front_left_addon },
+            front_right_srf10: { type: srf10, address: 226, frame_id: front_right_addon }
+          },
+          floor: {
+            floor_sensor: {type: GP2Y0A21YK, address: 8, frame_id: front_addon },
+          }
+        }
+    }
+}
+
+controlledservos: {
+    head_pan_joint: {id: 1, invert: true, max_angle_degrees: 66.0, min_angle_degrees: -66.0, neutral: 1460},
+    head_tilt_joint: {id: 2, invert: true, max_angle_degrees: 20.0, min_angle_degrees: -37.8, neutral: 1400},
+}
+
+uncontrolledservos: {
+    left_eyelid_joint: {id: 3, invert: true, max_angle_degrees: 180.0, min_angle_degrees: -180.0, range: 360.0, neutral: 1500 },
+    right_eyelid_joint: {id: 4, max_angle_degrees: 180.0, min_angle_degrees: -180.0, range: 360.0, neutral: 1500},
+}
+
+joint_states_topic: /joint_states

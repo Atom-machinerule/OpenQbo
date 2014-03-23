@@ -1,0 +1,35 @@
+<launch>
+
+<!-- Face Tracking node to detect faces -->
+    <node name="qbo_face_tracking" pkg="qbo_face_tracking" type="qbo_face_tracking" >
+     </node>
+     <!-- <param name="/qbo_face_tracking/face_classifier_path" value="0" /> -->
+     <!-- <param name="/qbo_face_tracking/default_pos_x" value="0" /> -->
+     <!-- <param name="/qbo_face_tracking/default_pos_y" value="10" /> -->
+      <param name="/qbo_face_tracking/check_Haar" value="50" />
+     <!-- <param name="/qbo_face_tracking/check_track_object" value="50" /> -->
+     <!-- <param name="/qbo_face_tracking/undetected_threshold" value="5.0" /> -->
+     <!-- <param name="/qbo_face_tracking/distance_threshold" value="5.0" /> -->
+     <param name="/qbo_face_tracking/send_to_recognizer" value="false" />
+     <param name="/qbo_face_tracking/print_recognized_face" value="false" />
+
+    <!-- Face Following node to move head and base -->
+    <node name="qbo_face_following" pkg="qbo_face_following" type="qbo_face_following">
+     </node>
+     <param name="/qbo_face_following/move_base" value="false" />
+     <param name="/qbo_face_following/move_head" value="true" />
+     <param name="/qbo_face_following/search_min_pan" value="-0.7" />
+     <param name="/qbo_face_following/search_max_pan" value="0.7" />
+     <param name="/qbo_face_following/search_pan_vel" value="0.3" />
+     <param name="/qbo_face_following/search_min_tilt" value="-0.7" />
+     <param name="/qbo_face_following/search_max_tilt" value="-0.5" />
+     <param name="/qbo_face_following/search_tilt_vel" value="0.3" />
+
+     <param name="/qbo_face_following/desired_distance" value="1.5" />
+
+<!-- QBO CHATTER -->
+    <node name="qbo_questions" pkg="qbo_questions" type="questions.py" output="screen" />
+    <node name="qbo_system_info" pkg="qbo_system_info" type="plugin_system.py" />
+    <node name="qbo_internet_services" pkg="qbo_internet_services" type="internet_services.py" />
+</launch>
+

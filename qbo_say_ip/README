@@ -1,0 +1,35 @@
+qbo_say_ip v1.0
+16-02-2012
+
+=== Copyright ===
+
+Copyright (C) 2012 Thecorpora Inc.
+
+=== Description  ===
+
+Tell with voice the robot IP
+
+=== Building ===
+
+rosmake
+
+=== Run ===
+
+
+=== Arvhive Contents ===
+
+=== Changelog ===
+
+qbo_say_ip v1.0
+	* First release
+-- Sergio Merino <s.merino@openqbo.org>  16-02-2012
+
+=== Homepage ===
+
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_listen
+
+=== Contact ===
+
+Sergio Merino <s.merino@openqbo.org>
+
+

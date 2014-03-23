@@ -1,0 +1,16 @@
+<package>
+  <description brief="qbo_http_api_login">
+
+     qbo_http_api_login
+
+  </description>
+  <author>maps</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/qbo_http_api_login</url>
+  <depend package="rospy"/>
+  <depend package="qbo_listen"/>
+
+</package>
+
+

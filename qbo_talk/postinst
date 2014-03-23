@@ -1,0 +1,4 @@
+#!/bin/bash
+cp /etc/festival.scm /etc/festival.scm.bak
+sed "/aplay/c\(Parameter.set\ \'Audio_Command\ \"paplay\ \$FILE\"\)" /etc/festival.scm.bak > /etc/festival.scm
+rm /etc/festival.scm.bak

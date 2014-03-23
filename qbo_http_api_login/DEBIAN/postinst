@@ -1,0 +1,2 @@
+#!/bin/bash
+chmod 666 /opt/ros/electric/stacks/qbo_stack/qbo_http_api_login/config/*

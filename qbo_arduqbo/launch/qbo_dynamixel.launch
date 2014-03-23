@@ -1,0 +1,5 @@
+<launch>
+  <node name="qbo_arduqbo" pkg="qbo_arduqbo" type="qbo_arduqbo" output="screen" respawn="true">
+    <rosparam file="$(find qbo_arduqbo)/default_dynamixel.yaml" command="load" />
+  </node>
+</launch>

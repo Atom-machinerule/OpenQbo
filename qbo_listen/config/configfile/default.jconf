@@ -1,0 +1,12 @@
+# This file is created specially for Qbo bot, to create the final file
+# Don't add LM nor AM nor SR. They will be created automatically. 
+# Don't modify this file if you are not sure of what are you doing
+# Documentation: http://julius.sourceforge.jp/juliusbook/en/
+
+-input mic                      # live microphone
+-48                            # 48kHz sampling > 16kHz conv. (16kHz only)
+-cutsilence                    # detection on
+-lv 2500                       # level threshold (0-32767)
+-rejectshort 600                        # reject shorter input (msec)
+-gprune safe
+

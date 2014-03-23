@@ -1,0 +1,33 @@
+qbo_talk v1.0
+28-02-2012
+
+=== Copyright ===
+
+Copyright (C) 2012 Thecorpora Inc.
+
+=== Description  ===
+
+Node that integrate Festival and Ros
+
+=== Building ===
+
+rosmake
+
+=== Run ===
+
+
+=== Arvhive Contents ===
+
+
+
+=== Changelog ===
+
+qbo_talk v1.0
+
+=== Homepage ===
+
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_talk
+
+=== Contact ===
+
+Miguel Angel Julian <miguel.a.j@openqbo.org>

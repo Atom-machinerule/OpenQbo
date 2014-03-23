@@ -1,0 +1,41 @@
+#######################################
+# Syntax Coloring Map For LCDi2cR
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+LCDi2cR	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+command	KEYWORD2
+init	KEYWORD2
+setDelay	KEYWORD2
+write	KEYWORD2
+clear	KEYWORD2
+home	KEYWORD2
+on	KEYWORD2
+off	KEYWORD2
+cursor_on	KEYWORD2
+cursor_off	KEYWORD2
+blink_on	KEYWORD2
+blink_off	KEYWORD2
+setCursor	KEYWORD2
+backlight	KEYWORD2
+status	KEYWORD2
+keypad	KEYWORD2
+load_custom_character	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+LCDi2c_MIN_BRIGHTNESS LITERAL1
+LCDi2c_MAX_BRIGHTNESS LITERAL1
+LCDi2c_VALUE_OUT_OF_RANGE LITERAL1
+LCDi2c_MIN_CONTRAST LITERAL1
+LCDi2c_MAX_CONTRAST LITERAL1

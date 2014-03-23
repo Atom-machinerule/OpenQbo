@@ -1,0 +1,15 @@
+<package>
+  <description brief="qbo_talk">
+
+     qbo_talk
+
+  </description>
+  <author>Miguel Angel Julian</author>
+  <license>GPLv2</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_talk</url>
+  <depend package="rospy"/>
+
+</package>
+
+

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Qbo</string>
+    <color name="black">#50000000</color>
+    <string name="acceptButton">Accept</string>
+    <string name="cancelButton">Cancel</string>
+    <string name="insertText">Please write the the text you would like Qbo to say</string>
+    <color name="green">#2506c80f</color>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Logout</string>
+    <string name="about">About Us</string>
+    <string name="settings">Settings</string>
+    <string name="telepresenceOn">Telepresence On</string>
+    <string name="telepresenceOff">Telepresence Off</string>
+    
+    <string name="left_eye">Left eye</string>
+    <string name="right_eye">Right eye</string>
+    <string name="monocular">Monocular</string>
+    <string name="object_tracking">Object tracking</string>
+	<string name="face_detector">Face detector</string>
+    <string name="disparity_image">Disparity image</string>
+    <string name="nearest_object_tracking">Nearest Object Tracking</string>
+    <string name="three_d">Anaglyph Image (3D)</string>   
+    
+
+    <string name="voip_not_supported">VOIP not supported</string>
+    <string name="sip_api_not_supported">Sip Api not supported</string>
+    
+    
+	<string name="speech_recognition_not_available">Speech recognition is not available. Check if you have an internet connection or if your smartphone can handle the voice recognition functionality</string>
+    <string name="speaker_on">Speaker On</string>    
+    <string name="speaker_off">Speaker Off</string>
+    
+    
+    <string name="microphone_on">Microphone On</string>
+    <string name="microphone_off">Microphone Off</string>
+    <string name="roi_successfully_selected">ROI successfully selected</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="not_possible_2_connect_sip">It was not possible to connect with SIP server, please try to login again.</string>
+  
+    <string name="user_password_correct">"User or password not correct"</string>
+    
+    <string name="welcome_to_qbo">Welcome to Qbo\'s Mobile application</string>
+     
+    <string name="button_login">Login</string> 
+    
+    <string name="what_would_u_like_to_say">What would you like me to say?</string>
+    
+    <string name="nor_3g_neither_wifi">You need an internet connection in order to use this application</string>
+    
+    <string name="button_accept">Accept</string> 
+    <string name="button_cancel">Cancel</string> 
+     
+     <string name="edittext_login_ip">IP</string>
+     <string name="edittext_login_username">User name</string>
+     <string name="edittext_login_pwd">Password</string>
+     <string name="edittext_login_aesPwd">AES Password</string>
+     
+     
+     <!-- Preferences strings -->     
+     <string name="preferences_image_port">Your Qbo Image Port, for example 8080</string>
+     <string name="preferences_cmd_port">Your Qbo Commands Port, for example 8880</string>
+     <string name="preferences_ip">Your Qbo IP, for example 192.168.1.53</string>
+     <string name="preferences_quality">Image Quality (from 0 to 100 being 100 the best quality)</string>
+     
+     <string name="preferences_dialog_ok">Ups, Ok!</string>
+     <string name="preferences_port_hastobe_number">The Port has to be a number like, for example, 8880</string>
+     <string name="preferences_time_hastobe_number">The Time has to be a number in miliseconds, for example, 1000</string>
+     <string name="preferences_time_summary_part_one">Every</string>
+     <string name="preferences_time_summary_part_two">milliseconds</string>
+     <string name="preferences_quality_hastobe_number">Quality has to be a number like, for example, 50</string>
+     <string name="preferences_quality_cannotbe_greater">It can not be greater than 100</string>
+     
+     
+     
+     <string name="preferences_speed_hastobe_number">The speed has to be a number like, for example, 8</string>
+     <string name="preferences_sensitivity_hastobe_number">The sensitivity has to be a number like, for example, 3</string>
+     
+     
+     
+     
+     <string name="preferences_sp_label">Espanol</string>
+     <string name="preferences_en_label">English</string>
+     <string name="preferences_fr_label">Français</string> 
+     
+     
+     
+     <string name="preferences_connection_settings_title">Connection Settings</string>
+     <string name="preferences_aplication_settings_title">Aplication Settings</string>  
+     <string name="preferences_aplication_performance_title">Aplication Performance</string>        
+     
+     <string name="preferences_ip_title">IP</string>        
+     <string name="preferences_ip_dialog_title">Please, insert the IP of your Qbo</string>   
+          
+     <string name="preferences_img_title">Image Port</string>
+     <string name="preferences_img_dialog_title">Please, insert the Port of your Qbo</string>
+     <string name="preferences_img_summary">Your Qbo Image Port, for example 8080</string>
+     
+     <string name="preferences_cmd_title">Command Port</string>
+     <string name="preferences_cmd_dialog_title">Please, insert the Port of your Qbo</string>
+     <string name="preferences_cmd_summary">Your Qbo Command Port, for example 8880</string>
+    
+          <string name="preferences_input_text_title">Qbo input text</string>
+     <string name="preferences_input_text_summary_off">Use keyboard text for text input</string>
+     <string name="preferences_input_text_summary_on">Use voice recognition for text input</string>
+     
+     <string name="preferences_quality_title">Image Quality</string>
+     <string name="preferences_quality_dialog_title">High quality numbers might affect the video fluency</string>
+          
+     <string name="preferences_linear_speed_title">Linear Speed</string>
+     <string name="preferences_linear_speed_dialog_title">Insert linear speed</string>
+     
+     <string name="preferences_angular_speed_title">Angular Speed</string>
+     <string name="preferences_angular_speed_dialog_title">Insert angular speed</string>
+     
+     
+     <string name="preferences_top_quality_label">Top</string>
+     <string name="preferences_high_quality_label">High</string>
+     <string name="preferences_normal_quality_label">Normal</string>
+     <string name="preferences_medium_quality_label">Medium</string>
+     <string name="preferences_low_quality_label">Low</string>
+     
+     
+     <string name="quality_top">100</string>
+     <string name="quality_high">75</string>
+     <string name="quality_normal">50</string>
+     <string name="quality_medium">25</string>
+     <string name="quality_low">15</string>
+     
+    <string-array name="imageTypesArray">
+   		<item>@string/left_eye</item> 
+   		<item>@string/right_eye</item>
+   		<item>@string/monocular</item>
+   		<item>@string/object_tracking</item> 
+   		<item>@string/face_detector</item>
+   		<item>@string/disparity_image</item>
+   		<item>@string/nearest_object_tracking</item>
+   		<item>@string/three_d</item> 
+    </string-array>
+    
+    <string-array name="imageTypesValuesArray">
+    	<item>0</item>
+   		<item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>      
+    </string-array>
+      
+
+    
+    <string-array name="languagesValuesArray">
+    	<item>"sp"</item>
+   		<item>"en"</item>
+        <item>"fr"</item>
+    </string-array>
+    
+    
+    <string-array name="languagesArray">
+        <item>@string/preferences_sp_label</item> 
+        <item>@string/preferences_en_label</item>
+        <item>@string/preferences_fr_label</item>                   
+    </string-array>   
+    
+    
+    
+    <string-array name="imgQualitiesArray">
+        <item>@string/preferences_top_quality_label</item> 
+        <item>@string/preferences_high_quality_label</item>
+        <item>@string/preferences_normal_quality_label</item>
+        <item>@string/preferences_medium_quality_label</item> 
+        <item>@string/preferences_low_quality_label</item>                  
+    </string-array>   
+    
+    <string-array name="imgQualitiesValuesArray">
+        <item>@string/quality_top</item>
+        <item>@string/quality_high</item>
+        <item>@string/quality_normal</item>
+        <item>@string/quality_medium</item>
+        <item>@string/quality_low</item>
+    </string-array> 
+    
+</resources>

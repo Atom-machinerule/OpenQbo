@@ -1,0 +1,12 @@
+config/julius.jconf
+bin
+build
+msg_gen
+src/qbo_listen
+srv_gen
+*.dfa
+*.dict
+*.grammar
+*.term
+*.voca
+*.pyc

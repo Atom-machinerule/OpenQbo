@@ -1,0 +1,45 @@
+qbo_video_record v1.0
+18-06-2012
+
+=== Copyright ===
+
+Copyright (C) 2012 Thecorpora SL
+
+=== Description  ===
+
+This node record to a file images from a topic
+
+=== Building ===
+
+rosmake
+
+=== Run ===
+
+rosrun qbo_video_record video_record
+
+=== Arvhive Contents ===
+
+./manifest.xml  Ros information file
+./Authors       Author of the code
+./config/main.conf      Configuration file with the parameters the it recive and the commands it execute
+./Makefile      Makefile File for compilation
+./src/video_record.cpp  Source code under GPL v2 License 
+./control       File to generate .deb packages
+./LINCESES      The complete text of the licenses used
+./CMakeLists.txt        CMakelist file for compilation
+./README        This file
+
+=== Changelog ===
+
+qbo_video_record v1.0
+        * First release
+-- Sergio Merino <s.merino@openqbo.org>  18-06-2012
+
+=== Homepage ===
+
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_video_record
+
+=== Contact ===
+
+Sergio Merino <s.merino@openqbo.org>
+

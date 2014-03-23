@@ -1,0 +1,74 @@
+=== Copyright ===
+
+Copyright (C) 2012 Thecorpora SL
+
+=== License ===
+
+julius_grammar_compiler is licensed under the GPL license making it free and open source software.
+
+
+=== Description ===
+This is script is part of qbo_listen_node(A ROS(www.ros.org) node that work with julius voice recognition engine).
+Whith this script you can compile grammars in a easy way.
+
+This software become with a example. Go to example section
+
+=== How to build a grammar ===
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_listen&#how_to_configure
+
+=== How to use ===
+
+Version 2.02                                                                                                                                                                                                                                                                  s
+To run this script you need to have installed Julius and an acoustic model for the grammar
+
+ 
+Usage: gengram sentencefilename phonemsfilename tiedlist destfilename
+        Config file: Name of the file with the sentences
+        phonemsfilename: Name of the phonems file
+        tiedlist: HMMlist file
+        destfilename: Name of the gramar, voca, dict to be created
+Config file format:
+        Use \[\] to create labels.
+        Use \{\} to reference labels.
+        Label 'sentences' is always needed.
+        In a label you can referer another label.
+        Do not make loops.
+        Do not add silences, it will be added automatically.
+        Example:
+                [name]
+                John
+                Rambo
+                [objects]
+                {desktop_objects}
+                {other_objects}
+                newspaper
+                [sentences]
+                what is this
+                this is a {object}
+                my name is {name}
+                [desktop_objects]
+                pen
+                screen
+                [other_objects]
+                mask
+                newspaper
+phonemsfile 2 possible format:
+        ANDS            ae n d z
+        ANDUILLE                ae n d uw iy
+
+        ANDS   [ANDS]         ae n d z
+        ANDUILLE   [ANDUILLE]             ae n d uw iy
+
+=== Example ===
+Remember: To run this script you need to have installed Julius and an acoustic model for the grammar
+
+You can find in the example directory an acoustic model and a config file which you can easily compile:
+./gen_grammar.py example/LM/sentences.conf example/AM/phonems example/AM/tiedlist example/LM/default
+
+
+After executing this all this files will be generated:
+example/LM/default/default.dfa
+example/LM/default/default.dict
+example/LM/default/default.grammar
+example/LM/default/default.term
+example/LM/default/default.voca
