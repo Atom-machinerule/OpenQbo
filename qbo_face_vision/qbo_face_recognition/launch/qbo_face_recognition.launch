@@ -1,0 +1,19 @@
+<launch>
+	 <node name="qbo_face_recognition" pkg="qbo_face_recognition" type="qbo_face_recognition" output="screen" >
+	 </node>
+
+	<!-- <param name="/qbo_face_recognition/faces_path" value="/opt/ros/electric/stacks/qbo_stack/qbo_face_vision/qbo_face_recognition/faces/faces_db" /> -->
+	<!-- <param name="/qbo_face_recognition/uptate_path" value="/opt/ros/electric/stacks/qbo_stack/qbo_face_vision/qbo_face_recognition/faces/new_faces" /> -->
+	<param name="/qbo_face_recognition/recognition_type" value="1" />
+	<param name="/qbo_face_recognition/stabilizer_threshold" value="4" />
+	<param name="/qbo_face_recognition/stabilizer_max" value="7" />
+	<param name="/qbo_face_recognition/num_of_desc_per_face_" value="50" />
+	<param name="/qbo_face_recognition/bow_certainty_threshold" value="0.05" />
+	<param name="/qbo_face_recognition/descriptors_match_threshold" value="0.23" />
+	<param name="/qbo_face_recognition/linear_kernel" value="false" />
+	<param name="/qbo_face_recognition/pca_dimension" value="40" />
+	<param name="/qbo_face_recognition/pca_image_height" value="100" />
+	<param name="/qbo_face_recognition/pca_image_width" value="100" />
+
+	 
+</launch>

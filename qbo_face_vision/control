@@ -1,0 +1,10 @@
+Package: qboros-electric-qbo-face-vision
+Source: qboros-electric-qbo-face-vision
+Version: 1.1-openqbo0
+Priority: standard
+Architecture: amd64
+Section: OpenQbo
+Depends: qboros-electric-qbo-arduqbo, qboros-electric-qbo-listen, qboros-electric-qbo-talk
+Maintainer: Arturo Bajuelos <arturo@openqbo.org>
+Homepage: http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_stack:qbo_face_vision
+Description: This stack contains three packages with implementation of computer vision algorithm for face tracking, following and recognition.

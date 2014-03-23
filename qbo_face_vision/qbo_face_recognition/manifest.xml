@@ -1,0 +1,22 @@
+<package>
+  <description brief="qbo_face_recognition">
+
+     qbo_face_recognition
+
+  </description>
+  <author>Maintained by Arturo Bajuelos Castillo/arturo@openqbo.com</author>
+  <license>GPLv2, LGPLv2.1</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/qbo_face_recognition</url>
+  <depend package="roscpp"/>
+  <depend package="opencv2"/>
+  <depend package="sensor_msgs"/>
+  <depend package="std_msgs"/>
+  <depend package="cv_bridge"/>
+  <depend package="qbo_talk"/>
+  <depend package="qbo_listen"/>
+  <depend package="qbo_face_msgs"/>
+
+</package>
+
+

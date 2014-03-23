@@ -1,0 +1,9 @@
+<stack>
+  <description brief="qbo_face_vision">qbo_face_vision</description>
+  <author>Maintained by Arturo Bajuelos/arturo@openqbo.org</author>
+  <license>GPLv2, LGPLv2.1</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/qbo_face_vision</url>
+  <depend stack="ros" />
+
+</stack>

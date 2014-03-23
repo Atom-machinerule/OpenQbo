@@ -1,0 +1,24 @@
+=== Copyright ===
+
+Copyright (C) 2012 Thecorpora SL
+ 
+=== License ===
+GPL v2.0
+
+=== Description  ===
+
+This package - qbo_face_tracking - contains the implementation of a node that detects and 
+tracks a face in the input image via computer vision algorithms.
+
+For more information, go to:
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_face_tracking
+
+=== Run ===
+
+$ roslauch qbo_face_tracking qbo_face_tracking.launch
+
+=== Homepage ===
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_face_tracking
+ 
+=== Contact ===
+Arturo Bajuelos <arturo@openqbo.org>

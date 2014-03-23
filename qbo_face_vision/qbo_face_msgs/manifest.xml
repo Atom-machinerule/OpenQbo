@@ -1,0 +1,16 @@
+<package>
+  <description brief="qbo_face_msgs">
+
+     qbo_face_msgs
+
+  </description>
+  <author>Arturo Bajuelos arturo@openqbo.org</author>
+  <license>LGPLv2.1</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_face_msgs</url>
+  <depend package="sensor_msgs"/>
+  <depend package="std_msgs"/>
+
+</package>
+
+

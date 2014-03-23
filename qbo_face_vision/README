@@ -1,0 +1,24 @@
+=== Copyright ===
+
+Copyright (C) 2012 Thecorpora SL
+ 
+=== License ===
+GPL v2.0
+LGPL v2.1
+
+=== Description  ===
+Computer vision algorithms for face tracking, following and recognition
+
+=== Run ===
+
+=== Arvhive Contents ===
+
+=== Changelog ===
+ 
+qbo_face_vision v1.0
+
+=== Homepage ===
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_stack:qbo_face_vision
+ 
+=== Contact ===
+Arturo Bajuelos <arturo@openqbo.org>
