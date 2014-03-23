@@ -1,0 +1,36 @@
+qbo_camera v1.0
+28-02-2012
+
+=== Copyright ===
+
+Copyright (C) 2012 Thecorpora Inc.
+
+=== Description  ===
+
+Camera launchers and calibration configuration
+
+=== Building ===
+
+rosmake
+
+=== Run ===
+
+This node could be execute using the launcher. With that launchers you could set with parameters to set and which value.
+
+=== Arvhive Contents ===
+
+
+
+=== Changelog ===
+
+qbo_camera v1.0
+	* First release
+-- Miguel Angel Julian <miguel.a.j@openqbo.org>  28-02-2012
+
+=== Homepage ===
+
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_camera
+
+=== Contact ===
+
+Miguel Angel Julian <miguel.a.j@openqbo.org>

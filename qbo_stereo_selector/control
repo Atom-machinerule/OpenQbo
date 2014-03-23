@@ -1,0 +1,10 @@
+Package: qboros-electric-qbo-stereo-selector
+Source: qboros-electric-qbo-stereo-selector
+Version: 1.1-openqbo0
+Priority: standard
+Architecture: amd64
+Section: OpenQbo
+Depends: qboros-electric-qbo-arduqbo
+Maintainer: Arturo Bajuelos <arturo@openqbo.org>
+Homepage: http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_stereo_selector
+Description: This node selects a close object using the stereo cameras

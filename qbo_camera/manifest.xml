@@ -1,0 +1,22 @@
+<package>
+  <description brief="usb_camera_calib">
+
+     qbo_camera
+
+  </description>
+  <author>Miguel Angel Julian</author>
+  <license>GPLv2</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_camera</url>
+  <depend package="image_transport"/>
+  <depend package="roscpp"/>
+  <depend package="sensor_msgs"/>
+  <depend package="cv_bridge"/>
+  <depend package="opencv2"/>
+  <depend package="camera_calibration_parsers"/>
+  <depend package="uvc_camera"/>
+
+
+</package>
+
+

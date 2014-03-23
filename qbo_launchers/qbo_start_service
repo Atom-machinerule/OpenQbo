@@ -1,0 +1,109 @@
+#! /bin/bash
+#
+#!/usr/bin/env python
+#
+#Copyright (C) 2012 Thecorpora SL
+#
+#This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+#
+#This program is distributed in the hope that it will be useful,but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+#You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+
+# Some things that run always
+
+
+source /opt/ros/electric/setup.bash
+source /opt/ros/electric/ros/tools/rosbash/rosbash
+
+export ROS_HOSTNAME=`/bin/hostname`
+LOCALUSER=`ls /home | awk 'NR==1{print $1}'`
+
+# Carry out specific functions when asked to by the system
+case "$1" in
+  start)
+
+    echo "Starting QBO_ROS Start Up script "
+	
+
+   #sleep 10
+ 
+    #Wait for pulseaudio daemon
+    echo "Waiting for pulse audio daemon"
+    
+    su -c "/usr/bin/pulseaudio --kill" $LOCALUSER
+    su -c "/usr/bin/pulseaudio --start" $LOCALUSER
+    su -c "/usr/bin/pulseaudio --check" $LOCALUSER
+    PA=$?
+    while [ $PA -ne 0 ]; do
+       echo "Pulse audio check: " $PA > /dev/tty8 
+       sleep 1
+       su -c "/usr/bin/pulseaudio --check" $LOCALUSER
+       PA=$?
+    done
+ 
+    
+	echo "Launching QBO base"
+
+  su -c "export HOME=/home/$LOCALUSER ; export DISPLAY=:0.0 ; source /opt/ros/electric/setup.bash ; source /opt/ros/electric/ros/tools/rosbash/rosbash ; xmms2-launcher ; roslaunch qbo_launchers qbo_startup.launch" -m $LOCALUSER  > /dev/tty8 2>/dev/tty9 &  
+
+#su -c "HOME=/home/$LOCALUSER ; export DISPLAY=:0.0 ; source /opt/ros/electric/setup.bash ; source /opt/ros/electric/ros/tools/rosbash/rosbash ; roslaunch qbo_launchers qbo_startup.launch" -m $LOCALUSER  > /dev/tty8 2>/dev/tty9 &
+  #su -c "source /opt/ros/electric/setup.bash ; source /opt/ros/electric/ros/tools/rosbash/rosbash ; roslaunch qbo_launchers qbo_startup.launch" -m $LOCALUSER
+
+    ;;
+  stop)
+    echo "Stopping QBO_ROS Start Up script"
+	
+
+    #killall nodes
+    for i in $( rosnode list ); do
+    rosnode kill $i;
+    done
+
+    #stop roscore
+    kill `ps -ax | egrep electric | egrep -o -E \^\ ?[0-9]+\ ` # | cut -d \  -f2-`
+
+
+	;;
+  restart)
+    echo "Restarting QBO_ROS Start Up script"
+
+    #killall nodes
+    for i in $( rosnode list ); do
+    rosnode kill $i;
+    done
+
+    #stop roscore
+    kill `ps -ax | egrep electric | egrep -o -E \^\ ?[0-9]+\ ` # | cut -d \  -f2-`
+
+    #Wait for pulseaudio daemon
+    echo "Waiting for pulse audio daemon"
+
+    su -c "/usr/bin/pulseaudio --kill" $LOCALUSER
+    su -c "/usr/bin/pulseaudio --start" $LOCALUSER
+    su -c "/usr/bin/pulseaudio --check" $LOCALUSER
+    PA=$?
+    while [ $PA -ne 0 ]; do
+       echo "Pulse audio check: " $PA > /dev/tty8
+       sleep 1
+       su -c "/usr/bin/pulseaudio --check" $LOCALUSER
+       PA=$?
+    done
+
+
+        echo "Launching QBO base"
+
+  #su -c "HOME=/home/$LOCALUSER ; export DISPLAY=:0.0 ; source /opt/ros/electric/setup.bash ; source /opt/ros/electric/ros/tools/rosbash/rosbash ; roslaunch qbo_launchers qbo_startup.launch" -m $LOCALUSER  > /dev/tty8 2>/dev/tty9 &
+  su -c "export HOME=/home/$LOCALUSER ; export DISPLAY=:0.0 ; source /opt/ros/electric/setup.bash ; source /opt/ros/electric/ros/tools/rosbash/rosbash ; xmms2-launcher ; roslaunch qbo_launchers qbo_startup.launch" -m $LOCALUSER  > /dev/tty8 2>/dev/tty9 &
+  #su -c "source /opt/ros/electric/setup.bash ; source /opt/ros/electric/ros/tools/rosbash/rosbash ; roslaunch qbo_launchers qbo_startup.launch" -m $LOCALUSER
+
+    ;;
+
+  *)
+    echo "Usage: /etc/init.d/qbo_start_service {start|stop|restart}"
+    exit 1
+    ;;
+esac
+
+exit 0

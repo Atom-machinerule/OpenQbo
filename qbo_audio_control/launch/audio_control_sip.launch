@@ -1,0 +1,14 @@
+<launch>
+         <node name="qbo_audio_control" pkg="qbo_audio_control" type="qbo_audio_control" >
+             <param name="threshold_to_on" value="0.01"/>
+             <param name="threshold_to_off" value="100"/>
+             <param name="max_accum" value="2"/>
+             <param name="default_input" value="Front Mic"/> 
+<!--             <param name="default_input" value="Mic"/> -->
+             <param name="mic_volume" value="68"/>
+             <param name="mic_boost" value="0" />
+             <param name="front_volume" value="100"/>
+             <param name="master_front_volume" value="100"/>
+             <param name="speaker" value="100"/>
+         </node>
+</launch>

@@ -1,0 +1,8 @@
+<launch>
+    <node name="stereo_calibration" pkg="qbo_camera" type="usb_camera_calib_stereo" output="screen" >
+        <param name="board_width" value="6" />
+        <param name="board_height" value="9" />
+        <param name="boards_number_id" value="9" />
+        <param name="square_dimension" value="0.025" />
+    </node>
+</launch>

@@ -1,0 +1,11 @@
+Package: qboros-electric-qbo-linphone
+Source: qboros-electric-qbo-linphone
+Version: 1.0-openqbo0
+Section: OpenQbo
+Depends: python, ros-electric-ros, linphone-nox
+Priority: standard
+Architecture: amd64
+Maintainer: Sergio Merino <s.merino@openqbo.org>
+Homepage: http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_linphone
+Description: This package is a ros node to manage linphone that is a SIP client
+ Linphone is a node that manage linphone software to take a call. Linphone is a SIP client.

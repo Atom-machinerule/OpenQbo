@@ -1,0 +1,11 @@
+Package: qboros-electric-qbo-camera
+Source: qboros-electric-qbo-camera
+Version: 1.0-openqbo0
+Priority: standard
+Architecture: amd64
+Section: OpenQbo
+Depends: ros-electric-ros, ros-electric-vision-opencv, ros-electric-image-common, ros-electric-image-pipeline, ros-electric-image-transport-plugins, ros-electric-camera-umd
+Maintainer: Miguel Angel Julian <miguel.a.j@openqbo.org>
+Homepage: http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_camera
+Description: This package provides a camera calibration node for ROS and a camera launcher for qbo. 
+ This package is a program that calibrates the cameras.

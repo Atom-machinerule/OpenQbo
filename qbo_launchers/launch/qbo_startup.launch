@@ -1,0 +1,12 @@
+<launch>
+    <param name="/system_lang" value="en"/>
+
+    <master auto="start" />
+    <include file="$(find qbo_arduqbo)/launch/qbo_dynamixel_with_sensors.launch" /> 
+    <include file="$(find qbo_camera)/launch/qbo_stereo_node.launch" />
+    <include file="$(find qbo_listen)/launch/voice_recognizer.launch" />
+    <node pkg="qbo_talk" name="qbo_talk" type="festival_node.py" output="screen"/>
+    <include file="$(find qbo_webi)/launch/qbo_webi.launch" />
+<!--    <node pkg="qbo_brain"  name="qbo_brain"      type="qbo_brain.py" output="screen" /> -->
+
+</launch>

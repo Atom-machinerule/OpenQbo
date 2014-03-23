@@ -1,0 +1,11 @@
+Package: qboros-electric-qbo-stereo-anaglyph
+Source: qboros-electric-qbo-stereo-anaglyph
+Version: 1.0-openqbo0
+Section: OpenQbo
+Priority: standard
+Architecture: amd64
+Maintainer: Arturo Bajuelos <arturo@openqbo.org>
+Homepage: http://www.ros.org/wiki/stereo_anaglyph
+Description: Anaglyph ros node
+ This is node to create anaplyph video using two camera topics
+ All necesary dependencies are included

@@ -1,0 +1,64 @@
+<launch>
+
+	<!-- Face Tracking node to detect faces -->
+	<node name="qbo_face_tracking" pkg="qbo_face_tracking" type="qbo_face_tracking" >
+	 </node>
+	 <!-- <param name="/qbo_face_tracking/face_classifier_path" value="0" /> -->
+	 <!-- <param name="/qbo_face_tracking/default_pos_x" value="0" /> -->
+	 <!-- <param name="/qbo_face_tracking/default_pos_y" value="10" /> -->
+	 <!-- <param name="/qbo_face_tracking/check_Haar" value="-1" /> -->
+	 <!-- <param name="/qbo_face_tracking/check_track_object" value="50" /> -->
+	 <!-- <param name="/qbo_face_tracking/undetected_threshold" value="5.0" /> -->
+	 <!-- <param name="/qbo_face_tracking/distance_threshold" value="5.0" /> -->
+	 <param name="/qbo_face_tracking/send_to_recognizer" value="true" /> 
+	
+	
+	
+	<!-- Face Following node to move head and the base -->
+	<node name="qbo_face_following" pkg="qbo_face_following" type="qbo_face_following">
+	 </node> 
+	 <param name="/qbo_face_following/move_base" value="false" />
+	 <param name="/qbo_face_following/search_min_pan" value="-1.0" /> 
+	 <param name="/qbo_face_following/search_max_pan" value="1.0" /> 
+	 <param name="/qbo_face_following/search_pan_vel" value="0.3" />  
+	 <param name="/qbo_face_following/search_min_tilt" value="-0.7" /> 
+	 <param name="/qbo_face_following/search_max_tilt" value="-0.5" />
+     <param name="/qbo_face_following/search_tilt_vel" value="0.3" /> 
+     
+     <param name="/qbo_face_following/desired_distance" value="1.5" />
+     <param name="/qbo_face_following/send_stop" value="false" />
+
+	
+	
+	<!-- Face Recognition node to recognize faces -->
+	 <node name="qbo_face_recognition" pkg="qbo_face_recognition" type="qbo_face_recognition">
+ 	 </node>
+	<!-- <param name="/qbo_face_recognition/faces_path" value="/opt/qbo/ros_stacks/qbo_apps/qbo_face_recognition/faces/faces_db" /> -->
+	<!-- <param name="/qbo_face_recognition/uptate_path" value="/opt/qbo/ros_stacks/qbo_apps/qbo_face_recognition/faces/new_faces" /> -->
+	<!-- <param name="/qbo_face_recognition/recognition_type" value="1" /> -->       
+	 <param name="/qbo_face_recognition/stabilizer_threshold" value="19" />
+	 <param name="/qbo_face_recognition/stabilizer_max" value="20" /> 
+	<!-- <param name="/qbo_face_recognition/num_of_desc_per_face_" value="50" /> -->
+	<!-- <param name="/qbo_face_recognition/bow_certainty_threshold" value="0.05" /> --> 
+	<!-- <param name="/qbo_face_recognition/descriptors_match_threshold" value="0.23" /> -->  
+	<!-- <param name="/qbo_face_recognition/linear_kernel" value="false" /> -->      
+	<!-- <param name="/qbo_face_recognition/pca_dimension" value="40" /> -->  
+	<!-- <param name="/qbo_face_recognition/pca_image_height" value="100" /> -->
+	<!-- <param name="/qbo_face_recognition/pca_image_width" value="100" /> -->
+	
+	<!-- Face Recognition Demo to answer questions and to learn faces -->
+	<node name="qbo_random_move" pkg="qbo_random_move" type="qbo_random_move_face_recog.py" output="screen" >
+	 </node>
+
+<!-- 	<node name="qbo_questions" pkg="qbo_questions" type="questions_rand_move.py" output="screen" /> -->
+
+	<node name="qbo_system_info" pkg="qbo_system_info" type="plugin_system.py" />
+
+         <node name="qbo_face_recognition_demo" pkg="qbo_face_recognition" type="face_recognizer_demo">
+         </node>
+
+
+
+
+	 
+</launch>

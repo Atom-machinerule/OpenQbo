@@ -1,0 +1,9 @@
+<launch>
+  <node pkg="qbo_linphone" type="sound_play_killer.py" name="sound_play" output="screen" />
+  <node pkg="qbo_linphone" type="autocaller.py" name="autocaller" output="screen"  >
+	<param name="linphone_host" value="127.0.0.1" />
+	<remap from="audio_device" to="robot/audio_device"/>
+  </node>
+
+
+</launch>

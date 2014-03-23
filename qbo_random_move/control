@@ -1,0 +1,10 @@
+Package: qboros-electric-qbo-random-move
+Source: qboros-electric-qbo-random-move
+Version: 1.0-openqbo0
+Priority: standard
+Architecture: amd64
+Section: OpenQbo
+Depends: qboros-electric-qbo-listen, qboros-electric-qbo-talk, qboros-electric-qbo-face-vision, qboros-electric-qbo-arduqbo
+Maintainer: Miguel Angel Julian <miguel.a.j@openqbo.org>
+Homepage: http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_stack:qbo_random_move
+Description: Contains ROS nodes that move randomly the Q.bo robot

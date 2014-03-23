@@ -1,0 +1,10 @@
+Package: qboros-electric-qbo-audio-control
+Source: qboros-electric-qbo-audio-control
+Version: 1.0-openqbo0
+Section: OpenQbo
+Priority: standard
+Architecture: amd64
+Maintainer: Sergio Merino <s.merino@openqbo.org>
+Homepage: http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_audio_control
+Description: This package init the sound devices volume
+ This node init the sound device volume every time you start it and avoid it from being changed by the user.

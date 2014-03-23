@@ -1,0 +1,20 @@
+<package>
+  <description brief="qbo_random_move">
+
+     qbo_random_move
+
+  </description>
+  <author>Miguel Angel Julian, Arturo Bajuelos Castillo</author>
+  <license>GPLv2</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_random_move</url>
+  <depend package="rospy"/>
+  <depend package="qbo_talk"/>
+  <depend package="qbo_face_msgs"/>
+  <depend package="qbo_listen"/>
+  <depend package="qbo_system_info"/>
+  <depend package="qbo_arduqbo"/>
+
+</package>
+
+

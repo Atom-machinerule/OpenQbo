@@ -1,0 +1,33 @@
+qbo_random_move v1.0
+
+=== Copyright ===
+
+Copyright (C) 2012 Thecorpora Inc.
+
+=== Description  ===
+
+Move the robot randomly avoiding obstacle
+
+=== Building ===
+
+rosmake
+
+=== Run ===
+
+
+=== Arvhive Contents ===
+
+
+
+=== Changelog ===
+
+qbo_random_move v1.0
+
+=== Homepage ===
+
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_random_move
+
+=== Contact ===
+
+Miguel Ángel Julián <miguel.a.j@openqbo.org>
+Arturo Bajuelos <arturo@openqbo.org>

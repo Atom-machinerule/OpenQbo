@@ -1,0 +1,3 @@
+#!/bin/bash
+update-rc.d -f  qbo_start_service remove
+rm -f /etc/init.d/qbo_start_service

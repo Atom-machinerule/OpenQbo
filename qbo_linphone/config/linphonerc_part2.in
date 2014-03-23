@@ -1,0 +1,21 @@
+reg_expires=1500
+reg_sendregister=1
+publish=0
+dial_escape_plus=0
+
+[call_log_0]
+dir=0
+status=1
+from=<sip:test222@localhost>
+to=<sip:1000@localhost>
+start_date=Thu Sep 22 13:48:15 2011
+duration=2
+
+[call_log_1]
+dir=0
+status=1
+from=<sip:test333@localhost>
+to=<sip:1000@localhost>
+start_date=Thu Sep 22 13:47:35 2011
+duration=1
+

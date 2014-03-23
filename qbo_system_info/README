@@ -1,0 +1,49 @@
+qbo_system_info v1.0
+16-02-2012
+
+=== Copyright ===
+
+Copyright (C) 2012 Thecorpora Inc.
+
+=== Description  ===
+
+This node give information about the system.
+
+=== Building ===
+
+rosmake
+
+=== Run ===
+
+rosrun qbo_system_info plugin_system.py
+or
+./plugin_system.py
+
+=== Arvhive Contents ===
+
+./manifest.xml	Ros information file
+./Authors	Author of the code	
+./config/main.conf	Configuration file with the parameters the it recive and the commands it execute
+./Makefile	Makefile File for compilation
+./srv/AskInfo.srv	Service definition under LGPL v2.1 License
+./src/plugin_system.py	Source code under GPL v2 License 
+./control	File to generate .deb packages
+./LINCESES	The complete text of the licenses used
+./CMakeLists.txt	CMakelist file for compilation
+./README	This file
+
+=== Changelog ===
+
+qbo_system_info v1.0
+	* First release
+-- Sergio Merino <s.merino@openqbo.org>  16-02-2012
+
+=== Homepage ===
+
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_system_info
+
+=== Contact ===
+
+Sergio Merino <s.merino@openqbo.org>
+
+

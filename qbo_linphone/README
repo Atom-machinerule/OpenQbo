@@ -1,0 +1,51 @@
+qbo_linphone v1.0
+20-02-2012
+
+=== Copyright ===
+
+Copyright (C) Dave Hershberger
+Copyright (C) 2012 Thecorpora Inc.
+
+=== Description  ===
+
+This manage linphone sip software.
+
+=== Building ===
+
+rosmake
+
+=== Run ===
+
+roslaunch qbo_linphone launch_on_robot.launch
+
+=== Arvhive Contents ===
+
+./manifest.xml	Ros information file
+./Authors	Author of the code	
+./config/linphonerc.in	Configuration of linphone
+./config/ringback.wav	Ring tone
+./Makefile	Makefile File for compilation
+./launch/launch_on_robot.launch	Ros launchera
+./srv/CallMe.srv	Service definition under LGPL v2.1 License
+./src/linphone/linphone.py	Source code under GPL v2 License 
+./nodes/call_requester.py	Source code under GPL v2 License
+./nodes/autocaller.py	Source code under GPL v2 License
+./control	File to generate .deb packages
+./LINCESES	The complete text of the licenses used
+./CMakeLists.txt	CMakelist file for compilation
+./README	This file
+
+=== Changelog ===
+
+qbo_linphone v1.0
+	* First release
+-- Sergio Merino <s.merino@openqbo.org>  20-02-2012
+
+=== Homepage ===
+
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_linphone
+
+=== Contact ===
+
+Sergio Merino <s.merino@openqbo.org>
+

@@ -1,0 +1,12 @@
+<package>
+  <description brief="Audio control">
+
+  This node disable the mic when the speaker sound is too much loud and the mic can capture it. Also control the output volume
+
+  </description>
+  <author>Sergio Merino/s.merino@openqbo.org, Lennart Poettering/mzihzrgre (at) 0pointer (dot) de</author>
+  <license>GPL v2, LGPL v2.1 </license>
+  <depend package="roscpp"/>
+</package>
+
+

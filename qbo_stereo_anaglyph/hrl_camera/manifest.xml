@@ -1,0 +1,17 @@
+<package>
+  <description brief="hrl_camera">
+     hrl_camera
+  </description>
+  <author>Hai Nguyen, Advait Jain, Cressel Anderson, Marc Killpack</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <depend package="rospy"/>
+  <depend package="hrl_lib"/>
+  <depend package="opencv2"/>
+  <depend package="hrl_opencv"/>
+  <depend package="cv_bridge"/>
+  <depend package="sensor_msgs"/>
+  <depend package="polled_camera"/>
+</package>
+
+

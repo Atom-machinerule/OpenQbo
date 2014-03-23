@@ -1,0 +1,12 @@
+<package>
+  <description brief="qbo_linphone">
+
+     Provides two-way audio (voice-centric) communication between a remote operator and a robot.
+
+  </description>
+  <author>Dave Hershberger</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/linphone</url>
+  <depend package="rospy"/>
+</package>
