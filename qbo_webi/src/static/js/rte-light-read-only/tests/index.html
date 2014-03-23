@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <title>RTE-Light Tests</title>
+    <link rel="stylesheet" type="text/css" href="qunit/testsuite.css">
+    <link rel="stylesheet" type="text/css" href="../rte.css">
+    <script src="jquery-1.3.2.js"></script>
+    <script src="qunit/testrunner.js"></script>
+    <script src="../jquery.rte.js"></script>
+    <script>
+test("rte-light is running", function() {
+    equals(typeof($("#test1").rte), "function", "jQuery.fn.rte exists");
+
+    $("#test1").rte({
+        content_css_url: "../rte.css",
+        media_url: "../"
+    });
+
+    equals($("#test1").prev()[0].nodeName, "DIV", "toolbar is created");
+    equals($("#test1").next()[0].nodeName, "IFRAME", "iframe is created");
+});
+    </script>
+</head>
+<body class=flora>
+    <div id=main style="display:none">
+        <textarea id=test1 rows=2 cols=10></textarea>
+    </div>
+</body>

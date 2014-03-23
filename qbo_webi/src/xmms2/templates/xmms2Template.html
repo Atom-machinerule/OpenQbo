@@ -1,0 +1,75 @@
+<LINK REL=StyleSheet HREF="/xmms2/static/css/xmms2.css" TYPE="text/css" MEDIA=screen>
+<script>
+    tabUnload = function(){
+           clearInterval(loop); 
+    };
+</script>
+<script src="/xmms2/xmms2Js"></script>
+<script> startEverything(); </script>
+<style type="text/css">
+    #music_list{ list-style-type: none; margin: 0; padding: 0; width: 100%; }
+    #music_list li { margin: 0 3px 3px 3px; padding: 0.4em; font-size: 1em; height: 18px; }
+    #music_list li span { position: absolute; margin-left: -1.3em; }
+    .delete-buttons{}
+    .delete-buttons:hover {cursor:pointer}
+
+</style>
+
+
+<div id="controls" style="margin: 0 auto;width: 780px;" >
+<table >
+<tr>
+<td>
+<img id="stop" src="/xmms2/static/img/stop.png" class="media-buttons" />
+</td>
+<td>
+<img id="prev" src="/xmms2/static/img/prev.png" class="media-buttons" />
+</td>
+<td>
+<img id="playpause" src="/xmms2/static/img/play.png" class="media-buttons" />
+</td>
+<td>
+<img id="nxt" src="/xmms2/static/img/next.png" class="media-buttons" />
+</td>
+<td width="100px">
+</td>
+<td>
+<table>
+<tr>
+<td>
+<img id="less" src="/xmms2/static/img/less.png" class="volume-buttons" />
+</td>
+<td>
+    <div id="volume" style="width: 320px;"></div>
+</td>
+<td>
+<img id="more" src="/xmms2/static/img/more.png" class="volume-buttons" />
+</td>
+<td width="350px">
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="7">
+<div id="div_music_list">
+    <ul id="music_list">
+    </ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div style="margin: 0 auto;width: 780px;">
+
+                <form id="form" action="xmms2/upload" method="post" enctype="multipart/form-data">
+                    <input id="file_selector"  type="file" name="theFile" multiple="multiple" /> <br/>
+
+                    <div>
+                    <input class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only qbo_button_improved" type="submit" value="${language['xmms2_submit']}" />
+                    </div>
+                </form>
+</div>

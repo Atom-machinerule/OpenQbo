@@ -1,0 +1,346 @@
+<feeling random_move>
+        <movement>
+		<mouth none>
+                <eyes rand(90&150)>                
+                <wait -1>
+        </movement>
+</feeling>
+
+
+<feeling neutral>
+        <movement>
+                <eyes 270>
+                <mouth none>
+                <head 0 50 1.0 1.0>
+                <wait -1>
+        </movement>
+</feeling>
+
+
+<feeling yes_move>
+
+	<movement>
+		<eyes 200>
+		<wait -1>
+	</movement>
+        <movement 3>
+                <mouth smile>
+                <head_relative 0 -70 0.0 0.7>
+                <wait 0.2>
+                <head_relative 0 70 0.0 0.7>
+                <wait 0.2>
+        </movement>
+
+        <movement>
+                <mouth smile>
+		<wait 5>
+		<expression neutral>
+        </movement>
+
+
+</feeling>
+
+
+<feeling happy>
+
+        <movement>
+                <eyes 20>		
+		<head_relative 0 80 0.7 0.7>
+                <mouth smile>
+		<wait -1>
+        </movement>
+
+        <movement>
+                <wait 1.5>		
+                <mouth none>
+        </movement>
+
+
+</feeling>
+
+
+<feeling mouths>
+	<movement>
+
+		<mouth smile>
+		<wait 1>
+
+                <mouth sad>
+                <wait 1>
+
+                <mouth puckerRight>
+                <wait 1>
+
+                <mouth puckerLeft>
+                <wait 1>
+
+                <mouth straight>
+                <wait 1>
+
+                <mouth smallMouth>
+                <wait 1>
+
+                <mouth surprise>
+                <wait 1>
+
+                <mouth regular>
+                <wait 1>
+
+                <mouth laugh>
+                <wait 1>
+
+                <mouth laugh2>
+                <wait 1>
+
+                <mouth laugh3>
+                <wait 1>
+
+                <mouth laugh4>
+                <wait 1>
+
+                <mouth laugh5>
+                <wait 1>
+
+                <mouth laugh6>
+                <wait 1>
+
+
+                <mouth tongue>
+                <wait 1>
+
+                <mouth none>
+                <wait 1>
+	</movement>
+</feeling>
+
+<feeling no_move>
+
+	<movement>
+		<say nop>
+		<eyes 40>
+		<mouth regular>
+	<movement>
+
+        <movement 2>                
+                <head -50 0 0.4 0.0>
+                <wait -1>
+                <head 50 0 0.7 0.0>
+                <wait -1>
+        </movement>
+
+        <movement>
+                <mouth regular>
+		<head -5 0 1.0 1.0>
+		<wait -1>
+		<mouth none>
+        </movement>
+
+
+</feeling>
+
+
+<feeling laugh>
+	<movement>
+		<eyes 20>
+		
+		<head_relative 0 50 0.0 0.7>
+                <wait -1>
+	</movement>
+	<movement 5>		
+		<mouth laugh3>
+                <eyes 60>
+		<wait 0.2>
+		
+	        <mouth laugh5>
+                <eyes 20>
+                <wait 0.2>
+
+		<mouth laugh4>
+                <eyes 60>
+                <wait 0.2>
+
+	</movement>
+
+	<movement>
+		<mouth none>
+	</movement>
+
+</feeling>
+
+<feeling angry>
+        <movement>
+                <eyes 270>
+		<mouth puckerLeft>
+		<wait -1>
+        </movement>
+        <movement 5>
+		<head_relative -10 60 1.0 1.0>		
+                <wait 0.3>
+		<head_relative 10 60 1.0 1.0>
+		<wait 0.3>
+        </movement>
+
+        <movement>	
+		<wait -1>
+		<mouth none>
+        </movement>
+
+</feeling>
+
+
+<feeling sad_move>
+        <movement>
+                <mouth sad>
+                <eyes 90>                
+		<wait 1>
+		<head_relative 0 40 1.0 1.0>
+		<wait 1>
+        </movement>
+        <movement 4>
+                <head_relative 10 40 0.5 0.5>           
+                <wait 0.5>
+                <head_relative -10 40 0.5 0.5>
+                <wait 0.5>
+        </movement>
+        <movement>
+		<wait(1)>
+		<mouth none>
+        </movement>
+</feeling>
+
+
+<feeling sad_movee>
+        <movement>
+                <mouth sad>
+                <eyes 90>
+        </movement>
+</feeling>
+
+
+
+
+
+<feeling suspicius>
+        <movement>
+                <leftEye 1>   
+		<rightEye 120>
+                <mouth straight>
+        </movement>
+        <movement>
+                <head -20 20 1.0 1.0>
+                <wait 3>
+        </movement>
+
+        <movement>
+                <mouth none>
+		<wait -1>
+        </movement>
+
+</feeling>
+
+<feeling surprise>
+        <movement> 
+               <leftEye 270>                
+               <rightEye 20>
+               <mouth smallMouth>
+		<say wow>
+		<say so many people>
+        </movement>
+        <movement>
+                <head_relative -10 50 0.7 0.7>
+                <wait 1>
+		<head_relative 30 20 0.7 0.7>
+		<wait 1>
+		<head_relative -40 60 0.7 0.7>
+                <wait 1>
+                <head_relative -0 60 0.7 0.7>
+                <wait 1>
+        </movement>
+
+        <movement>	
+		<eyes 90>
+                <mouth none>
+        </movement>
+
+</feeling>
+
+<feeling intel>
+        <movement>
+                <say I can be happy>
+                <wait -1>
+                <expression happy>
+        <movement>
+
+
+        <movement>
+                <say and also sad>
+                <wait -1>
+                <expression sad_move>
+        <movement>
+
+</feeling>
+
+
+<feeling all>
+	<movement>
+		<say I can be happy>
+		<wait -1>
+		<expression happy>
+	<movement>
+
+
+        <movement>
+                <say and also sad>
+                <wait -1>
+		<expression sad_move>
+        <movement>
+
+
+        <movement>
+		<expression neutral>
+                <say now, I am mad>                
+		<expression angry>
+        <movement>
+
+        <movement>
+                <say .butt do not war ree. I have a good sense of humor>                
+        	<expression laugh>
+	<movement>
+
+
+
+        <movement>
+                <say surprise!>
+                <wait -1>
+		<expression surprise>
+        <movement>
+
+        <movement>
+                <say if I do not like something, I will let you know>
+                <wait -1>
+		<expression no_move>
+        </movement>
+
+
+	<movement>
+		<say This is some of my mouths expressions>
+		<wait -1>
+		<expression mouths>
+		<wait -1>
+	</movement>
+
+        <movement>
+                <say so, what do you think?>                
+		<expression suspicius>
+		<wait 2>
+        </movement>
+
+
+        <movement>
+                <expression neutral>
+		<wait -1>
+        </movement>
+
+
+</feeling>
+

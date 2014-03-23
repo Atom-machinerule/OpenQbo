@@ -1,0 +1,289 @@
+
+body{
+  background-color:#f4f4f4;
+}
+
+* {
+ font-family: Arial !important
+}
+
+
+
+/*  Checkers */
+.qbo_checker_header{
+        background: #e8ecee !important;
+	background-image: url("/img/checker_background.png") !important;
+        background-repeat:  repeat-x !important;
+	border: none !important;
+	-moz-border-radius: 0px !important;
+	-webkit-border-radius: 0px !important;
+	-khtml-border-radius: 0px !important;
+	border-radius: 0px !important;
+
+	height: 52px !important;
+}
+
+.qbo_checker_header_text{
+	color: #6b7780 !important;
+	margin-left: 10px;
+}
+
+.qbo_div_content_check{
+       
+        background: #F8F9F9 !important;
+        border: none !important;
+        -moz-border-radius: 0px !important;
+        -webkit-border-radius: 0px !important;
+        -khtml-border-radius: 0px !important;
+        border-radius: 0px !important;
+
+        height: auto !important;
+
+}
+
+.qbo_button{
+   color:#ffffff !important; 
+   background-color:#8a8a8a !important;
+   border-style:solid !important;
+   border: 1px;
+   border-color:#a7a7a7 !important;
+   -moz-border-radius: 5px !important;
+   -webkit-border-radius: 5px !important;
+   -khtml-border-radius: 5px !important;
+   border-radius: 5px !important;
+   
+}
+
+.qbo_button:hover{
+   color:#ffffff !important;
+   background-color:#a3a3a3 !important;
+   border-style:solid !important;
+   border: 1px;
+   border-color:#a7a7a7 !important;
+   -moz-border-radius: 5px !important;
+   -webkit-border-radius: 5px !important;
+   -khtml-border-radius: 5px !important;
+   border-radius: 5px !important;
+   cursor: pointer;
+}
+
+
+
+#webiheader{
+}
+
+#mainTabs{
+    margin: 0 auto;
+    width: 875px;
+    margin-top:15px;
+    background: url("/img/gradient.png") repeat-x scroll 0 0 #FFFFFF;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.blueBorder {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #5D6C7A;
+}
+
+
+.qbo_button_improved{
+    width: 270px;
+}
+
+.qbo_button_improved[disabled]{
+    color: gray !important;
+}
+
+.qbo_button_improved[disabled]:hover{
+    cursor:auto;
+}
+
+
+.ui-corner-top-top {
+    border-top-right-radius: 20px !important;
+    border: 1px solid #FFFFFF !important;
+}
+.ui-corner-top-top {
+    border-top-left-radius: 20px !important;
+    border: 1px solid #FFFFFF !important;
+}
+
+#tabs{
+  padding:12px !important;
+}
+
+.ui-widget-content {
+  background:none;
+}
+
+.ui-widget-content {
+    border: 1px solid #FFFFFF;
+}
+
+.ui-widget-header {
+    background: none !important;
+    border: none !important;
+}
+
+.tab_title_b {
+    background: url("/img/tab_title_background.png") repeat-x scroll 50% 50% #77838C !important;
+    border: none !important;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    margin: 2px !important;
+    padding-bottom: 0 !important;
+}
+
+.tab_title {
+    color: #FFFFFF !important;
+    font-size: 16px !important;
+    font-weight: normal;
+    padding: 0.2em 1em !important;
+}
+
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+    color: #4f575a !important;
+    border: none !important;
+}
+
+.ui-tabs-selected{
+    background: url("/img/tab_title_background_a.png") repeat-x scroll 50% 50% #77838C !important;
+}
+
+
+.ui-button {
+    background: url("/img/tab_title_background.png") repeat-x scroll 50% 50% #77838C !important;
+}
+
+
+.ui-button-text{
+    color: #FFFFFF;
+    font-weight: normal;
+    font-size:14;
+}
+
+
+
+.qbo-button {
+   background: url("/img/qbo_button.png") repeat-x scroll 50% 50% #77838C !important;
+   border: none !important;
+   height: 23px;
+}
+
+.qbo-button[disabled]{
+   background: #F4F4F4 !important ;   
+   border: none !important;
+}
+
+
+.qbo-button-text {
+    color: #6b7780;
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.qbo-drop-down{
+    background: url("/img/qbo_button.png") repeat-x scroll 50% 50% #DFEFFC;
+    border: 0px;
+    color: #6b7780;
+    font-weight: normal;
+    font-size: 12px !important;
+}
+
+/* Config Wizard*/
+.qbo_button_div{
+        background: #e8ecee;
+        background-image: url("/img/config_background.png");
+        background-repeat:  repeat-x;
+        -moz-border-radius: 0px;
+        -webkit-border-radius: 0px;
+        -khtml-border-radius: 0px;
+        border-radius: 0px;
+        padding:25px;
+        text-align: center;
+        margin: 2px;
+}
+
+.config_fieldset{
+    border: medium none;
+    display: none;
+    padding: 10px 0 0;
+}
+
+
+
+
+
+
+
+/* TELEOPERATION */
+
+.table_teleoperation{
+	margin-left: -20px;
+	border-spacing: 0px;
+}
+
+table.table_teleoperation_options {
+        border-width: 1px;
+        border-spacing: 1px;
+        border-style: none;
+        border-color: #cdcdcd;
+        border-collapse: collapse;
+        background-color: white;
+}
+table.table_teleoperation_options th {
+        border-width: 1px;
+        padding: 1px;
+        border-style: inset;
+        border-color: #cdcdcd;
+        background-color: white;
+        -moz-border-radius: ;
+}
+table.table_teleoperation_options td {
+        border-width: 1px;
+        padding: 1px;
+        color: #6B7780;
+        border-style: inset;
+        border-color: #cdcdcd;
+        background-color: white;
+        -moz-border-radius: ;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.table_teleoperation_options_special_td{
+	padding-top: 5px !important;	
+	padding-bottom: 5px !important;
+        color: black !important;
+	background-color: #efefef !important;
+}
+
+
+.icon_table_teleoperation{
+	float: left;
+	margin-left: -6px;
+	margin-right: 5px;
+}
+
+.div_cruceta{
+	background-color: #E2E2E2;
+        border: 1px solid #5D6C7A;
+        height: 364px;
+        margin-top: 28px;
+}
+
+#qbo_video{
+	width: 480px;
+	margin-left: 10px;
+	background-color: #E2E2E2;
+	border: 1px solid #5D6C7A;
+	height: 360px;
+	padding: 2px;
+}
+
+

@@ -1,0 +1,158 @@
+# -*- coding: utf-8 -*-
+
+<link type="text/css" rel="stylesheet" href="js/rte-light-read-only/rte.css" />
+<link type="text/css" rel="stylesheet" href="voiceRecognition/static/css/voiceRecognition.css" />
+
+<script type="text/javascript" src="js/rte-light-read-only/jquery.rte.js"></script>
+
+
+
+
+<script>
+                      jQuery.ajax({
+                        success: function(data) {
+                                      if(data==false)
+                                      {
+                                          alert("failure!!");
+                                          history.go(0);
+                                          return;
+                                      }
+
+
+                                      //Now we are here, we also add the css
+                                      var etiquetaCss=document.createElement("link");
+                                      var etiquetaCss2=document.createElement("link");
+                                      var etiquetaScript=document.createElement("script");
+                                      
+                                      document.getElementsByTagName("head")[0].appendChild(etiquetaCss);
+                                      document.getElementsByTagName("head")[0].appendChild(etiquetaCss2);
+                                      document.getElementsByTagName("head")[0].appendChild(etiquetaScript);
+
+
+                                      etiquetaScript.text=data;
+                                      etiquetaCss.text='<link type="text/css" rel="stylesheet" href="js/rte-light-read-only/rte.css" />';
+                                      etiquetaCss2.text='<link type="text/css" rel="stylesheet" href="css/textAreaIframe.css" />';
+                                      startEverything();
+                        
+
+                              },
+                        url: "/voiceRecognition/voiceRecognitionJs",
+                        dataType: "text",
+                        type: "GET",
+                      });
+
+</script>
+
+
+
+<br/>
+
+
+<div style="width:510px; margin:0 auto;">
+<table >
+    <tr>
+    <td>
+        <div style="text-align: center;">
+            <select class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" id="new_lang" name="new_lang">
+                <option class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"  style="display: block;" value="" selected="selected">${language['first_language'].decode('utf-8')}</option>
+                % for row in alllanguage:
+                <option class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="display: block;" value="${row}">${lannames[row].decode('utf-8')}</option>
+                % endfor
+            </select>
+            <select class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"  id="languageModel">
+                <option class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="display: block;" value=""> ${language['first_language'].decode('utf-8')}</option>
+            </select>
+        </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <div id="divTextArea" class="blueborder">
+            <textarea id="textArea" class="rte-zone" ></textarea>
+        </div>
+    </td>
+    </tr>
+    
+    <tr>
+        <td>
+            <div id="buttons_voiceRecog" style="display:none;">
+                <button id="test1" style="width:100px;" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only qbo_button_improved">
+                    <span class="ui-button-text">
+                        ${language['test1'].decode('utf-8')}
+                    </span>
+                </button>
+
+                <button id="test2" style="width:100px;" disabled="disabled" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only  qbo_button_improved">
+                    <span class="ui-button-text">
+                        ${language['test2'].decode('utf-8')}
+                    </span>
+                </button>
+                <button id="save" style="width:100px;" disabled="disabled" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only qbo_button_improved">
+                    <span class="ui-button-text">
+                        ${language['save'].decode('utf-8')}
+                    </span>
+                </button>
+            </div>
+            <div id="outputConsole"></div>
+        </td>
+    </tr>
+</table>
+
+
+<fieldset id="fieldset_traingAM" style="width: 477px;border: 2px solid #5D6C7A; margin-top:30px; " >
+    <legend>${language['voiceRecog_trainAM_legend']}</legend>
+    <div class="divContainerLeft">                                                
+        <input type="text"  id="Input" value=""  autocomplete="off" required="required" class="border" style="width:477px;  float: left;" maxlength="140" />
+        <div id="menu_small">
+
+            <button id="rec_btn" style="width: 51px; height: 21px;" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only qbo_button_improved" >
+                <span style="width: 45px;">
+                    <img src="/voiceRecognition/static/img/rec.png" alt="rec" id="rec" /> 
+                </span>
+            </button>
+
+            <button id="stop_btn" style="width: 51px; height: 21px;" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only qbo_button_improved" >
+                <span style="width: 45px;">
+                    <img src="/voiceRecognition/static/img/stop.png" alt="stop" id="stop" />
+                </span>
+            </button>
+
+
+                               
+            <button id="play_btn" style="width: 51px; height: 21px;" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only qbo_button_improved" >    
+                <span style="width: 45px;">
+                    <img src="/voiceRecognition/static/img/play_off.png" alt="play" id="play_off" />
+                    <img src="/voiceRecognition/static/img/play.png" alt="play" id="play" />  
+                </span>
+            </button>
+
+            <button id="save_btn" style="width: 51px; height: 21px" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only qbo_button_improved">                   
+                <span style="width: 45px;">
+                    <img src="/voiceRecognition/static/img/save_off.png" alt="save" id="save_off" />
+                    <img src="/voiceRecognition/static/img/save.png" alt="save" id="save_am" />  
+                </span> 
+            </button>
+            
+            <span id="info_am" style="display:none;">
+            </span>
+
+        </div>
+    </div> 
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div id="aux" style="display:none">
+</div>

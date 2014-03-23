@@ -1,0 +1,9 @@
+
+button[disabled] {
+    background-color: red;
+ cursor: not-allowed;
+border-top: 1px solid #c5c5c5;
+  border-right: 1px solid #cecece;
+  border-bottom: 1px solid #d9d9d9;
+  border-left: 1px solid #cecece;
+}

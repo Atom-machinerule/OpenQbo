@@ -1,0 +1,13 @@
+/*CHECKER*/
+.mainProperty{
+        font-weight: bold;
+}
+
+.subProperty{
+        margin-left: 25px;
+        margin-right: 25px;
+}
+
+.subsubProperty{
+        margin-left: 50px;
+}

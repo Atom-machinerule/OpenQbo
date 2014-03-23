@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<title></title>
+<style type="text/css"> 
+
+        * {
+          -webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */
+          /* -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+        /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+          -webkit-tap-highlight-color: rgba(0,0,0,0);
+          /* -webkit-user-select: none; /* prevent copy paste, to allow, change 'none' to 'text' */
+          -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+
+        body {
+                background-color: #000000;
+                margin: 0px;
+        }
+        canvas {
+                display:block;
+                position:absolute;
+        }
+/*
+        #video {
+                position:relative;
+                z-index:1;
+        }
+*/
+        .container {
+                /* position:relative; */
+                width:auto;
+                text-align:center;
+                background-color:#ff0000;
+                /* z-index:2; */
+        }
+img {
+    width:60px;
+    height:60px;
+}
+.optionOn {
+    background:red;
+}
+.button3d_top {
+                position:absolute; top:0px; left:0px;
+        }
+.buttonSay_top {
+                position:absolute; top:0px; left:60px;
+        }
+.buttonEmo_top {
+                position:absolute; top:0px; left:120px;
+        }
+.button3d_side {
+                position:absolute; top:0px; left:0px;
+        }
+.buttonSay_side {
+                position:absolute; top:60px; left:0px;
+        }
+.buttonEmo_side {
+                position:absolute; top:120px; left:0px;
+        }
+.sayDialog_top {
+                position:absolute; top:240px; left:60px;
+                background-color:#b0c4de;
+                display:none;
+                color:black;
+        }
+.sayDialog_side {
+                position:absolute; top:60px; left:120px;
+                background-color:#b0c4de;
+                display:none;
+                color:black;
+        }
+.emoWindow_top {
+                position:absolute; top:90px; left:90px;
+                /* background-color:#b0c4de; */
+                display:none;
+                color:black;
+                width:120px;
+        }
+.emoWindow_side {
+                position:absolute; top:60px; left:120px;
+                /* background-color:#b0c4de; */
+                display:none;
+                color:black;
+                width:240px;
+        }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+/* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+/* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+/* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+/* Styles */
+}
+
+/* iPhone 4 and high pixel ratio devices ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
+
+</style>
+
+
+</head>
+<body onload = "init()">
+
+<script src="js/Vector2.js"></script>
+<!-- <script src="js/ShipMovingTouch.js"></script>
+<script src="js/BulletSebs.js"></script> -->
+<script src="/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script>
+
+//var move_base_timer;
+
+var canvas,
+        //imgCanvas,
+ 	c, // c is the canvas' context 2D
+        //imgContext,
+	container, 
+        bodyTemp,
+        video,
+        videoTopic={'2d':'/stereo/right/image_raw', '3d':'/stereo_anaglyph'},
+        videoSrc='2d',
+        imgCount = 0,
+        //img3d,
+        //imgTalk,
+        //imgEmot,
+        but3d,
+        butSay,
+        butEmo,
+	halfWidth, 
+	halfHeight,
+        menuOnTop=true,
+        menu3dOn=true,
+        menuSayOn=false,
+        menuEmoOn=false,
+        menuTouchID = -1,
+        menuTouchStartPos = new Vector2(0,0),
+	leftTouchID = -1, 
+	leftTouchPos = new Vector2(0,0),
+	leftTouchStartPos = new Vector2(0,0),
+	leftVector = new Vector2(0,0),
+	rightTouchID = -1, 
+	rightTouchPos = new Vector2(0,0),
+	rightTouchStartPos = new Vector2(0,0),
+	rightVector = new Vector2(0,0);
+
+//var imgData='';
+
+var ceroSpeedSet=false;
+
+function move_base()
+{
+    if(leftTouchID!=-1) {
+      //line=0.3*leftVector.magnitude()/max(canvas.width,canvas.height);
+      //line=0.003*leftVector.magnitude();
+      line=-leftVector.y*0.003;
+      //ang=0.08*leftVector.angle(true);
+      //ang=ang+3.1415/2.0;
+      ang=-leftVector.x*0.02;
+      input = {"line":line,"angu":ang};
+      //input = {"line":0.3,"angu":0.0};
+      jQuery.post('/teleoperation/move',input,function(data){
+      });
+      ceroSpeedSet=false;
+    } else if(!ceroSpeedSet) {
+      input = {"line":0.0,"angu":0.0};
+      jQuery.post('/teleoperation/move',input,function(data){
+      });
+      ceroSpeedSet=true;
+    }
+    if(rightTouchID!=-1) {
+      //line=0.3*leftVector.magnitude()/max(canvas.width,canvas.height);
+      //line=0.003*leftVector.magnitude();
+      pitch=rightVector.y;
+      //pitch=10;
+      //ang=0.08*leftVector.angle(true);
+      //ang=ang+3.1415/2.0;
+      yaw=-rightVector.x;
+      //yaw=-10;
+      input2 = {"yaw":yaw,"pitch":pitch};
+      jQuery.post('/teleoperation/head',input2,function(data){
+      });
+      //ceroSpeedSet=false;
+    } //else if(!ceroSpeedSet) {
+      //input = {"yaw":0.0,"pitch":0.0};
+      //jQuery.post('/teleoperation/head',input,function(data){
+      //});
+      //ceroSpeedSet=true;
+    //}
+}
+
+setupCanvas();
+
+var mouseX, mouseY, 
+	// is this running in a touch capable environment?
+	touchable = 'createTouch' in document,
+	touches = []; // array of touch vectors
+	//ship = new ShipMoving(halfWidth, halfHeight)
+	//bullets = [],
+	//spareBullets = [];
+
+
+//document.body.appendChild(ship.canvas);
+
+//setInterval(draw, 1000/20); 
+
+setInterval(imgUpdate, 1000/10); 
+setInterval(move_base, 1000/5); 
+
+
+if(touchable) {
+	canvas.addEventListener( 'touchstart', onTouchStart, false );
+	canvas.addEventListener( 'touchmove', onTouchMove, false );
+	canvas.addEventListener( 'touchend', onTouchEnd, false );
+	window.onorientationchange = resetCanvas;  
+	window.onresize = resetCanvas;  
+} else {
+
+	canvas.addEventListener( 'mousemove', onMouseMove, false );
+}
+
+function resetCanvas (e) {  
+ 	// resize the canvas - but remember - this clears the canvas too. 
+/*
+        var viewportmeta = document.querySelector('meta[name="viewport"]');
+        if (viewportmeta) {
+            viewportmeta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no';
+        }
+*/
+  	canvas.width = window.innerWidth; 
+	canvas.height = window.innerHeight;
+
+	halfWidth = canvas.width/2; 
+	halfHeight = canvas.height/2;
+
+	//make sure we scroll to the top left. 
+	window.scrollTo(0,0); 
+}
+
+/*
+function resetImgCanvas () {  
+        // resize the canvas - but remember - this clears the canvas too. 
+        //imgCanvas.width = video.width; 
+        imgCanvas.width = 640; 
+        //imgCanvas.height = video.height;
+        imgCanvas.height = 480;
+}
+*/
+
+function init(){
+
+}
+
+function imgUpdate() {
+        imgCount=imgCount+1;
+        //video.src = "/image/snapshot?topic=/stereo/right/image_raw&t="+imgCount;
+        video.src = "/image/snapshot?topic="+videoTopic[videoSrc]+"&t="+imgCount;
+
+/*
+        var newImg=new Image();
+        newImg.onload=function() {
+            if (this.width !=0 && this.height!=0) {
+                imgContext.drawImage(newImg,0,0);
+                //resetImgCanvas();
+                imgCanvas.width = this.width;
+                imgCanvas.height = this.height;
+
+                //imgData=imgContext.getImageData(0,0,imgCanvas.width,imgCanvas.height);
+                imgData=imgCanvas.toDataURL();
+                video.src=imgData;
+                //imgContext.putImageData(imgData);
+                //alert(imgData);
+                //alert("ok");
+            } else {
+                alert("fail");
+            }
+        }
+        newImg.src = "/image/snapshot?topic=/stereo/right/image_raw&t="+imgCount;
+*/
+}
+
+function draw() {
+  
+	c.clearRect(0,0,canvas.width, canvas.height); 
+
+        var widthRate=(1.1*canvas.width)/(1.1*video.width);
+        var heightRate=(1.1*canvas.height)/(1.1*video.height);
+
+        var hDiff=0;
+        var wDiff=0;
+
+        if (widthRate<heightRate) {
+            imgRate=widthRate;
+            imgW=canvas.width;
+            imgH=video.height*imgRate;
+            hDiff=canvas.height-imgH;
+            wDiff=canvas.width-imgW; //0
+
+            c.drawImage(video,wDiff/2,hDiff/2,imgW,imgH);
+
+            //c.drawImage(img3d,0,0,60,60);
+            //c.drawImage(imgTalk,60,0,60,60);
+            //c.drawImage(imgEmot,120,0,60,60);
+
+            if(!menuOnTop) {
+              but3d.className='button3d_top';
+              butSay.className='buttonSay_top';
+              butEmo.className='buttonEmo_top';
+              sayDialog.className='sayDialog_top';
+              emoWindow.className='emoWindow_top';
+              menuOnTop=true;
+            }
+        } else {
+            imgRate=heightRate;
+            imgW=video.width*imgRate;
+            imgH=canvas.height;
+            wDiff=canvas.width-imgW;
+            hDiff=canvas.height-imgH; //0
+
+            c.drawImage(video,wDiff/2,hDiff/2,imgW,imgH);
+
+            //c.drawImage(img3d,0,0,60,60);
+            //c.drawImage(imgTalk,0,60,60,60);
+            //c.drawImage(imgEmot,0,120,60,60);
+
+            if(menuOnTop) {
+              but3d.className='button3d_side';
+              butSay.className='buttonSay_side';
+              butEmo.className='buttonEmo_side';
+              sayDialog.className='sayDialog_side';
+              emoWindow.className='emoWindow_side';
+              menuOnTop=false;
+            }
+            //alert('rate: '+imgRate+' w: '+imgW+' h: '+imgH+' wD: '+wDiff+' hD: '+hDiff+' iW: '+video.width+' iH: '+video.height);
+        }
+
+        //var img = new Image();
+        //img.src = imgData;
+        //c.drawImage(img,0,0);
+        //c.putImageData(imgData,0,0);
+
+/*
+	ship.targetVel.copyFrom(leftVector);
+	ship.targetVel.multiplyEq(0.2);
+
+	ship.update(); 
+
+	with(ship.pos) {
+		if(x<0) x = canvas.width; 
+		else if(x>canvas.width) x = 0;
+		if(y<0) y = canvas.height; 
+		else if (y>canvas.height) y = 0; 
+	}
+
+	ship.draw(); 
+
+
+	for (var i = 0; i < bullets.length; i++) {
+		var bullet = bullets[i]; 
+		if(!bullet.enabled) continue; 
+		bullet.update(); 
+		bullet.draw(c); 
+		if(!bullet.enabled)
+		{
+			spareBullets.push(bullet); 
+
+		}
+
+
+	}
+*/
+
+	if(touchable) {
+
+		for(var i=0; i<touches.length; i++) {
+
+			var touch = touches[i]; 
+
+			if(touch.identifier == leftTouchID){
+				c.beginPath(); 
+				c.strokeStyle = "cyan"; 
+				c.lineWidth = 6; 
+				c.arc(leftTouchStartPos.x, leftTouchStartPos.y, 40,0,Math.PI*2,true); 
+				c.stroke();
+				c.beginPath(); 
+				c.strokeStyle = "cyan"; 
+				c.lineWidth = 2; 
+				c.arc(leftTouchStartPos.x, leftTouchStartPos.y, 60,0,Math.PI*2,true); 
+				c.stroke();
+				c.beginPath(); 
+				c.strokeStyle = "cyan"; 
+				c.arc(leftTouchPos.x, leftTouchPos.y, 40, 0,Math.PI*2, true); 
+				c.stroke(); 
+
+			} else if (touch.identifier == rightTouchID){
+/*
+				c.beginPath(); 
+				c.fillStyle = "white";
+				c.fillText("touch id : "+touch.identifier+" x:"+touch.clientX+" y:"+touch.clientY, touch.clientX+30, touch.clientY-30); 
+
+				c.beginPath(); 
+				c.strokeStyle = "red";
+				c.lineWidth = "6";
+				c.arc(touch.clientX, touch.clientY, 40, 0, Math.PI*2, true); 
+				c.stroke();
+*/
+                                c.beginPath(); 
+                                c.strokeStyle = "red"; 
+                                c.lineWidth = 6; 
+                                c.arc(rightTouchStartPos.x, rightTouchStartPos.y, 40,0,Math.PI*2,true); 
+                                c.stroke();
+                                c.beginPath(); 
+                                c.strokeStyle = "red"; 
+                                c.lineWidth = 2; 
+                                c.arc(rightTouchStartPos.x, rightTouchStartPos.y, 60,0,Math.PI*2,true); 
+                                c.stroke();
+                                c.beginPath(); 
+                                c.strokeStyle = "red"; 
+                                c.arc(rightTouchPos.x, rightTouchPos.y, 40, 0,Math.PI*2, true); 
+                                c.stroke();
+			}
+		}
+	} else {
+
+		c.fillStyle	 = "white"; 
+		c.fillText("mouse : "+mouseX+", "+mouseY, mouseX, mouseY); 
+
+	}
+	//c.fillText("hello", 0,0); 
+
+}
+
+/*
+function makeBullet() {
+
+	var bullet;
+
+	if(spareBullets.length>0) {
+
+		bullet = spareBullets.pop(); 
+		bullet.reset(ship.pos.x, ship.pos.y, ship.angle); 
+
+	} else {
+
+		bullet = new Bullet(ship.pos.x, ship.pos.y, ship.angle); 
+		bullets.push(bullet);
+
+	}
+
+	bullet.vel.plusEq(ship.vel); 
+
+
+}
+*/
+
+/*	
+ *	Touch event (e) properties : 
+ *	e.touches: 			Array of touch objects for every finger currently touching the screen
+ *	e.targetTouches: 	Array of touch objects for every finger touching the screen that
+ *						originally touched down on the DOM object the transmitted the event.
+ *	e.changedTouches	Array of touch objects for touches that are changed for this event. 					
+ *						I'm not sure if this would ever be a list of more than one, but would 
+ *						be bad to assume. 
+ *
+ *	Touch objects : 
+ *
+ *	identifier: An identifying number, unique to each touch event
+ *	target: DOM object that broadcast the event
+ *	clientX: X coordinate of touch relative to the viewport (excludes scroll offset)
+ *	clientY: Y coordinate of touch relative to the viewport (excludes scroll offset)
+ *	screenX: Relative to the screen
+ *	screenY: Relative to the screen
+ *	pageX: Relative to the full page (includes scrolling)
+ *	pageY: Relative to the full page (includes scrolling)
+ */	
+
+function onTouchStart(e) {
+ 
+        e.preventDefault();
+	for(var i = 0; i<e.changedTouches.length; i++){
+		var touch =e.changedTouches[i]; 
+		//console.log(leftTouchID + " " 
+                if(menuOnTop && (menuTouchID<0) && touch.clientY<60) {
+                        menuTouchID = touch.identifier;
+			menuTouchStartPos.reset(touch.clientX, touch.clientY); 	
+                        if (touch.clientX<60) {
+                          menu3dOn=true;
+                          menuSayOn=false;
+                          menuEmoOn=false;
+                        } else if (touch.clientX<120) {
+                          menu3dOn=false;
+                          menuSayOn=true;
+                          menuEmoOn=false;
+                        } else if (touch.clientX<180) {
+                          menu3dOn=false;
+                          menuSayOn=false;
+                          menuEmoOn=true;
+                        }
+			continue; 		
+                } else if (!menuOnTop && (menuTouchID<0) && touch.clientX<60) {
+                        menuTouchID = touch.identifier;
+			menuTouchStartPos.reset(touch.clientX, touch.clientY);  
+                        if (touch.clientY<60) {
+                          menu3dOn=true;
+                          menuSayOn=false;
+                          menuEmoOn=false;
+                        } else if (touch.clientY<120) {
+                          menu3dOn=false;
+                          menuSayOn=true;
+                          menuEmoOn=false;
+                        } else if (touch.clientY<180) {
+                          menu3dOn=false;
+                          menuSayOn=false;
+                          menuEmoOn=true;
+                        }
+
+			continue; 		
+                }
+		else if((leftTouchID<0) && (touch.clientX<halfWidth))
+		{
+			leftTouchID = touch.identifier; 
+			leftTouchStartPos.reset(touch.clientX, touch.clientY); 	
+			leftTouchPos.copyFrom(leftTouchStartPos); 
+			leftVector.reset(0,0); 
+			continue; 		
+		} else if ((rightTouchID<0) && (touch.clientX>=halfWidth)){
+			rightTouchID = touch.identifier; 
+			rightTouchStartPos.reset(touch.clientX, touch.clientY); 	
+			rightTouchPos.copyFrom(rightTouchStartPos); 
+			rightVector.reset(0,0); 
+			continue; 		
+			//makeBullet(); 
+
+		}	
+	}
+	touches = e.touches; 
+}
+ 
+function onTouchMove(e) {
+	 // Prevent the browser from doing its default thing (scroll, zoom)
+	e.preventDefault();
+
+	for(var i = 0; i<e.changedTouches.length; i++){
+		var touch =e.changedTouches[i]; 
+		if(leftTouchID == touch.identifier)
+		{
+			leftTouchPos.reset(touch.clientX, touch.clientY); 
+			leftVector.copyFrom(leftTouchPos); 
+			leftVector.minusEq(leftTouchStartPos); 	
+			//break; 		
+		}		
+                else if (rightTouchID == touch.identifier) {
+                        rightTouchPos.reset(touch.clientX, touch.clientY); 
+                        rightVector.copyFrom(rightTouchPos); 
+                        rightVector.minusEq(rightTouchStartPos);  
+                        //break;
+                }
+	}
+
+	touches = e.touches; 
+
+} 
+ 
+function onTouchEnd(e) { 
+   
+   	touches = e.touches; 
+
+	for(var i = 0; i<e.changedTouches.length; i++){
+		var touch =e.changedTouches[i]; 
+		if(leftTouchID == touch.identifier)
+		{
+			leftTouchID = -1; 
+			leftVector.reset(0,0); 
+			//continue; 		
+		} else if (rightTouchID == touch.identifier) {
+                        rightTouchID = -1; 
+                        rightVector.reset(0,0); 
+                        //continue;
+                } else if (menuTouchID == touch.identifier) {
+                        menuTouchID = -1; 
+                        if (menu3dOn) {
+                          menu3dOn=false;
+                          alert("3D");
+                        } else if (menuSayOn) {
+                          menuSayOn=false;
+                          alert("say");
+                        } else if (menuEmoOn) {
+                          menuEmoOn=false;
+                          alert("emo");
+                        }
+                        //continue;
+                }
+	}
+   
+}
+
+function onMouseMove(event) {
+
+	mouseX = event.offsetX;
+	mouseY = event.offsetY;
+}
+
+
+function setupCanvas() {
+
+/*
+        var etiquetaMeta=document.createElement("meta");
+        etiquetaMeta.content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0,";
+
+        var etiquetaStyle=document.createElement("style");
+        etiquetaStyle.type="text/css";
+        etiquetaStyle.text="* { \
+	  -webkit-touch-callout: none;  \
+	  -webkit-text-size-adjust: none;  \
+	  -webkit-tap-highlight-color: rgba(0,0,0,0);  \
+	  -webkit-user-select: none;  \
+	  -webkit-tap-highlight-color: rgba(0,0,0,0);  \
+	} \
+ \
+	body { \
+		background-color: #000000; \
+		margin: 0px; \
+	} \
+	canvas { \
+		display:block;  \
+		position:absolute;  \
+	} \
+	.container { \
+		width:auto; \
+		text-align:center; \
+		background-color:#ff0000; \
+	}";
+
+        document.getElementsByTagName("head")[0].appendChild(etiquetaMeta);
+*/
+
+        canvas = document.createElement( 'canvas' );
+	c = canvas.getContext( '2d' );
+	container = document.createElement( 'div' );
+	container.className = "container";
+        container.id="container";
+
+        video = document.createElement('img');
+        video.id="video";
+        video.hidden = "hidden";
+        video.onload=draw;
+        //video.src = "/image/snapshot?topic=/stereo/right/image_raw";
+
+        //imgCanvas = document.createElement( 'canvas' );
+        //imgContext = canvas.getContext( '2d' );
+
+        //document.body.appendChild( video );
+
+        but3d = document.createElement( 'img' );
+        but3d.className = "button3d_top";
+        but3d.id='button3d';
+        but3d.src="img/three_d.png";
+
+        butSay = document.createElement( 'img' );
+        butSay.className = "buttonSay_top";
+        butSay.id='buttonSay';
+        butSay.src="img/qbo_say.png";
+
+        butEmo = document.createElement( 'img' );
+        butEmo.className = "buttonEmo_top";
+        butEmo.id='buttonEmo';
+        butEmo.src="img/qbo_emoticons.png";
+        //sometext = document.createTextNode("divContent");
+        //but1.appendChild(sometext);
+
+        sayDialog = document.createElement( 'div' );
+        sayDialog.className = "sayDialog_top";
+        sayDialog.id='sayDialog';
+        //sayDialog.hidden='hidden';
+        sayForm = document.createElement( 'div' );
+        sayForm.className = "sayForm";
+        sayForm.id='sayForm';
+        sayDialog.appendChild( sayForm );
+
+        emoWindow = document.createElement( 'div' );
+        emoWindow.className = "emoWindow_top";
+        emoWindow.id='emoWindow';
+        
+	document.body.appendChild( container );
+	container.appendChild(canvas);	
+
+	document.body.appendChild( but3d );
+	document.body.appendChild( butSay );
+	document.body.appendChild( butEmo );
+
+        document.body.appendChild( sayDialog );
+        document.body.appendChild( emoWindow );
+
+        jQuery("#emoWindow").html("<img id='emo1' src='img/oh.png' /><img id='emo2' src='img/plain.png' /><img id='emo3' src='img/smile2.png' /><img id='emo4' src='img/sad.png' /><img id='emo5' src='img/punker_right.png' /><img id='emo6' src='img/big_smile.png' /><img id='emo7' src='img/tongue.png' /><img id='emo8' src='img/what.png' />");
+        jQuery("#emo1").click(function() {
+          if (!jQuery("#emo1").hasClass('optionOn')) {
+            jQuery("#emoWindow").children().removeClass("optionOn");
+            jQuery("#emo1").addClass("optionOn");
+            jQuery.get('/teleoperation/changeMouth?mouth=1');
+          } else {
+            jQuery("#emo1").removeClass("optionOn");
+            jQuery.get('/teleoperation/changeMouth?mouth=13');
+          }
+        });
+        jQuery("#emo2").click(function() {
+          if (!jQuery("#emo2").hasClass('optionOn')) {
+            jQuery("#emoWindow").children().removeClass("optionOn");
+            jQuery("#emo2").addClass("optionOn");
+            jQuery.get('/teleoperation/changeMouth?mouth=2');
+          } else {
+            jQuery("#emo2").removeClass("optionOn");
+            jQuery.get('/teleoperation/changeMouth?mouth=13');
+          }
+        });
+        jQuery("#emo3").click(function() {
+          if (!jQuery("#emo3").hasClass('optionOn')) {
+            jQuery("#emoWindow").children().removeClass("optionOn");
+            jQuery("#emo3").addClass("optionOn");
+            jQuery.get('/teleoperation/changeMouth?mouth=3');
+          } else {
+            jQuery("#emo3").removeClass("optionOn");
+            jQuery.get('/teleoperation/changeMouth?mouth=13');
+          }
+        });
+        jQuery("#emo4").click(function() {
+          if (!jQuery("#emo4").hasClass('optionOn')) {
+            jQuery("#emoWindow").children().removeClass("optionOn");
+            jQuery("#emo4").addClass("optionOn");
+            jQuery.get('/teleoperation/changeMouth?mouth=4');
+          } else {
+            jQuery("#emo4").removeClass("optionOn");
+            jQuery.get('/teleoperation/changeMouth?mouth=13');
+          }
+        });
+        jQuery("#emo5").click(function() {
+          if (!jQuery("#emo5").hasClass('optionOn')) {
+            jQuery("#emoWindow").children().removeClass("optionOn");
+            jQuery("#emo5").addClass("optionOn");
+            jQuery.get('/teleoperation/changeMouth?mouth=5');
+          } else {
+            jQuery("#emo5").removeClass("optionOn");
+            jQuery.get('/teleoperation/changeMouth?mouth=13');
+          }
+        });
+        jQuery("#emo6").click(function() {
+          if (!jQuery("#emo6").hasClass('optionOn')) {
+            jQuery("#emoWindow").children().removeClass("optionOn");
+            jQuery("#emo6").addClass("optionOn");
+            jQuery.get('/teleoperation/changeMouth?mouth=6');
+          } else {
+            jQuery("#emo6").removeClass("optionOn");
+            jQuery.get('/teleoperation/changeMouth?mouth=13');
+          }
+        });
+        jQuery("#emo7").click(function() {
+          if (!jQuery("#emo7").hasClass('optionOn')) {
+            jQuery("#emoWindow").children().removeClass("optionOn");
+            jQuery("#emo7").addClass("optionOn");
+            jQuery.get('/teleoperation/changeMouth?mouth=7');
+          } else {
+            jQuery("#emo7").removeClass("optionOn");
+            jQuery.get('/teleoperation/changeMouth?mouth=13');
+          }
+        });
+        jQuery("#emo8").click(function() {
+          if (!jQuery("#emo8").hasClass('optionOn')) {
+            jQuery("#emoWindow").children().removeClass("optionOn");
+            jQuery("#emo8").addClass("optionOn");
+            jQuery.get('/teleoperation/changeMouth?mouth=8');
+          } else {
+            jQuery("#emo8").removeClass("optionOn");
+            jQuery.get('/teleoperation/changeMouth?mouth=13');
+          }
+        });
+
+        jQuery("#sayForm").html('Text to say: <input type="textbox" name="message" id="sayMessage"/><br/><input type="button" id="saySend" value="Say"/><input type="button" id="sayCancel" value="Cancel"/>');
+        jQuery("#saySend").click(function() {
+            input = {"message":jQuery("#sayMessage").val()};
+            jQuery.post('/teleoperation/speak',input,function(data){});
+            jQuery("#sayDialog").hide();
+            jQuery("#sayMessage").val("");
+            jQuery("#buttonSay").removeClass("optionOn");
+            window.scrollTo(0,0);
+        });
+        jQuery("#sayCancel").click(function() {
+            jQuery("#sayDialog").hide();
+            jQuery("#sayMessage").val("");
+            window.scrollTo(0,0);
+        });
+        jQuery('#sayMessage').bind('keypress', function(e) {
+                if(e.keyCode==13){
+                  input = {"message":jQuery("#sayMessage").val()};
+                  jQuery.post('/teleoperation/speak',input,function(data){});
+                  jQuery("#sayDialog").hide();
+                  jQuery("#sayMessage").val("");
+                  jQuery("#buttonSay").removeClass("optionOn");
+                  document.activeElement.blur();
+                  jQuery("input").blur();
+                  window.scrollTo(0,0);
+                }
+        });
+        
+
+        jQuery("#button3d").click(function() {
+          if ( videoSrc=='2d' ) {
+              input={image:'live_3d', quality:50, width:320, height:240};
+              jQuery.post('/mjpegServer/getUrlFrom',input,function(data){});
+              videoSrc='3d'
+              jQuery.get('/images/stop?topic='+videoTopic['2d']+'');
+              jQuery("#button3d").addClass("optionOn");
+          } else {
+              videoSrc='2d'
+              jQuery.get('/images/stop?topic='+videoTopic['3d']+'');
+              input={image:'live_leftEye', quality:50, width:320, height:240};
+              jQuery.post('/mjpegServer/getUrlFrom',input,function(data){});
+              jQuery("#button3d").removeClass("optionOn");
+          }
+          //alert("3D");
+        });
+
+        jQuery("#buttonSay").click(function() {
+          if (!jQuery("#buttonSay").hasClass('optionOn')) {
+            jQuery("#sayDialog").show();
+            jQuery("#buttonSay").addClass("optionOn");
+            jQuery("#sayDialog").focus();
+          } else {
+            jQuery("#sayDialog").hide();
+            jQuery("#buttonSay").removeClass("optionOn");
+          }
+
+        });
+
+        jQuery("#buttonEmo").click(function() {
+          if (!jQuery("#buttonEmo").hasClass('optionOn')) {
+            jQuery("#emoWindow").show();
+            jQuery("#buttonEmo").addClass("optionOn");
+          } else {
+            jQuery("#emoWindow").hide();
+            jQuery("#buttonEmo").removeClass("optionOn");
+          }
+          //alert("Emo");
+        });
+/*
+	canvas = document.createElement( 'canvas' );
+	c = canvas.getContext( '2d' );
+        container = jQuery(".container");
+
+	container.appendChild(canvas);	
+*/
+
+	resetCanvas(); 
+	//resetImgCanvas(); 
+
+	c.strokeStyle = "#ffffff";
+	c.lineWidth =2;	
+}
+
+
+</script>

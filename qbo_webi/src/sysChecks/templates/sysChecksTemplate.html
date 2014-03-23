@@ -1,0 +1,140 @@
+<div id="sysCheckAccordion">
+
+% for cheker in availableChekers.keys():
+<%
+    resultSrc="/img/loading.gif"
+    if availableChekers[cheker].result=='ok':
+        resultSrc="img/ok.png"
+    elif availableChekers[cheker].result=='fail':
+        resultSrc="/img/wrong.png"
+    else:
+        resultSrc="/img/loading.gif"
+%>
+    <h3 id="${availableChekers[cheker].name}" class="qbo_checker_header" >
+            
+             
+             <a href="#" >
+              <table>
+		<tr>
+		 <td>
+             <img src="img/icon_${availableChekers[cheker].name}.png" ></img>   
+		 </td>
+		 <td style="width:300px">
+             <span class="qbo_checker_header_text" > ${language[availableChekers[cheker].name]} </span>
+		 </td>
+		 <td style="width:400px">
+             <img id="${availableChekers[cheker].name}Img" src="${resultSrc}" align="right"></img>
+	         </td>
+		</tr>
+              </table>
+             </a> 
+            
+    </h3>
+    <div id="${availableChekers[cheker].name}_content" class="qbo_div_content_check" style="height:400px"><p>Loading...</p></div>
+% endfor
+
+</div>
+
+
+<script>
+if(navigator.userAgent.indexOf("MSIE")>=0) navegador=0; // IE
+else navegador=1; // Demas
+
+% for cheker in availableChekers.keys():
+    if(!(window.${availableChekers[cheker].name}ImgSrc))
+    {
+        window.${availableChekers[cheker].name}ImgSrc=jQuery("#${availableChekers[cheker].name}Img").attr("src");
+    }
+    jQuery("#${availableChekers[cheker].name}Img").attr("src",window.${availableChekers[cheker].name}ImgSrc)
+% endfor
+
+jQuery('#sysCheckAccordion').accordion({ 
+        change: function(event, ui){
+
+                var clicked = jQuery(this).children('.ui-state-active').attr('id');
+                if(!(window.lastAcordeonCliked)) {
+                    window.lastAcordeonCliked=clicked;
+                } else {
+                    tabUnload();
+                    jQuery("#"+window.lastAcordeonCliked+"_content").html("");
+                    window.lastAcordeonCliked=clicked;
+                }
+
+                // Obtengo el XML y separo sus nodos
+	              jQuery.ajax({
+	                success: function(data) {
+			              if(data==false)
+			              {
+			                  alert("failure!!");
+			                  history.go(0);
+			                  return;
+			              }
+
+                    var javascript=null;
+                    var css=null;
+                    var html=null;
+
+                    //Comprobamos los datos devueltos por el server
+                    if('jsElement' in data)
+                    {
+                      javascript=data['jsElement']; //El codigo javascript
+                    }
+                    if('cssElement' in data)
+                    {
+                      css=data['cssElement']; //El codigo css
+                    }
+                    if('htmlElement' in data)
+                    {
+                      html=data['htmlElement']; //El codigo HTML
+                    }
+                    else
+                    {
+                      htmlElement='ERROR!! no HTML data'
+                    }
+
+                    //Metemos el HTML en el div correspondiente
+                    //jQuery('#'+clicked+'_content').html(html);
+                    jQuery(ui.newHeader[0]).next().html(html);
+
+                    if(javascript!=null)
+                    {
+                      // Creo el nuevo JS
+                      var etiquetaScript=document.createElement("script");
+                      document.getElementsByTagName("head")[0].appendChild(etiquetaScript);
+                      etiquetaScript.text=javascript;
+                    }
+
+                    if(css!=null)
+                    {
+                      // Creo el nuevo CSS
+                      var etiquetaStyle=document.createElement("style");
+                      document.getElementsByTagName("head")[0].appendChild(etiquetaStyle);
+
+                      if(navegador==0)
+                      {
+                          var contenidoCSS=css.split("{");
+                          var ultimaEtiquetaStyle=document.styleSheets[document.styleSheets.length-1];
+                          ultimaEtiquetaStyle.addRule(contenidoCSS[0], "{"+contenidoCSS[1]);
+                      }
+                      else
+                      {
+                          var contenidoCSS=document.createTextNode(css);
+                          etiquetaStyle.appendChild(contenidoCSS);
+                      }
+                    }
+                    //no funciona
+                    //jQuery("#sysCheckAccordion").accordion( "resize" );
+                    jQuery('#'+clicked+'_content').height("70%")
+
+		              },
+	                url: "/checkers/index/"+clicked,
+	                dataType: "json",
+	                type: "GET",
+	              });
+        },
+        collapsible: true,
+        active: false,
+        fillSpace: true,
+        //autoHeight: false,
+});
+</script>

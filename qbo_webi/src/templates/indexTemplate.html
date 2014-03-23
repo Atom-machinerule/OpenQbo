@@ -1,0 +1,92 @@
+<html>
+<head>
+
+
+<!-- add jQuery -->
+<title>OpenQbo WebInterface</title>
+<link type="text/css" rel="stylesheet" media="all" href="/css/indexTemplate.css" />
+<link type="text/css" rel="stylesheet" media="all" href="/css/redmond/jquery-ui-1.8.21.custom.css" /> 
+<link type="text/css" rel="stylesheet" media="all" href="/js/jquery-tooltip/jquery.tooltip.css" />
+
+<!--<link type="text/css" rel="stylesheet" media="all" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css" />-->
+
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script> -->
+<!--<script src="http://code.jquery.com/ui/1.8.20/jquery-ui.min.js" type="text/javascript"></script> -->
+<script src="/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="/js/jquery-ui-1.8.20.custom.min.js" type="text/javascript"></script>
+<script src="/js/jquery-tooltip/jquery.tooltip.js" type="text/javascript"></script>
+
+
+<!-- script -->
+<script>
+//jQuery(function() {
+
+function originalTabUnload() {
+}
+
+tabUnload=originalTabUnload;
+
+jQuery(document).ready(function() {
+        var selectedOld="aa";
+	jQuery( "#tabs" ).tabs({
+		ajaxOptions: {
+			error: function( xhr, status, index, anchor ) {
+//                alert("ERRROR");
+				jQuery( anchor.hash ).html(
+					"Couldn't load this tab. We'll try to fix this as soon as possible. " +
+					"If this wouldn't be a demo." );
+			}
+		},
+                select: function(event, ui) {
+                    var selected = jQuery(this).find(".ui-state-hover").attr('id');
+                    //var selected = jQuery(this).attr('id');
+  //                  alert(selected);
+                    if (selected != selectedOld) {
+                        //alert("llamo a /"+selectedOld.slice(0, -3)+"/unload");
+                        tabUnload();
+                        jQuery.get("/"+selectedOld.slice(0, -3)+"/unload");
+                        selectedOld=selected;
+                        tabUnload=originalTabUnload;
+                    }
+                    //alert("salgo");
+                    return true;
+                }
+	});
+    jQuery(window).unload(function() {
+        tabUnload();
+        jQuery.get("/"+selectedOld.slice(0, -3)+"/unload");
+        tabUnload=originalTabUnload;
+    });
+        selectedOld = jQuery("#tabs").find(".ui-state-active").attr('id');
+});
+</script>
+</head>
+<body>
+  <!-- add tabs -->
+  <div id="mainTabs">
+          <div id="tabs"  style="height:100%" class="ui-corner-top-top">
+        <div id="webiheader">
+           <a href="/"> <img src="/img/qbo_webi.png" /> </a>
+       </div>
+        	  <ul>
+        		  <li id="checkersTab" class="tab_title_b"><a class="tab_title" href="/checkers/index">${language['systemCheck']}</a></li>
+        		  <li id="confWizardTab" class="tab_title_b"><a class="tab_title" href="/confWizard">${language['confWizard']}</a></li>
+		          <li id="teleoperationTab" class="tab_title_b"><a class="tab_title" href="/teleoperation">${language['teleop']}</a></li>
+                          <li id="trainingTab" class="tab_title_b"><a class="tab_title" href="/training">${language['training']}</a></li>
+                          <li id="voiceRecognitionTab" class="tab_title_b"><a class="tab_title" href="/voiceRecognition">${language['Voice_Recognition']}</a></li>
+                          <li id="xmms2Tab" class="tab_title_b"><a class="tab_title" href="/xmms2">${language['XMMS2']}</a></li>
+                          <li id="qbo_questionsTab" class="tab_title_b"><a class="tab_title" href="/qbo_questions">${language['qbo_questions_tab']}</a></li>
+                          <li id="launchersTab" class="tab_title_b"><a class="tab_title" href="/launchersTab">${language['launchers']}</a></li>
+                          <li id="recorderTab" class="tab_title_b"><a class="tab_title" href="/recorder">${language['recorder']}</a></li>
+        		  <li id="settingsTab" class="tab_title_b"><a class="tab_title" href="/settings">${language['settings']}</a></li>
+        	  </ul>
+          </div>
+    </div>
+
+
+</body>
+</html>
+<script>
+jQuery( "#tabs" ).tabs({ selected: ${tab} });
+</script>
+

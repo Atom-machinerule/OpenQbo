@@ -1,0 +1,179 @@
+<script>
+function unlock(wheel)
+{
+    if (wheel=="right")
+    {
+        jQuery.post('/checkers/index/globalCheck/unlockWheel/right',function(data) {
+        });
+    }
+    else if (wheel=="left")
+    {
+        jQuery.post('/checkers/index/globalCheck/unlockWheel/left',function(data) {
+        });
+    }
+}
+
+
+<%
+    imgSrc="img/ok.png" if check_result['Total']==True else "img/wrong.png"
+%>
+    window.globalCheckImgSrc="${imgSrc}";
+    jQuery("#globalCheckImg").attr("src",window.globalCheckImgSrc);
+</script>
+
+<div id="checker" > 
+    <table style="border-collapse: separate;">
+        <tr>
+            <td>
+                <div class="mainProperty"> Q.bo Board no1 </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="subProperty"> SRFs found </div>
+            </td>				
+        </tr>
+
+% for i, addr in enumerate(check_result['SRFAddress']):
+        <tr id="SRFrow${i}">
+            <td>
+                <div class="subsubProperty" id="srf${i}"> ${addr} </div>
+            </td>
+            <td>
+                <img id="srf${i}_icon" src="img/ok.png">
+            </td>
+        </tr>
+% endfor
+
+% for i, addr in enumerate(check_result['SRFNotFound']):
+        % if i==0:
+        <tr>
+            <td>
+                <div class="subProperty"> SRFs not found </div>
+            </td>
+        </tr>
+        %endif
+
+        <tr id="SRFNotFoundRow${i}">
+            <td>
+                <div class="subsubProperty" id="srfNotFound${i}"> ${addr} </div>
+            </td>
+            <td>
+                <img id="srfNotFound${i}_icon" src="img/wrong.png">
+            </td>
+        </tr>
+% endfor
+
+        <tr>
+            <td>
+                <div class="subProperty"> Gyroscope </div>
+            </td>
+
+
+            <td>
+% if check_result['Gyroscope']==True:
+                <img id="gyroscope_check" src="img/ok.png">
+% else:
+                <img id="gyroscope_check" src="img/wrong.png">
+% endif
+            </td>
+        </tr>	
+        <tr>
+            <td>
+                <div class="subProperty"> Accelerometer </div>
+            </td>
+
+
+            <td>
+% if check_result['Accelerometer']==True:
+                <img id="accelerometer_check" src="img/ok.png">
+% else:
+                <img id="accelerometer_check" src="img/wrong.png">
+% endif
+            </td>
+        </tr>	
+
+        <tr>
+            <td>
+                <div class="subProperty"> LCD </div>
+            </td>
+
+
+            <td>
+% if check_result['LCD']==True:
+                <img id="lcd_check" src="img/ok.png">
+% else:
+                <img id="lcd_check" src="img/wrong.png">
+% endif
+            </td>
+        </tr>	
+
+        <tr>
+            <td>
+                <div class="subProperty"> Q.bo Board no3 </div>
+            </td>
+
+
+            <td>
+% if check_result['Qboard3']==True:
+                <img id="board3_check" src="img/ok.png">
+% else:
+                <img id="board3_check" src="img/wrong.png">
+% endif
+            </td>
+        </tr>	
+
+        <tr>
+            <td>
+                <div class="subProperty">Left Wheel</div>
+            </td>
+
+
+            <td>
+% if check_result['leftMotor']==True:
+                <img id="leftwheel_check" src=" img/ok.png">
+% else:
+                <img id="leftwheel_check" src=" img/wrong.png">
+                <img id="unlock_left_wheel" src=" img/lock_open.png" alt="Try to unlock" style="margin-left: 15px;" onclick="unlock('left');">
+% endif
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                <div class="subProperty">Right Wheel</div>
+            </td>
+
+
+            <td>
+% if check_result['rightMotor']==True:
+                <img id="rightwheel_check" src=" img/ok.png">
+% else:
+                <img id="rightwheel_check" src=" img/wrong.png">
+                <img id="unlock_right_wheel" src=" img/lock_open.png" alt="Try to unlock" style="margin-left: 15px;" onclick="unlock('right');">
+% endif
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <td>
+                <div class="mainProperty">Q.bo Board no2 </div>
+            </td>
+
+
+            <td>
+% if check_result['Qboard2']==True:
+                <img id="board2_check" src="img/ok.png">
+% else:
+                <img id="board2_check" src="img/wrong.png">
+% endif
+            </td>
+        </tr>
+
+
+    </table>
+</div>

@@ -1,0 +1,18 @@
+<div id="cameraCheckHeader">
+    <input type="radio" id="cameraCheckStepRadio0" name="cameraCheckHeader" style="display: inline-block;" /><label for="cameraCheckStepRadio0">${language['step0']}</label>
+    <input type="radio" id="cameraCheckStepRadio1" name="cameraCheckHeader" style="display: inline-block;"><label for="cameraCheckStepRadio1">${language['step1']}</label>
+    <input type="radio" id="cameraCheckStepRadio2" name="cameraCheckHeader"  style="display: inline-block;"/><label for="cameraCheckStepRadio2">${language['step2']}</label>
+    <input type="radio" id="cameraCheckStepRadio3" name="cameraCheckHeader" style="display: inline-block;"><label for="cameraCheckStepRadio3">${language['step3']}</label>
+    <input type="radio" id="cameraCheckStepRadio4" name="cameraCheckHeader"  style="display: inline-block;" /><label for="cameraCheckStepRadio4">${language['step4']}</label>
+</div>
+
+<script>
+    tabUnload = function(){
+        imgSrc = "${imgSrc}";
+        stopCmd = imgSrc.replace("stream","stop");
+        jQuery.get(stopCmd);
+    };
+    jQuery("#cameraCheckStepRadio${stepNumber}").attr("checked","checked");
+    jQuery('input:radio[name=cameraCheckHeader]:not(:checked)').attr('disabled', true);
+    jQuery("#cameraCheckHeader").buttonset();
+</script>

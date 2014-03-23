@@ -1,0 +1,18 @@
+<style>
+    #music_list{ list-style-type: none; margin: 0; padding: 0; width: 80%; }
+    #music_list li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1em; height: 18px; }
+    #music_list li span { position: absolute; margin-left: -1.3em; }
+    .play_icon{display:none;}
+    .ui-sortable {list-style-type: none; margin: 0; padding: 0; width: 80%; }
+    #sortable { list-style-type: none; margin: 0; padding: 0; width: 80%; }
+    #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+    #sortable li span { position: absolute; margin-left: -1.3em; }
+    #controls {margin-bottom:10px;margin-top:30px}
+    .media-buttons {height:50px}
+    .media-buttons:hover {cursor:pointer}
+    .volume-buttons {height:25px}
+    .volume-buttons:hover {cursor:pointer}
+
+
+</style>
+

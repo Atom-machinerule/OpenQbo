@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+<br/>
+${language["choose_language"]}
+<form action="/" method="post">
+<select class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" id="new_lang" name="new_lang" >
+% for row in alllanguage:
+%     if row==language['current_language']:
+<option  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"  value="${row}" selected="selected" style="display:block;"v>${lannames[row].decode('utf-8')}</option>
+%     else:
+    <option  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"  value="${row}" style="display:block;">${lannames[row].decode('utf-8')}</option>
+% endif
+% endfor
+</select>
+<br/>
+<br/>
+
+<div style="text-align:center;" >
+    <input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value='${language["save_changes"]}'>
+</div>
+
+<input type="hidden" name="activeTab" value="9">
+
+</form>

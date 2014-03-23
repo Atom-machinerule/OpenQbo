@@ -1,0 +1,21 @@
+<package>
+  <description brief="qbo_brain">
+
+     qbo_brain
+
+  </description>
+  <author>Arturo Bajuelos</author>
+  <license>GPLv2</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/qbo_brain</url>
+  <depend package="rospy"/>
+  <depend package="qbo_listen"/>
+  <depend package="sensor_msgs"/>
+  <depend package="qbo_talk"/>
+  <depend package="qbo_face_msgs"/>
+  <depend package="smach_ros" />
+  <depend package="smach" />
+  <depend package="std_msgs" />
+</package>
+
+

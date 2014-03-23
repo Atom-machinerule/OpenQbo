@@ -1,0 +1,38 @@
+<launch>
+
+        <node name="qbo_stereo_selector" pkg="qbo_stereo_selector" type="qbo_stereo_selector" >
+                <param name="move_head" value="true" />
+                <param name="search_min_pan" value="-0.8" />
+                <param name="search_max_pan" value="0.8" />
+                <param name="search_pan_vel" value="0.3" />
+                <param name="search_min_tilt" value="-0.7" />
+                <param name="search_max_tilt" value="-0.4" />
+                <param name="roi_mean_threshold" value="60" />
+                <param name="match_threshold_cam_shift" value="70" />
+                <param name="undetected_threshold" value="10" />
+                <param name="distance_filter_threshold" value="0.8" />
+         </node>
+
+	 <!-- <node name="qbo_stereo_selector" pkg="qbo_stereo_selector" type="qbo_stereo_selector"> -->
+<!-- <param name="distance_filter_threshold" value="0.8" />  -->
+<!-- 	 <param name="/stereo_selector/move_head" value="false"/> -->
+                <!-- <param name="move_head" value="true" /> -->
+                <!-- <param name="search_min_pan" value="-0.8" /> -->
+                <!-- <param name="search_max_pan" value="0.8" /> -->
+                <!-- <param name="search_pan_vel" value="0.3" /> -->
+                <!-- <param name="search_min_tilt" value="-0.3" /> -->
+                <!-- <param name="search_max_tilt" value="0.2" /> -->
+	 <!-- </node> -->
+
+
+	 
+	 <node name="orbit_client" pkg="qbo_object_recognition" type="orbit_client" output="screen">
+	 </node>
+	<param name="/qbo_object_recognition/input_image_topic" value="/qbo_stereo_selector/object"/>
+    <param name="/qbo_object_recognition/max_time_to_recognize" value="10"/> 
+    
+	 
+   	 <node name="qbo_self_recognizer" pkg="qbo_self_recognizer" type="qbo_detector_node" output="screen" >
+           </node>
+</launch>
+

@@ -1,0 +1,10 @@
+<launch>
+
+	 <node name="qbo_webi" pkg="qbo_webi" type="qbo_webi.py" output="screen" >
+		<param name="server_port" value="7070" /> 
+	 </node>
+     <node name="qbo_video_record" pkg="qbo_video_record" type="qbo_video_record" output="screen">
+     </node>
+
+</launch>
+

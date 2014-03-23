@@ -1,0 +1,44 @@
+
+.frameBody
+{
+    font-size:12px;
+    margin:0;
+    width:100%;
+    height:100%;
+    font-family:Courier New;
+}
+
+.frameBody p
+{
+    border:1px #bbb solid;
+    padding:2px;
+    font-family:Courier New; 
+}
+
+.rte-zone
+{
+    width:500px;
+    margin:0;
+    padding:0;
+    clear:both;
+    height:260px !important;
+    display:block;
+}
+
+.rte-toolbar{ 
+    overflow:hidden;
+    display:none; 
+}
+
+.rte-toolbar a, .rte-toolbar a img {
+	border:0;
+}
+
+.rte-toolbar p {
+    float:left;
+    margin:0;
+    padding-right:5px;
+}
+
+
+

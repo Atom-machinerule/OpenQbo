@@ -1,0 +1,139 @@
+<script>
+    // Obtengo el XML y separo sus nodos
+                      jQuery.ajax({
+                        success: function(data) {
+                                      if(data==false)
+                                      {
+                                          alert("failure!!");
+                                          history.go(0);
+                                          return;
+                                      }
+
+
+                                      var etiquetaScript=document.createElement("script");
+                                      document.getElementsByTagName("head")[0].appendChild(etiquetaScript);
+                                      etiquetaScript.text=data['htmlElement'];
+
+                                      startEverything();
+
+                              },
+                        url: "/checkers/index/soundCheck/soundCheckJs",
+                        dataType: "json",
+                        type: "GET",
+                      });
+
+</script>
+
+
+
+
+
+
+<table>
+
+    <tr >
+        <td>
+            ${language['title_1_left_speaker']}
+        </td>
+        <td style="width: 200px;" > 
+	    <a style="color:#005073 !important;" href="javascript:playLeftAudio()">${language['title_2_left_speaker']}</a>
+<!--        <img id="leftAudioButton" src="sysChecks/static/img/play.png"></img>
+            <img id="stopLeftAudioButton" src="sysChecks/static/img/playing.png" style="display:none;"></img>
+-->
+        </td>
+        <td style="width: 300px;">
+            <div id="menuLeftAudio" style="display:none;">
+                ${language['sound_fine']}
+                <span><button class="qbo_button ui-corner-all"  id="yesButtonLeft"><span class="ui-button-text"  >${language['yes']}</span> </button</span>   
+                <span><button class="qbo_button ui-corner-all" id="noButtonLeft" ><span class="ui-button-text"  >${language['no']}</span> </button</span>
+            </div>
+        </td>
+        <td>
+            <div id="checkLeft" style="display:none;">
+               <img id="leftOk" src="sysChecks/static/img/ok.png" style="display:none;"></img>
+               <img id="leftWrong" src="sysChecks/static/img/wrong.png" style="display:none;"></img>
+            </div>
+        </td>
+
+    </tr>
+
+    <tr>
+	<td>
+		<hr/>
+	</td>
+    </tr>
+
+    <tr>
+        <td>
+            ${language['title_1_right_speaker']}
+        </td>
+        <td style="width: 200px;">
+	    <a style="color:#005073 !important;" href="javascript:playRightAudio()">${language['title_2_right_speaker']}</a>
+<!--            <img id="rightAudioButton" src="sysChecks/static/img/play.png"></img>
+            <img id="stopRightAudioButton" src="sysChecks/static/img/playing.png" style="display:none;"></img>
+-->
+        </td>
+        <td style="width: 300px;">
+            <div id="menuRightAudio" style="display:none;">
+                ${language['sound_fine']} 
+                <span><button class="qbo_button ui-corner-all" id="yesButtonRight"><span class="ui-button-text"  >${language['yes']}</span></button</span>   
+                <span><button class="qbo_button ui-corner-all" id="noButtonRight" ><span class="ui-button-text"  >${language['no']}</span></button</span>
+            </div>
+        </td>
+        <td>
+            <div id="checkRight" style="display:none;">
+                 <img id="rightOk" src="sysChecks/static/img/ok.png" style="display:none;"></img>
+                 <img id="rightWrong" src="sysChecks/static/img/wrong.png" style="display:none;"></img>
+            </div>
+        </td>
+
+    </tr>
+
+    <tr>
+	<td>
+		<hr/>
+	</td>
+    </tr>
+
+    <tr>
+        <td>
+            ${language['title_1_center_speaker']}
+        </td>
+        <td style="width: 200px;">	
+            <a style="color:#005073 !important;" href="javascript:playBothAudio()">${language['title_2_center_speaker']}</a>
+<!---            <img id="centerAudioButton" src="sysChecks/static/img/play.png"></img>
+            <img id="stopCenterAudioButton" src="sysChecks/static/img/playing.png" style="display:none;"></img>
+-->
+        </td>
+        <td style="width: 300px;">
+            <div id="menuCenterAudio" style="display:none;">
+                ${language['sound_fine']} 
+                <span><button class="qbo_button ui-corner-all" id="yesButtonCenter"><span class="ui-button-text"  >${language['yes']}</span></button</span>   
+                <span><button class="qbo_button ui-corner-all" id="noButtonCenter" ><span class="ui-button-text"  >${language['no']}</span></button</span>
+            </div>
+        </td>
+        <td>
+            <div id="checkCenter" style="display:none;">
+                 <img id="centerOk" src="sysChecks/static/img/ok.png" style="display:none;"></img>
+                 <img id="centerWrong" src="sysChecks/static/img/wrong.png" style="display:none;"></img>
+            </div>
+        </td>
+
+    </tr>
+
+    <tr>
+	<td>
+		<hr/>
+	</td>
+    </tr>
+
+</table>
+
+
+
+
+
+
+
+
+

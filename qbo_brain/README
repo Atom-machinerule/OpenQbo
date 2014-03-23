@@ -1,0 +1,33 @@
+qbo_brain v1.0
+
+=== Copyright ===
+
+Copyright (C) 2012 Thecorpora Inc.
+
+=== Description ===
+
+Node that launch and stop nodes depending of qbo_listen entries
+
+=== Building ===
+
+rosmake
+
+=== Run ===
+
+
+=== Arvhive Contents ===
+
+
+
+=== Changelog ===
+
+qbo_brain v1.0
+
+=== Homepage ===
+
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_brain
+
+=== Contact ===
+
+Arturo Bajuelos <arturo@openqbo.org>
+

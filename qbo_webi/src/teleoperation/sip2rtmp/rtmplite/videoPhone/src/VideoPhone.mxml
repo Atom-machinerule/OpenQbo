@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2009, Mamta Singh. See README for details. -->
+
+<!--
+This software demonstrate Flash to SIP calls and vice-versa using the SIP-RTMP gateway 
+software. With appropriate SIP based VoIP account, you can also accomplish Flash-to-phone 
+or web-to-phone calls. Please visit the open source SIP-RTMP gateway project page at 
+http://code.google.com/p/siprtmp/ for details on this project such as demo instructions, 
+support and contributions.
+
+This comment describes the design of the client software. At the high level, the software
+has two parts: view and model. The model also encompasses the controller. The main file
+named VideoPhone.mxml instantiates the model Connector.as as well as includes the view
+View.mxml. The layout, color and skin can be controlled using the CSS file main.css.
+
+The view contains various elements such as buttons, dialpad, horizontal bar, status message
+local and remote video views and picture-in-picture view. Please refer to those individual
+files for documentation on those components.
+
+The model contains a Connector, which provides a connection to the backend SIP-RTMP 
+gateway. The connector allows invoking methods such as inviting a SIP user or accepting
+an incoming call. Please refer to the file Connector.as for further details.
+-->
+
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:view="view.*" layout="absolute"
+	horizontalScrollPolicy="off" verticalScrollPolicy="off" creationComplete="creationCompleteHandler(event)">
+	
+	<mx:Style source="style/main.css"/>
+	
+	<mx:Script>
+		<![CDATA[
+			import model.Connector;
+			import model.PopUpUtils;
+			import mx.events.FlexEvent;
+			import mx.core.UIComponent;
+
+			import flash.display.*;
+	                import flash.external.*;
+                        import mx.controls.Alert;
+
+			private var alert:Alert;
+
+   		        private function callRobot(callTo:String):void {
+			    connector.invite(callTo);
+		        }
+   		        private function hangUpRobot():void {
+			    /*Alert.show("hangUp22222 ");
+		    	    var now:Date = new Date();
+			    alert = Alert.show(msg,now.toLocaleDateString());
+			    alert.status = now.toLocaleTimeString();*/
+
+
+			    connector.bye();
+		        }
+
+                        private function connectRobot(gatewayURL:String=null, sipURL:String=null, authName:String=null, authPass:String=null, displayName:String=null):void {
+                            connector.connect(gatewayURL, sipURL, authName, authPass, displayName);			
+			}
+
+			private function disconnectRobot():void{
+			    connector.disconnect();
+			}
+
+			//----- Detección de aceptación de los permisos de la camara y micro
+
+
+
+			//--------------------------------------
+			// PRIVATE PROPERTIES
+			//--------------------------------------
+			
+			[Bindable]
+			/**
+			 * The main data model and controller instance.
+			 */
+			private var connector:Connector = new Connector();
+			
+			private var _lastStatus:String;
+			
+			//--------------------------------------
+			// GETTERS/SETTERS
+			//--------------------------------------
+			
+			public function get lastStatus():String
+			{
+				return _lastStatus;
+			}
+			
+			public function set lastStatus(value:String):void
+			{
+				_lastStatus = value;
+				trace("lastStatus=" + value);
+			}
+			
+			//--------------------------------------
+			// PRIVATE METHODS
+			//--------------------------------------
+
+
+			private function test():void{
+				Alert.show(PopUpUtils.hasVisiblePopups() ? 'Yes' : 'No', 'Are there visible popups?');
+			}
+			
+			private function creationCompleteHandler(event:Event):void 
+			{
+
+				ExternalInterface.addCallback("callRobot", callRobot);
+				ExternalInterface.addCallback("hangUpRobot", hangUpRobot);
+				ExternalInterface.addCallback("connectRobot", connectRobot);
+
+
+				var cam:Camera = Camera.getCamera();
+if (cam != null)
+{
+    cam.addEventListener(StatusEvent.STATUS, statusHandler);
+    var vid:Video = new Video();
+    vid.attachCamera(cam);
+    addChild(vid);
+}
+function statusHandler(event:StatusEvent):void
+{
+
+    switch (event.code)
+    {
+        case "Camera.Muted":
+	    ExternalInterface.call("recieveTextFromFlash", "User clicked Deny.");
+            break;
+        case "Camera.Unmuted":
+	    ExternalInterface.call("recieveTextFromFlash", "User clicked Accept.");
+            break;
+    }
+
+
+}
+
+
+
+				applyParameters();
+				installJavaScriptAPI();
+				installContextMenu();
+				activateDevice();
+				
+				if (connector.gatewayURL != null && connector.sipURL != null)
+					connector.connect();
+			}
+			
+			private function applyParameters():void
+			{
+				for (var s:String in this.parameters) {
+					if (Connector.allowedParameters.indexOf(s) >= 0)
+						connector[s] = this.parameters[s];
+				}	
+			}
+			
+			private function activateDevice():void
+			{
+				var cam:Camera = Camera.getCamera();
+				if (cam != null && cam.muted) {
+					Security.showSettings(SecurityPanel.PRIVACY);
+				}
+			}
+			
+			private function installJavaScriptAPI():void
+			{
+                try {
+    				ExternalInterface.addCallback("connect",  connector.connect);
+    				ExternalInterface.addCallback("disconnect", connector.disconnect);
+    				ExternalInterface.addCallback("invite", connector.invite);
+    				ExternalInterface.addCallback("bye",    connector.bye);
+    				ExternalInterface.addCallback("accept", connector.accept);
+    				ExternalInterface.addCallback("reject", connector.reject);
+                }
+                catch (e:Error) {
+                    trace('error ' + e.message);
+                }
+   			}
+   			
+   			private function installContextMenu():void
+   			{
+				var menu:ContextMenu = this.contextMenu;
+				menu.hideBuiltInItems();
+				
+				var fullscreen:ContextMenuItem = new ContextMenuItem(_("Full screen"));
+				menu.customItems.push(fullscreen);
+				fullscreen.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, main.fullScreen);
+				
+				var configure:ContextMenuItem = new ContextMenuItem(_("Configure"));
+				menu.customItems.push(configure);
+				configure.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, main.configure);
+				
+				var buffer:String = connector.bufferTime == 0.0 ? _("Add play buffering") : _("Remove play buffering");
+				var buffering:ContextMenuItem = new ContextMenuItem(buffer);
+				menu.customItems.push(buffering);
+				buffering.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, bufferingHandler);
+				
+				trace("installed context menu");
+			}
+			
+			private function bufferingHandler(event:ContextMenuEvent):void
+			{
+				var buffering:ContextMenuItem = event.currentTarget as ContextMenuItem;
+				if (buffering != null) {
+					connector.bufferTime = buffering.caption == _("Add play buffering") ? 0.1 : 0.0;
+					buffering.caption = connector.bufferTime == 0.0 ? _("Add play buffering") : _("Remove play buffering");
+				}
+			}
+			
+		]]>
+	</mx:Script>
+    
+    <view:View id="main" connector="{connector}"/> 
+
+<!--	<mx:Button label="Are there visible popups?"
+		click="{Alert.show(PopUpUtils.hasVisiblePopups() ? 'Yes' : 'No',
+			'Are there visible popups?')}"/>-->
+    
+</mx:Application>

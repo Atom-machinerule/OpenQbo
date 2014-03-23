@@ -1,0 +1,45 @@
+qbo_webi v1.1
+15-1-2013
+
+=== Copyright ===
+
+Copyright (C) 2012-2013 Thecorpora S.L.
+
+
+=== Description  ===
+
+This node starts the Web GUI
+
+
+=== Run ===
+
+roslaunch qbo_webi qbo_webi.launch
+
+=== Homepage ===
+
+http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_webi
+
+
+=== Contact ===
+
+Daniel Cuadrado <daniel.cuadrado@openqbo.org>
+
+=== Last updates ===
+Now the phone application will use this node to command the robot.
+auth.py has been recoded to handle authentication from mobiles
+teleoperation.py has been recoded in order to supply all the funcionality needed by mobiles.
+
+
+
+
+Packages to be installed:
+
+CherryPy:
+ apt-get install python-cherrypy3
+
+Mako: 
+ apt-get install python-mako
+
+
+
+

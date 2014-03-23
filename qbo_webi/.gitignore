@@ -1,0 +1,9 @@
+*.pyc
+*~
+*.swp
+*.swo
+src/xmms2/songs/*
+src/recorder/videos/*
+src/voiceRecognition/tmp/*
+config
+!.gitignore

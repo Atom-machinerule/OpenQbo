@@ -1,0 +1,12 @@
+{
+"soundCheck": "Comprobar Altavoces",
+"title_1_left_speaker": "Comprobar",
+"title_2_left_speaker": "altavoz izquierdo",
+"title_1_right_speaker": "Comprobar",
+"title_2_right_speaker": "altavoz derecho",
+"title_1_center_speaker": "Comprobar",
+"title_2_center_speaker": "ambos altavoces",
+"sound_fine": "¿Se ha oido correctamente?",
+"yes": "Sí",
+"no": "No"
+}

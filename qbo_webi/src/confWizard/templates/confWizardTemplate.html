@@ -1,0 +1,396 @@
+## -*- coding: utf-8 -*-
+
+<div id="output_container" style="height:30px;" >
+    <div id="output" style="text-align:center;">
+    </div>
+</div>
+
+<div style="margin: 0 auto;">
+% if localclient:
+<div class="qbo_button_div">
+   <button id="camera_calib_button" style="width:400px;" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="qbo-button-text"> ${language['camera_calib_but'].decode('utf-8')} </span></button>
+</div>
+<div class="qbo_button_div">
+   <button id="hand_gesture_calib_button" style="width:400px;"  class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="qbo-button-text"> ${language['hand_gesture_calib_but'].decode('utf-8')} </span></button>
+</div>
+% else:
+<div class="qbo_button_div">
+   <button id="camera_calib_button" style="width:400px;" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only qbo_button_improved" disabled="disabled">  
+
+        <a style="color:gray !important;" target="_blank" class="tooltip" title="${language['config_wizard_alert'].decode('utf-8')}" >  <span class="qbo-button-text"> ${language['camera_calib_but']} </span>  </a>  
+    </button> 
+</div>
+<div class="qbo_button_div">
+   <button id="hand_gesture_calib_button" style="width:400px;" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only qbo_button_improved" disabled="disabled"> 
+
+     <a style="color:gray !important;" target="_blank" class="tooltip" title="${language['config_wizard_alert'].decode('utf-8')}" > <span class="qbo-button-text"> ${language['hand_gesture_calib_but']} </span>  </a>
+
+   </button>
+</div>
+
+
+% endif
+<div class="qbo_button_div">
+   <button id="btn_create_user" style="width:400px;" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="qbo-button-text"> ${language['config_btn_create_user'].decode('utf-8')} </span></button>
+<fieldset id="fieldset_create_user" class="config_fieldset" >
+    <table class="qbo-button-text">
+        <tr>
+            <td>
+                ${language['config_user_name'].decode('utf-8')}
+            </td>
+            <td>
+                 <input id="newUserName" type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                ${language['config_password'].decode('utf-8')}
+            </td>
+            <td>
+                <input id="newUserPassword" type="password" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                ${language['config_repeat_password'].decode('utf-8')}
+            </td>
+            <td>
+                <input id="newUserPassword2" type="password" />
+            </td>
+        </tr>
+    </table>
+
+    <div id="errorMesages4Passwords" style="display:none;" ></div>
+
+    <div id="saveButton" style="text-align: center;" >
+
+<button id="save_create_user" style="width:200px;" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only qbo_button_improved" > <a target="_blank" class="tooltip" title="${language['config_save_password'].decode('utf-8')}" >  <span class="qbo-button-text">  ${language['config_save_password']} </span> </a>  </button>
+
+</div>
+</div>
+</fieldset>
+<div class="qbo_button_div">
+   <button id="btn_change_password" style="width:400px;" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="qbo-button-text"> ${language['config_btn_change_password'].decode('utf-8')} </span></button>
+
+    <br />
+    <fieldset id="fieldset_change_password" class="config_fieldset" >
+    <table class="qbo-button-text">
+        <tr>
+            <td>
+                ${language['config_user_name'].decode('utf-8')}
+            </td>
+            <td>
+                <!-- <input id="userName" type="text" /> -->
+                <select class="qbo-drop-down ui-widget ui-corner-all ui-button-text-only" id="userName" name="userName" style="width: 178px;"> </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                ${language['config_old_password'].decode('utf-8')}
+            </td>
+            <td>
+                <input id="oldPassword" type="password" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                ${language['config_password'].decode('utf-8')}
+            </td>
+            <td>
+                <input id="password" type="password" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                ${language['config_repeat_password'].decode('utf-8')}
+            </td>
+            <td>
+                <input id="password2" type="password" />
+            </td>
+        </tr>
+    </table>
+
+    <div id="errorMesages4Passwords" style="display:none;" ></div>
+
+    <div id="saveButton" style="text-align: center;" >
+
+    <button id="save_change_password" style="width:200px;" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only qbo_button_improved" > <a target="_blank" class="tooltip" title="${language['config_save_password'].decode('utf-8')}" >  <span class="qbo-button-text">  ${language['config_save_password']} </span> </a>  </button>
+    </fieldset>
+
+</div>
+
+% if localclient:
+<div class="qbo_button_div">
+   <button id="btn_change_robot_password" style="width:400px;" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="qbo-button-text"> ${language['change_robot_password_but'].decode('utf-8')} </span></button>
+
+<br />
+    <fieldset id="fieldset_change_robot_password" class="config_fieldset" >
+    <table class="qbo-button-text">
+        <tr>
+            <td>
+                ${language['su_password'].decode('utf-8')}
+            </td>
+            <td>
+                <input id="suPass" type="password" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                ${language['robot_password'].decode('utf-8')}
+            </td>
+            <td>
+                <input id="newPass1" type="password" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                ${language['robot_repeat_password'].decode('utf-8')}
+            </td>
+            <td>
+                <input id="newPass2" type="password" />
+            </td>
+        </tr>
+    </table>
+
+    <div id="errorMesages4Passwords" style="display:none;" ></div>
+
+    <div id="saveButton" style="text-align: center;" >
+
+    <button id="robot_change_password" style="width:200px;" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only qbo_button_improved" > <a target="_blank" class="tooltip" title="${language['robot_save_password'].decode('utf-8')}" >  <span class="qbo-button-text">  ${language['robot_save_password']} </span> </a>  </button>
+    </fieldset>
+
+</div>
+% else:
+<div class="qbo_button_div">
+   <button id="btn_change_robot_password" style="width:400px;" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only qbo_button_improved" disabled="disabled">
+
+        <a style="color:gray !important;" target="_blank" class="tooltip" title="${language['config_wizard_alert'].decode('utf-8')}" >  <span class="qbo-button-text"> ${language['change_robot_password_but']} </span>  </a>
+    </button>
+</div>
+
+
+% endif
+
+</div>
+
+% if autostopvalue:
+<div class="qbo_button_div">
+   <button id="auto_stop_button" style="width:400px;" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="qbo-button-text">${language['disable_auto_stop_but']}</span></button>
+</div>
+% else:
+<div class="qbo_button_div">
+   <button id="auto_stop_button" style="width:400px;" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="qbo-button-text">${language['enable_auto_stop_but']}</span></button>
+</div>
+% endif
+
+</div>
+
+
+<script>
+
+var autostopval = "false";
+% if autostopvalue:
+autostopval = "true";
+% endif
+
+var enable_str = "${language['enable_auto_stop_but']}";
+var disable_str = "${language['disable_auto_stop_but']}";
+
+
+function startEverything(){
+jQuery("#camera_calib_button").click(function(){
+   jQuery.post("/confWizard/camera_calib",function(data){
+       if (data!="true")
+        {       
+        jQuery("#output").html('<font color="red"> ${language["camera_calib_err"].decode("utf-8")} </font>');
+        }
+    });
+});
+
+
+jQuery("#hand_gesture_calib_button").click(function(){
+   jQuery.post("/confWizard/hand_gesture_calib",function(data){
+       if (data!="true")
+       {       
+       jQuery("#output").html('<font color="red"> ${language["hand_gesture_calib_err"].decode("utf-8")} </font>');
+       } 
+   });
+});
+
+
+jQuery("#save_create_user").click(function(data){
+
+
+    userName = jQuery("#newUserName").val();
+    newPwd1 = jQuery("#newUserPassword").val();
+    newPwd2 = jQuery("#newUserPassword2").val();
+
+    param = {"userName": userName, "newPassword1": newPwd1 , "newPassword2": newPwd2};
+
+
+
+    jQuery.post("/confWizard/create_user",param,function(data){
+        if(data==0){
+            printMessage('${language["config_everything_ok"].decode("utf-8")}',"info");
+            setUsersNamesToSelect();
+        }else if(data==-1){
+            printMessage('${language["config_user_already_exists"].decode("utf-8")}',"error");
+        }else if (data==-2){
+            printMessage('${language["config_pwd_not_equals"].decode("utf-8")}',"error");
+        }    
+    });
+
+});
+
+
+jQuery("#save_change_password").click(function(data){
+
+
+    userName = jQuery("#userName").val();
+    oldPwd = jQuery("#oldPassword").val();
+    newPwd1 = jQuery("#password").val();
+    newPwd2 = jQuery("#password2").val();
+
+    param = {"userName": userName, "oldPassword": oldPwd , "newPassword1": newPwd1 , "newPassword2": newPwd2};
+
+    jQuery.post("/confWizard/save_password",param,function(data){
+        if(data==0){
+            printMessage('${language["config_everything_ok"].decode("utf-8")}',"info");
+        }else if(data==-1){
+            printMessage('${language["config_wrong_old_pwd"].decode("utf-8")}',"error");
+        }else if (data==-2){
+            printMessage('${language["config_pwd_not_equals"].decode("utf-8")}',"error");
+        }else if (data==-3){
+            printMessage('${language["config_user_does_not_exist"].decode("utf-8")}',"info");
+        }
+        
+    });
+
+});
+
+jQuery("#robot_change_password").click(function(data){
+
+
+    suPwd = jQuery("#suPass").val();
+    newPwd1 = jQuery("#newPass1").val();
+    newPwd2 = jQuery("#newPass2").val();
+
+    param = {"suPass": suPwd , "newPass1": newPwd1 , "newPass2": newPwd2};
+
+    jQuery.post("/confWizard/change_robot_password",param,function(data){
+        if(data==0){
+            printMessage('${language["change_robot_pass_ok"].decode("utf-8")}',"info");
+            jQuery("#fieldset_change_robot_password").hide();
+        }else {
+            printMessage('${language["change_robot_pass_wrong"].decode("utf-8")}',"error");
+        }
+        
+    });
+
+});
+
+
+jQuery("#btn_create_user").click(function(data){
+    jQuery("#fieldset_create_user").toggle();
+    jQuery("#fieldset_change_password").hide();
+    jQuery("#fieldset_change_robot_password").hide();
+});
+
+jQuery("#btn_change_password").click(function(data){
+
+    jQuery("#fieldset_change_password").toggle();
+    jQuery("#fieldset_create_user").hide();
+    jQuery("#fieldset_change_robot_password").hide();
+});
+
+jQuery("#btn_change_robot_password").click(function(data){
+
+    jQuery("#fieldset_change_robot_password").toggle();
+    jQuery("#fieldset_change_password").hide();
+    jQuery("#fieldset_create_user").hide();
+});
+
+setUsersNamesToSelect();
+
+
+
+
+}
+
+
+function setUsersNamesToSelect(){
+    jQuery.post("/confWizard/get_list_users",function(data){
+
+        jQuery("#userName").html("");
+        if(data == ""){
+            jQuery("#userName").append("<option>${language['config_there_are_no_users_yet'].decode('utf-8')}</option>");
+        }
+        names=data.split(":::");
+        for (name in names){
+            if (names[name]=="") break;
+            jQuery("#userName").append("<option>"+names[name]+"</option>");
+        }
+    });
+}
+
+function printMessage(string,nature){    
+    if (nature=="info"){
+        jQuery("#output").css('color', 'blue');    
+    }else if (nature=="error"){
+        jQuery("#output").css('color', 'red'); 
+    }
+
+    jQuery("#output").html(string);
+    jQuery("#output").fadeIn("slow");
+    setTimeout('jQuery("#output").fadeOut("slow",function(){ jQuery("#output").html("");  });',1500);
+}
+
+
+jQuery("#auto_stop_button").click(function(data){
+
+    if(autostopval == "true")
+    {
+        //$("#auto_stop_button span").text(${language['enable_auto_stop_but']});
+        $("#auto_stop_button span").text(enable_str);
+
+        autostopval = "false";
+  
+        input = {"autostopval":"false"};
+        jQuery.post('/confWizard/set_auto_stop_srv',input,function(data) {
+        });
+
+    }
+    else
+    {    
+       // $("#auto_stop_button span").text(${language['disable_auto_stop_but']});
+       $("#auto_stop_button span").text(disable_str);
+
+        autostopval = "true";
+
+        input = {"autostopval":"true"};
+        jQuery.post('/confWizard/set_auto_stop_srv',input,function(data) {
+        });
+    }
+
+    /*
+    jQuery.post("/confWizard/create_user",param,function(data){
+        if(data==0){
+            printMessage('${language["config_everything_ok"].decode("utf-8")}',"info");
+            setUsersNamesToSelect();
+        }else if(data==-1){
+            printMessage('${language["config_user_already_exists"].decode("utf-8")}',"error");
+        }else if (data==-2){
+            printMessage('${language["config_pwd_not_equals"].decode("utf-8")}',"error");
+        }    
+    });
+
+   */
+
+});
+
+
+
+</script>
+<script>
+   startEverything();
+</script>

@@ -1,0 +1,53 @@
+<LINK REL=StyleSheet HREF="/qbo_questions/static/css/qbo_questions.css" TYPE="text/css" MEDIA=screen>
+
+<script src="/qbo_questions/qbo_questionsJs"></script>
+<script> startEverything(); </script>
+
+
+
+
+
+
+<div id="main_div">
+    <div id="div_q&a" style="width: 800px;margin: 0 auto;margin-bottom: 20px;">
+        <div id="div_input_question" style="float:left;" >
+            <div>${language['question_label']}</div>
+            <div>
+                <select  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"  style="width: 305px;" id="listQuestions">
+
+                </select>
+            </div>
+        </div>
+
+        <div style="float:left;margin-top: 18px;margin-left: 18px;margin-right: 10px;">
+            <img src="/qbo_questions/static/img/arrow_left.png"></img>
+        </div>
+
+        <div id="div_input_answer" style="float:left;">
+            <div>${language['answer_label']}</div>
+            <div style="float:left;">
+                <input style="width: 300px;" type="text" id="answer" value="" /> 
+            </div>
+
+            <div style="float:left;">
+                <img class="speaker_icon" alt="play this sentence" src="/qbo_questions/static/img/speaker.png">
+            </div>
+        </div>
+
+        <div>
+            <button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="margin-top: 15px; margin-left:10px" id="addSentence"> 
+                <span class="ui-button-text"> ${language['add_button']} </span>
+            </button>
+        </div>
+    </div>
+
+
+    <div id="div_table" style="width: 800px;margin: 0 auto;height: 300px;overflow: auto;">
+        <table id="dialogue_table"  RULES=ROWS FRAME=HSIDES  width="100%" >
+    
+        </table>
+    </div>
+
+</div>
+
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- http://blog.flexexamples.com/2008/03/10/checking-to-see-if-the-externalinterface-api-is-available-in-flex/ -->
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+        layout="vertical"
+        verticalAlign="middle"
+        backgroundColor="white"
+        creationComplete="init();" viewSourceURL="srcview/index.html">
+
+    <mx:Script>
+        <![CDATA[
+	 
+	    import flash.display.*;
+	    import flash.external.*;
+            import mx.controls.Alert;
+	    private var alert:Alert;
+
+
+            private function init():void {
+
+
+		ExternalInterface.addCallback("callRobot", callRobot);
+		ExternalInterface.addCallback("hangUpRobot", hangUpRobot);
+
+		ExternalInterface.call("recieveTextFromFlash", "wwwwww");
+
+		Alert.show("hola3 ");
+
+		ExternalInterface.call("hola","ExternalInterface is available");
+
+
+	    }
+	    	
+
+	    private function callRobot(msg:String):void {
+		    Alert.show("holaQQ ");
+            	    var now:Date = new Date();
+	            alert = Alert.show(msg,now.toLocaleDateString());
+        	    alert.status = now.toLocaleTimeString();
+            }
+
+            
+        ]]>
+    </mx:Script>
+
+    <mx:ApplicationControlBar dock="true">
+        <mx:Button id="button"
+                label="fuckkk"
+                click="init();" />
+    </mx:ApplicationControlBar>
+
+</mx:Application>

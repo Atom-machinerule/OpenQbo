@@ -1,0 +1,101 @@
+<%include file="cameraHeaderTemplate.html"/>
+<img id="cameraCheckImgView" src="${imgSrc}" style="float:left; margin:10px;" class="blueBorder"></img>
+<div id="cameraCheckInstructions" style="padding:10px;"><img id="stepInstructionsImg"  style="padding:10px;" src="${cameraCheckInstructionsSrc}"></img><br/>${language['step'+str(stepNumber)+'Instr']}</div>
+<br/>
+<input type="checkbox" id="cameraCheckCheckbox" /><label for="cameraCheckCheckbox">${language[checkText]}</label>
+<div style="clear:both;"/>
+<br/>
+% if stepNumber!=0:
+<button id="cameraCheckPrevBut">${language['prev']}</button>
+% endif
+<button id="cameraCheckNextBut">${language['next']}</button>
+
+
+<script>
+    window.cameraCheckImgSrc="${resultImgSrc}";
+
+    function reloadPage(data) {
+        var javascript=null;
+        var css=null;
+        var html=null;
+
+        //Comprobamos los datos devueltos por el server
+        if('jsElement' in data)
+        {
+          javascript=data['jsElement']; //El codigo javascript
+        }
+        if('cssElement' in data)
+        {
+          css=data['cssElement']; //El codigo css
+        }
+        if('htmlElement' in data)
+        {
+          html=data['htmlElement']; //El codigo HTML
+        }
+        else
+        {
+          htmlElement='ERROR!! no HTML data'
+        }
+
+        //Metemos el HTML en el div correspondiente
+        jQuery("#cameraCheck_content").html(html);
+
+        if(javascript!=null)
+        {
+          // Creo el nuevo JS
+          var etiquetaScript=document.createElement("script");
+          document.getElementsByTagName("head")[0].appendChild(etiquetaScript);
+          etiquetaScript.text=javascript;
+        }
+
+        if(css!=null)
+        {
+          // Creo el nuevo CSS
+          var etiquetaStyle=document.createElement("style");
+          document.getElementsByTagName("head")[0].appendChild(etiquetaStyle);
+
+          if(navegador==0)
+          {
+              var contenidoCSS=css.split("{");
+              var ultimaEtiquetaStyle=document.styleSheets[document.styleSheets.length-1];
+              ultimaEtiquetaStyle.addRule(contenidoCSS[0], "{"+contenidoCSS[1]);
+          }
+          else
+          {
+              var contenidoCSS=document.createTextNode(css);
+              etiquetaStyle.appendChild(contenidoCSS);
+          }
+        }
+    }
+
+    jQuery("#cameraCheckNextBut").button();
+    jQuery("#cameraCheckImg").attr("src",window.cameraCheckImgSrc);
+    var checkResult='false';
+    //jQuery("#cameraCheckCheckbox").button();
+    jQuery("#cameraCheckNextBut").click(function() {
+        jQuery.get("${imgStopSrc}");
+        checkResult=jQuery("#cameraCheckCheckbox").is(":checked");
+        jQuery.ajax({
+            type: "GET",
+            url: "/checkers/index/cameraCheck/step/${stepNumber}/"+checkResult,
+            dataType: "json",
+            success: reloadPage,
+            //dataType: "text"
+          });
+      });
+
+% if stepNumber!=0:
+    jQuery("#cameraCheckPrevBut").button();
+    jQuery("#cameraCheckPrevBut").click(function() {
+        jQuery.get("${imgStopSrc}");
+        checkResult=jQuery("#cameraCheckCheckbox").is(":checked");
+        jQuery.ajax({
+            type: "GET",
+            url: "/checkers/index/cameraCheck/step/${stepNumber-2}/true",
+            dataType: "json",
+            success: reloadPage,
+            //dataType: "text"
+          });
+      });
+% endif
+</script>

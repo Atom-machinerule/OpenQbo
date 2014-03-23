@@ -1,0 +1,141 @@
+<!--<script src="/static/js/generalVariables.js" type="text/javascript"></script>-->
+<script>
+
+    tabUnload = function(){
+        clearInterval(loop); 
+        imgSrc = jQuery("#qboVision").attr("src");
+        stopCmd = imgSrc.replace("stream","stop");
+        jQuery.get(stopCmd);
+    };
+
+	//variables
+	  	      jQuery.ajax({
+                        success: function(data) {
+                                      if(data==false)
+                                      {
+                                          alert("failure!!");
+                                          history.go(0);
+                                          return;
+                                      }
+
+                                      var etiquetaScript=document.createElement("script");
+                                      document.getElementsByTagName("head")[0].appendChild(etiquetaScript);
+                                      etiquetaScript.text=data;
+
+
+				      // Obtengo el XML y separo sus nodos
+		                      jQuery.ajax({
+		                        success: function(data) {
+                	                      if(data==false)
+	                                      {
+        	                                  alert("failure!!");
+                	                          history.go(0);
+                        	                  return;
+                                	      }
+
+	                                      var etiquetaScript=document.createElement("script");
+        	                              document.getElementsByTagName("head")[0].appendChild(etiquetaScript);
+                	                      etiquetaScript.text=data;
+	
+                    					  startEverything();
+						      	
+
+	                              	},
+	                        	url: "/training/trainingJs",
+        	        	        dataType: "text",
+                		        type: "GET",
+		                      });
+
+
+                              },
+                        url: "/training/trainingJs",
+                        dataType: "text",
+                        type: "GET",
+                      });
+
+</script>
+
+
+<div id="options" style="margin: 0 auto;width: 620px;">
+
+	<div id="radio">
+
+
+        <table>
+            <tr>
+                <td>
+                    ${language['face_recognition']}
+                </td>
+                <td>
+                    <img src="/training/static/img/faceRecog.png"></img>
+                </td>
+                <td>
+                    <input type="radio" id="radioFace" name="radio" />
+                </td>
+                <td>
+                    <input type="radio" id="radioObject" name="radio" checked="checked" />
+                </td>
+                <td>
+                    <img src="/training/static/img/objRecog.png"></img>
+                </td>
+                <td>
+                    ${language['object_recognition']}
+                </td>
+
+            </tr>
+        </table>
+
+
+        
+	</div>
+
+</div>
+
+<div id="video" style="width: 350px; height:240px; margin: 0 auto;">
+        <div id="divQboVision" style="text-align:center;">
+            <img id="qboVision"  width="320" height="240" ></img>
+            <canvas  id="canvasWebcam" width="320" height="240" style="position:relative; top:-240px;" > ${language['error_html5']}  </canvas>
+        </div>
+</div>
+    <div id="divShareToCloud" style="text-align:center;">
+        <input id="checkboxCloud" type="checkbox" name="shareToCloud" value="" /> ${language['shareWithCloud']}<br />
+    </div>
+</div>
+
+
+<div id="divQboMessage" style="position: relative; top: -100px; left: 600px; display:none;">
+    
+        <div id="divQboAvatar">
+            <img id="qboAvatar"  src="/training/static/img/QboAvatar2.png"></img>
+        </div>
+
+
+        <div id="errorText" style="margin-top: -100px;margin-left: 60px;width: 400px;"></div>
+
+</div>
+
+<div id="botones" style="text-align:center;margin-top:35px; ">
+	<button id="training" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="position:center;"> 
+        <span class="ui-button-text">
+            ${language['training_botton']}
+        </span>
+    </button>
+
+    <button id="guessing" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="position:center;">
+        <span class="ui-button-text">
+            ${language['guessing_botton']}
+        </span>
+    </button>
+
+</div>
+
+<div id="inputFaceObjectName" style="width: 250px;margin: 0 auto;display:none" >
+ Insert the name of the <span id="personORobject">object</span> <input id="face_object_name" /></input>  <button id="ok_start_training" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+        <span class="ui-button-text" style="padding: 0.1em 0.5em;">
+            ${language['ok_botton']}
+        </span>
+    </button>
+
+</div>
+
+

@@ -1,0 +1,31 @@
+<package>
+  <description brief="qbo_webi">
+
+     qbo_webi
+
+  </description>
+  <author>qboblue</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/qbo_webi</url>
+  <depend package="rospy"/>
+  <depend package="std_msgs"/>
+  <depend package="qbo_arduqbo"/>
+  <depend package="qbo_talk"/>
+  <depend package="qbo_object_recognition"/>
+  <depend package="qbo_face_msgs"/>
+  <depend package="std_msgs"/>
+  <depend package="sensor_msgs"/>
+  <depend package="geometry_msgs"/>
+  <depend package="nav_msgs"/>
+  <depend package="std_srvs"/>
+  <depend package="opencv2"/>
+  <depend package="cv_bridge"/>
+  <depend package="qbo_video_record"/>
+
+
+
+
+</package>
+
+

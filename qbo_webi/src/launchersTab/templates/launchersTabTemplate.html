@@ -1,0 +1,226 @@
+## -*- coding: utf-8 -*-
+
+
+<div id="btn_table" style="margin: 0 auto;width: 400px">
+    <table>
+        
+        <tr>
+            <td>
+ <button id="music" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only qbo_button_improved"><span class="qbo-button-text"> ${language['music_button']} </span></button>
+
+            </td>
+            <td>
+ <button style="display:none" id="stop_music"class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="qbo-button-text"> ${language['stop']} </span></button>
+
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+<button id="face" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only qbo_button_improved"><span class="qbo-button-text"> ${language['face_button']} </span></button>
+            </td>
+            <td>
+<button style="display:none" id="stop_face"class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="qbo-button-text"> ${language['stop']} </span></button>
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+<button id="move" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only qbo_button_improved"><span class="qbo-button-text"> ${language['move_button']} </span></button>
+            </td>
+            <td>
+<button style="display:none" id="stop_move"class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="qbo-button-text"> ${language['stop']} </span></button>
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+<button id="questions" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only qbo_button_improved"><span class="qbo-button-text"> ${language['questions_button']} </span></button>
+            </td>
+            <td>
+<button style="display:none" id="stop_questions"class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="qbo-button-text"> ${language['stop']} </span></button>
+            </td>
+
+        </tr>
+
+%  if language['current_language'] == "es":
+        <tr>
+            <td>
+<button id="calculator" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only qbo_button_improved"><span class="qbo-button-text"> ${language['calculator_button']} </span></button>
+            </td>
+            <td>
+<button style="display:none" id="stop_calculator" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="qbo-button-text"> ${language['stop']} </span></button>
+            </td>
+
+        </tr>
+% endif
+
+
+    </table>
+</div>
+
+
+
+
+
+
+
+
+<script>
+
+    tabUnload = function(){
+        
+        jQuery.post("/launchersTab/stopAll",function(data){
+        });
+
+    };
+
+
+function startEverything(){
+
+
+jQuery("#phone").click(function(){
+   jQuery.post("/launchersTab/phonelauncher",function(data){
+       if (data=="true")
+        {       
+		jQuery("#stop_phone").show();
+        jQuery(".qbo_button_improved").attr("disabled", "true"); 
+        }
+    });
+});
+
+jQuery("#music").click(function(){
+   jQuery.post("/launchersTab/musicplayer",function(data){
+       if (data=="true")
+        {       
+              jQuery("#stop_music").show();  
+              jQuery(".qbo_button_improved").attr("disabled", "true");
+        }
+    });
+});
+
+jQuery("#face").click(function(){
+   jQuery.post("/launchersTab/facetraking",function(data){
+       if (data=="true")
+        {       
+                jQuery("#stop_face").show();  
+                jQuery(".qbo_button_improved").attr("disabled", "true");
+        }
+    });
+});
+
+
+jQuery("#move").click(function(){
+   jQuery.post("/launchersTab/randommove",function(data){
+       if (data=="true")
+        {       
+             jQuery("#stop_move").show();  
+             jQuery(".qbo_button_improved").attr("disabled", "true");
+   
+        }
+    });
+});
+
+
+jQuery("#questions").click(function(){
+   param={"lang":"${language['current_language']}"};
+   jQuery.post("/launchersTab/questions",param,function(data){
+       if (data=="true")
+        {       
+             jQuery("#stop_questions").show();     
+             jQuery(".qbo_button_improved").attr("disabled", "true");
+        }
+    });
+});
+
+jQuery("#calculator").click(function(){
+   param={"lang":"${language['current_language']}"};
+   jQuery.post("/launchersTab/calculator",param,function(data){
+       if (data=="true")
+        {       
+             jQuery("#stop_calculator").show();     
+             jQuery(".qbo_button_improved").attr("disabled", "true");
+        }
+    });
+});
+
+
+jQuery("#stop_phone").click(function(){
+   jQuery.post("/launchersTab/stopPhonelauncher",function(data){
+       if (data=="true")
+        {       
+                jQuery("#stop_phone").hide();
+                jQuery(".qbo_button_improved").removeAttr("disabled");
+        }
+    });
+});
+
+jQuery("#stop_music").click(function(){
+   jQuery.post("/launchersTab/stopMusicplayer",function(data){
+       if (data=="true")
+        {       
+              jQuery("#stop_music").hide();  
+              jQuery(".qbo_button_improved").removeAttr("disabled");
+        }
+    });
+});
+
+jQuery("#stop_face").click(function(){
+   jQuery.post("/launchersTab/stopFacetraking",function(data){
+       if (data=="true")
+        {       
+                jQuery("#stop_face").hide();  
+                jQuery(".qbo_button_improved").removeAttr("disabled");
+        }
+    });
+});
+
+
+jQuery("#stop_move").click(function(){
+   jQuery.post("/launchersTab/stopRandommove",function(data){
+       if (data=="true")
+        {       
+             jQuery("#stop_move").hide();  
+             jQuery(".qbo_button_improved").removeAttr("disabled");
+   
+        }
+    });
+});
+
+
+jQuery("#stop_questions").click(function(){
+   jQuery.post("/launchersTab/stopQuestions",function(data){
+       if (data=="true")
+        {    
+             jQuery("#stop_questions").hide();  
+             jQuery(".qbo_button_improved").removeAttr("disabled");
+        }
+    });
+});
+
+
+jQuery("#stop_calculator").click(function(){
+   jQuery.post("/launchersTab/stopCalculator",function(data){
+       if (data=="true")
+        {    
+             jQuery("#stop_calculator").hide();  
+             jQuery(".qbo_button_improved").removeAttr("disabled");
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+}
+</script>
+<script>
+   startEverything();
+</script>

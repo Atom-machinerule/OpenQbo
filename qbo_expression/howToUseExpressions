@@ -1,0 +1,226 @@
+
+This node, the way you can find it now, needs a lot of refactoring! It was just an approach of how to accomplish Q.bo expressions, but due to scheduling problems, it was never finished properly.
+
+=== How it work? ===
+qbo_expression is a node which load a file /config/feelings.xml, and traduce the XML code into an array which will be interpreted by ThreadCmd.py
+ later on.
+
+After loading and decoding feelings.xml, it subscribes to the topic /Qbo/runExpression, waiting for a std_msgs/String message with the name of the expression to fake. That name has to be one of the feelings written at feelings.xml.
+
+
+For example, feelings.xml might look like this:
+<feeling yes_move>
+
+        <movement>
+                <eyes 200>
+                <wait -1>
+        </movement>
+        <movement 3>
+                <mouth smile>
+                <head_relative 0 -70 0.0 0.7>
+                <wait 0.2>
+                <head_relative 0 70 0.0 0.7>
+                <wait 0.2>
+        </movement>
+
+        <movement>
+                <mouth smile>
+                <wait 5>
+		<expression neutral>
+        </movement>
+</feeling>
+
+
+and that would be translated to 
+
+{'yes_move': "['m', 'e', '200', 'w', '-1', 'm', 'm', 'o', 'smile', 'v', '0', '-70', '0.0', '0.7', 'w', '0.2', 'v', '0', '70', '0.0', '0.7', 'w', '0.2', 'o', 'smile', 'v', '0', '-70', '0.0', '0.7', 'w', '0.2', 'v', '0', '70', '0.0', '0.7', 'w', '0.2', 'o', 'smile', 'v', '0', '-70', '0.0', '0.7', 'w', '0.2', 'v', '0', '70', '0.0', '0.7', 'w', '0.2', 'm', 'm', 'o', 'smile', 'w', '5', 'x', ['m', 'e', '270', 'o', 'none', 'h', '0', '50', '1.0', '1.0', 'w', '-1', 'm'], 'm']",}
+
+And this is what is given to the MainThread in ThreadsCmd.py
+
+== ThreadsCmd.py
+
+Each component of an expression launch its own thread, that means one for eyes, one for head movement, one for mouths, and so on. The MainThread reads each position of the array above, and execute what is needed. If the position is, for example, 'e' that means it has to launch/reactivate the thread for both eyes, which will move them to the position 200, or if it is an 'o' it will launch/reactivate the thread in charge of mouths.
+
+There are one thread for head movement, one for relative head movement, one for left eye, right eye, both eyes, mouths and speaking.
+
+
+
+
+=== How to create an expression in feelings.xml ===
+
+1.- An expression has to be written between <feeling [name]> and </feeling>
+	[name] is the name of the expression. For example: happy, sad, etc
+
+2.- Inside these labels, you have to define one, or more, movements with labels: <movement [loop]> and </movement>
+	[loop] makes this movement to repeat its content as many times as [loop] says.
+	For example:
+		...
+		<movement 4>
+			<say hello>
+		</movement>
+		...
+	
+	Will say four times "hello"
+
+	If you do not want to make any loop, do not write a number.
+	For example:
+		...
+		<movement>
+			<say hello>
+		</movement>
+		...
+
+	Will say "hello" only once.
+
+3.- Inside a movement you can use:
+
+___ <head [pan_position] [tilt_position] [pan_speed] [tilt_speed]> ___
+
+It moves the head to [pan_position] and [tilt_position] with the speed defined at [pan_speed] and [tilt_speed]
+
+Positions are between [-200, 200]
+Speeds are between [0, 1.0], where 0 is no move and 1.0 maximum speed.
+
+Examples:
+
+Let's make a "no" move, moving the head from left to right and vice versa.
+
+<feeling no>
+        <movement 2>
+                <head -50 0 0.7 0.0>
+                <wait -1>
+                <head 50 0 0.7 0.0>
+                <wait -1>
+        </movement>
+</feeling>
+
+Now a "yes" move, moving the head up and down.
+
+<feeling yes>
+        <movement 3>
+                <mouth smile>
+                <head_relative 0 -70 0.0 0.7>
+                <wait 0.2>
+                <head_relative 0 70 0.0 0.7>
+                <wait 0.2>
+        </movement>
+</feeling>
+
+
+
+___ <head_relative [pan_position] [tilt_position] [pan_speed] [tilt_speed]> ___
+
+Same as above, but now the positions are relative to the actual position of the head.
+
+
+
+___ <eyes [position]> ___
+
+Moves both eyes to [position]
+
+[position] is between [0,280] grades
+
+
+___ <leftEye [position]> ___
+
+Like before but now only the left eye.
+
+
+
+___ <rightEye [position]> ___
+
+Like before but now only the right eye.
+
+
+
+___ <wait [seconds]> ___
+
+It pauses the action the time specified by [seconds]. If it is "-1" it will wait indefinitely until all the previous threads finish their movements
+.
+
+Example:
+	<wait 2.5> It will wait 2.5 seconds
+
+
+
+___ <mouth [mouth_name]> ___
+
+It displays the mouth corresponding to [mouth_name
+]
+
+[mouth_name] can adopt all this values:
+
+-smile
+-none
+-sad
+-puckerRight
+-puckerLeft
+-staight
+-smallMouth
+-surprise
+-regular
+-laugh
+-laugh2
+-laugh3
+-laugh4
+-laugh5
+-laugh6
+-tongue
+
+
+
+___ <say [sentence]> ___
+
+It makes the Q.bo to speak the sentence written at [sentence].
+
+Examples
+
+	<say hello how are you>
+	<say hi my name is qbo>
+	<say goodbye>
+
+
+
+
+
+So far we have defined all the parameters with numbers, but you can also get random numbers with rand(minValue&maxValue).
+
+For example:
+<feeling random_move>
+        <movement 4>
+                <eyes rand(90&150)>
+                <wait -1>
+        </movement>
+</feeling>
+
+This will make the eyes to move randomly to positions between 90 and 150 degrees.
+
+
+You can also nest expressions. In order to call an expression inside other just use the label <expression [expression_name]>
+
+For example:
+<feeling example>
+        <movement>
+                <say I can be happy>
+                <wait -1>
+                <expression happy>
+        <movement>
+
+        <movement>
+                <say and also sad>
+                <wait -1>
+                <expression sad_move>
+        <movement>
+</feeling>
+
+
+
+
+
+
+
+
+
+
+
+

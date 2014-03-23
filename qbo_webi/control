@@ -1,0 +1,15 @@
+Package: qboros-electric-qbo-webi
+Source: qboros-electric-qbo-webi
+Version: 1.1-openqbo0
+Priority: standard
+Architecture: amd64
+Section: OpenQbo
+Depends: python-cherrypy3, python-mako, ros-electric-ros, ros-electric-common-msgs, qboros-electric-qbo-arduqbo, qboros-electric-qbo-face-vision, qboros-electric-qbo-object-recognition, qboros-electric-qbo-talk, python-poster, mpg123, python-xmmsclient, openssl, qboros-electric-qbo-linphone, qboros-electric-qbo-audio-control, qboros-electric-qbo-video-record
+Maintainer: Daniel Cuadrado <daniel.cuadrado@openqbo.org>
+Homepage: http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_webi
+Description: This stack contains the Web GUI for users
+ It is created in order to make life easier to developers:
+ - See throw Q.bo webcams
+ - Teach new objects GUI
+ - Teach new faces GUI
+ - Check your system, to see weather you might have any sensor not working properly.

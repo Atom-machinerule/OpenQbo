@@ -1,0 +1,375 @@
+<!--<script src="/training/trainingJs" type="text/javascript"></script>-->
+<script>
+
+/*	// Cargamos JS
+    jQuery.ajax({
+    success: function(data) {
+                  if(data==false)
+                  {
+                      alert("failure!!");
+                      history.go(0);
+                      return;
+                  }
+
+                  var etiquetaScript=document.createElement("script");
+                  document.getElementsByTagName("head")[0].appendChild(etiquetaScript);
+                  etiquetaScript.text=data;
+
+                  startEverything();
+          },
+    url: "/teleoperation/teleoperationJs",
+    dataType: "text",
+    type: "GET",
+    });
+*/
+
+
+<%include file="teleoperationTemplate.js" />
+
+
+startEverything();
+
+</script>
+
+<script language="JavaScript" src="/teleoperation/sip/rtmplite/videoPhone/bin-release/AC_OETags.js"></script>
+
+<script language="JavaScript" src="/teleoperation/sip/rtmplite/videoPhone/bin-release/externalInterface.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+
+<!--
+
+// -----------------------------------------------------------------------------
+
+// Globals
+
+// Major version of Flash required
+
+var requiredMajorVersion = 10;
+
+// Minor version of Flash required
+
+var requiredMinorVersion = 0;
+
+// Minor version of Flash required
+
+var requiredRevision = 22;
+
+// -----------------------------------------------------------------------------
+
+// -->
+
+
+function recieveTextFromFlash(Txt) {
+
+	jQuery("#btn_connect").click();
+//    document.getElementById('htmlText').value = Txt;
+
+}
+
+
+</script>
+
+
+<table class="table_teleoperation">
+
+	<tr>
+		<td>
+			<table class="table_teleoperation_options">
+				<tr>
+				     <td class="table_teleoperation_options_special_td" >
+					<div class="icon_table_teleoperation">
+					  <span class="ui-icon ui-icon-triangle-1-e">  </span>
+					</div>
+					<div>
+					  ${language['camera_selection']}
+					</div>
+			             </td>
+				</tr>
+			        <tr>
+				     <td> 
+				        <div id="radio" title="Camera Selection">
+			                 <input type="radio" id="radioLeft" name="radio" checked="checked"/><label for="radio1"> ${language['left_eye']}</label></br>
+                <input type="radio" id="radioRight" name="radio" /><label for="radio2"> ${language['right_eye']}</label>
+ 			 	         </br>
+			                 <input type="radio" id="radio3d" name="radio" /><label for="radio2"> ${language['3d']}</label></br>
+				        </div>
+
+			             </td>
+			        </tr>
+
+			        <tr>
+			             <td  class="table_teleoperation_options_special_td" >
+                                        <div class="icon_table_teleoperation">
+                                          <span class="ui-icon ui-icon-triangle-1-e">  </span> 
+                                        </div> 
+                                        <div> 
+                                           ${language['text_to_speech']}
+                                        </div>
+					
+			             </td> 
+			        </tr>
+			        <tr>
+			             <td> 
+<div id="input" >
+    <textarea id="textarea" name="comments" cols="15" rows="3" style="border-shadow:1px;resize: none;width:158px;"> ${language['enter_message']}</textarea>
+<button id="send_text" class="qbo-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="width: 158px;">
+        <span class="qbo-button-text" >
+            ${language['send_button']}
+        </span>
+    </button>
+</div>
+
+			             </td>
+			        </tr>
+			        <tr>
+			             <td  class="table_teleoperation_options_special_td" >
+                                        <div class="icon_table_teleoperation">
+                                          <span class="ui-icon ui-icon-triangle-1-e">  </span> 
+                                        </div> 
+                                        <div> 
+                                          ${language['head_move_type']}
+                                        </div>
+			             </td>
+			        </tr>
+			        <tr>
+			             <td>
+				        <div id="radio" title="Camera Selection">
+			                 <input type="radio" id="head_type1" name="radio_type" checked="checked"/><label for="radio1"> ${language['type1']} </label></br>
+			                 <input type="radio" id="head_type2" name="radio_type" /><label for="radio2"> ${language['type2']} </label>
+				         </br>
+				        </div>
+			             </td>
+			        </tr>
+
+
+			</table>
+		</td>
+	
+
+
+	 		 <td >
+
+<div style="width:28px;height:28px;margin-left:10px;">
+	<img src="img/icon_cameraCheck.png"></img>
+</div>
+<div id="qbo_video" style="width:480px;height:360px;margin-left: 10px;">
+        <div id="video" style="position:absolute;margin:0 auto;">
+                <img id="iframeTeleoperation" width="480px" height="360px" ></img>
+        </div>
+        <div id="video2" style="position:absolute;z-index:22;" align="center">
+            <img id="imgInvisible" src="/teleoperation/static/img/cross.png" width="480px" height="360px"></img>
+        </div>
+
+</div>
+
+
+
+
+			 </td>
+                         <td>
+                                <div class="div_cruceta" >
+
+
+
+
+
+<img id="cruceta" src="/teleoperation/static/img/cruzeta.png" usemap="#cruceta_map" style="margin-top: 100px;" />
+
+<map name="cruceta_map">
+<area id="forward"  shape="rect" coords="46,0,94,44"  alt="Foward" title="Foward"    />
+<area id="left" shape="rect" coords="0,52,45,98"  alt="Left" title="Left"    />
+<area id="right" shape="rect" coords="100,52,145,98" alt="Right" title="Right"    />
+<area id="back" shape="rect" coords="53,105,99,145" alt="Back" title="Back"    />
+</map>
+
+
+                                      
+                                </div>
+                         </td>
+	</tr>
+
+</table>
+
+
+
+
+
+<!------------ VOICE FLASH ----------------->
+
+<div id="div_audio" style="width:300px;height:150px;margin-left: 160px;" >
+
+        <div id="flashButtons" style="float: left;">
+
+
+                <button id="btn_hungup" onClick="hangUp();" class="ui-state-default ui-corner-all" style="display:none;" >
+                        <span class="ui-icon ui-icon-stop"  > </span>
+                </button>
+                <button id="btn_connect" onClick="connect();" class="ui-state-default ui-corner-all" >
+                        <span class="ui-icon ui-icon-volume-on"  >  </span>
+                </button>
+        </div>
+
+
+<div id="flash" >
+</div>
+
+
+<div>
+
+<script language="JavaScript" type="text/javascript">
+
+<!--
+
+var flashVars=document.location.search;
+
+    
+
+// remove the '?' sign if exists
+
+if (flashVars[0]=='?') {
+
+    flashVars=flashVars.substr(2, flashVars.length-1);
+
+}
+
+else {
+
+    // you can supply certain parameters from flashVars as follows
+
+    // flashVars+="&sipURL=myuser@iptel.org&authName=myuser&authPass=mypass&gatewayURL=rtmp://localhost/sip&signupURL=http://serweb.iptel.org/user/reg/index.php";
+
+}
+
+
+
+// Version check for the Flash Player that has the ability to start Player Product Install (6.0r65)
+
+var hasProductInstall = DetectFlashVer(6, 0, 65);
+
+
+
+
+// Version check based upon the values defined in globals
+
+var hasRequestedVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+
+
+
+if ( hasProductInstall && !hasRequestedVersion ) {
+
+    // DO NOT MODIFY THE FOLLOWING FOUR LINES
+
+    // Location visited after installation is complete if installation is required
+    var MMPlayerType = (isIE == true) ? "ActiveX" : "PlugIn";
+
+    var MMredirectURL = window.location;
+
+    document.title = document.title.slice(0, 47) + " - Flash Player Installation";
+
+    var MMdoctitle = document.title;
+
+
+
+    AC_FL_RunContent(
+
+        "src", "playerProductInstall",
+
+        "FlashVars", "MMredirectURL="+MMredirectURL+'&MMplayerType='+MMPlayerType+'&MMdoctitle='+MMdoctitle+"",
+
+        "width", "514",
+
+        "height", "537",
+
+        "align", "middle",
+
+        "id", "VideoPhone",
+
+        "quality", "high",
+
+        "bgcolor", "#869ca7",
+
+        "name", "VideoPhone",
+
+        "allowScriptAccess","sameDomain",
+
+        "type", "application/x-shockwave-flash",
+
+        "pluginspage", "http://www.adobe.com/go/getflashplayer"
+
+    );
+
+} else if (hasRequestedVersion) {
+
+    var hasVersion10_3 = DetectFlashVer(10, 3, 0);
+
+    var hasVersion11 = DetectFlashVer(11, 0, 0);
+
+    ///////////////////////////var VideoPhone = (hasVersion11 ? 'VideoPhone11' : (hasVersion10_3 ? 'VideoPhone45' : 'VideoPhone'));
+
+
+
+//  var VideoPhone = (hasVersion11 ? 'VideoPhone11' : (hasVersion10_3 ? 'VideoPhone45' : 'VideoPhone'));
+    var VideoPhone = (hasVersion11 ? 'VideoPhone' : (hasVersion10_3 ? 'VideoPhone' : 'VideoPhone'));
+    // if we've detected an acceptable version
+
+    // embed the Flash Content SWF when all tests are passed
+
+    AC_FL_RunContent(
+
+            "src", "/teleoperation/sip/rtmplite/videoPhone/bin-release/"+VideoPhone,
+
+            "width", "220",
+
+            "height", "150",
+
+            "align", "middle",
+
+            "id", "VideoPhone",
+
+            "quality", "high",
+
+            "bgcolor", "#869ca7",
+
+            "name", "VideoPhone",
+
+            "allowScriptAccess","always",
+
+            "allowFullScreen", "true",
+
+            "flashVars", flashVars,
+
+            "type", "application/x-shockwave-flash",
+
+            "pluginspage", "http://www.adobe.com/go/getflashplayer" 
+
+
+
+    );
+
+  } else {  // flash is too old or we can't detect the plugin
+
+    var alternateContent = 'Alternate HTML content should be placed here. '
+
+    + 'This content requires the Adobe Flash Player. '
+
+    + '<a href=http://www.adobe.com/go/getflash/>Get Flash</a>';
+
+    document.write(alternateContent);  // insert non-flash content
+
+  }
+
+// -->
+
+</script>
+
+
+</div>
+
+</div>
+<!---------  END FLASH ------------>
+
+
+
+
+
