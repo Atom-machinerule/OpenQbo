@@ -1,4 +1,4 @@
-OpenQbo
+OpenQbo --- HYDRO  --- 
 =======
 
   A Repository for the Qbo Robot stacks and associated files running under ROS "Hydro"-Ubuntu 12.04 (precise) 64-bit. Browse the git branches for more compatible versions for the different ROS releases. 
