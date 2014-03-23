@@ -8,6 +8,4 @@ OpenQbo
  
   Python2.6 needs to be installed under Ubuntu 12.04 to run some portions of code in this repository. Use apt-get  
 
-  sudo add-apt-repository ppa:fkrull/deadsnakes
-  sudo apt-get update
-  sudo apt-get install python2.6 python2.6-dev
+  sudo add-apt-repository ppa:fkrull/deadsnakes ###  sudo apt-get update ### sudo apt-get install python2.6 python2.6-dev
