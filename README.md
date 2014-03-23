@@ -6,6 +6,8 @@ OpenQbo
 
   To install these stacks you must create a "/stacks" folder in your "/opt/ros/hydro/" folder and install all the directories and files in this Repo. Also there are folders I have labeled Dependencies in each stack that may have necessary files and or instructions for proper installation. 
  
-  Python2.6 needs to be installed under Ubuntu 12.04 to run some portions of code in this repository. Use apt-get  
+  Python2.6 needs to be installed under Ubuntu 12.04 to run some portions of code in this repository. Use apt-get.  
 
-  sudo add-apt-repository ppa:fkrull/deadsnakes ###  sudo apt-get update ### sudo apt-get install python2.6 python2.6-dev
+  sudo add-apt-repository ppa:fkrull/deadsnakes      ...
+  sudo apt-get update                                ...
+  sudo apt-get install python2.6 python2.6-dev
