@@ -1,0 +1,7 @@
+nstall "qbo_listen" first then proceed
+
+
+
+sudo apt-get build-dep pulseaudio
+
+sudo apt-get install pulseaudio libpulse-dev
