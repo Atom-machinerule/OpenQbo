@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2.6
 #
 # Software License Agreement (GPLv2 License)
 #
