@@ -1,8 +1,7 @@
-Package: qboros-electric-qbo-say-ip
-Source: qboros-electric-qbo-say-ip
+
 Version: 1.0-openqbo0
 Section: OpenQbo
-Depends: python, ros-electric-ros, ros-electric-common-msgs, qboros-electric-qbo-listen, qboros-electric-qbo-talk, qboros-electric-qbo-system-info
+Depends: python, ros-hydro-ros, ros-hydro-common-msgs, qbo-listen, qbo-talk, qbo-system-info
 Priority: standard
 Architecture: amd64
 Maintainer: Sergio Merino <s.merino@openqbo.org>
