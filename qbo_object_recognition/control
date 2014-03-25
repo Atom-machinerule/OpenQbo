@@ -1,10 +1,9 @@
-Package: qboros-electric-qbo-object-recognition
-Source: qboros-electric-qbo-object-recognition
+
 Version: 1.0-openqbo2
 Priority: standard
 Section: OpenQbo
 Architecture: amd64
-Depends: qboros-electric-qbo-talk, qboros-electric-qbo-listen, qboros-electric-qbo-self-recognizer
+Depends: qbo-talk, qbo-listen, qbo-self-recognizer
 Maintainer: Arturo Bajuelos <arturo@openqbo.org>
 Homepage: http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_object_recognition
 Description: ROS node that learns and recognizes objects
