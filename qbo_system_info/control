@@ -1,8 +1,7 @@
-Package: qboros-electric-qbo-system-info
-Source: qboros-electric-qbo-system-info
+
 Version: 1.0-openqbo0
 Section: OpenQbo
-Depends: ros-electric-ros, ros-electric-common-msgs, python
+Depends: ros-hydro-ros, common-msgs, python
 Priority: standard
 Architecture: amd64
 Maintainer: Sergio Merino <s.merino@openqbo.org>
