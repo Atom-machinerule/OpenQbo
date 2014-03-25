@@ -241,6 +241,7 @@ void DynamixelServo::changeTorque(int torque)
 bool DynamixelServo::servoTorqueEnable(qbo_arduqbo::TorqueEnable::Request  &req, qbo_arduqbo::TorqueEnable::Response &res)
 {
    dxl_write_byte( id_, P_TORQUE_ENABLE, req.torque_enable );
+   return true;
 }
 
 void PrintCommStatus(int CommStatus)
