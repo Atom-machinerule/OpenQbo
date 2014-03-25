@@ -109,8 +109,9 @@ void CBaseController::timerCallback(const ros::TimerEvent& e)
     float d=sqrt(pow((x-x_),2) + pow((y-y_),2));
     float dx = d / elapsed;
     float angDiff=(th_-th)/elapsed;
-    float dth = (angDiff >= 0) ? angDiff : -angDiff;
-    
+    //float dth = (angDiff >= 0) ? angDiff : -angDiff; // this line is removing the sign from the angular velocity - the sign is important
+    float dth = -angDiff; // sign is now retained
+
     geometry_msgs::Quaternion quaternion = tf::createQuaternionMsgFromYaw(th);
     
     x_=x;
