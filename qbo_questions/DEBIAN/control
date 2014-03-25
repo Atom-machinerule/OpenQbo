@@ -1,8 +1,7 @@
-Package: qboros-electric-qbo-questions
-Source: qboros-electric-qbo-questions
+
 Version: 1.2-openqbo0
 Section: OpenQbo
-Depends: ros-electric-ros, python, qboros-electric-qbo-listen (>= 1.3), qboros-electric-qbo-talk, qboros-electric-qbo-system-info, qboros-electric-qbo-face-vision, qboros-electric-qbo-internet-services
+Depends: ros-hydro-ros, python, qbo-listen, qbo-talk, qbo-system-info, qbo-face-vision, qbo-internet-services
 Priority: standard
 Architecture: amd64
 Maintainer: Sergio Merino <s.merino@openqbo.org>
