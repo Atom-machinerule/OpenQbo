@@ -1,0 +1,9 @@
+PATCH for running qbo_mjpgserver on HYDRO
+
+Add CvBridge.h to /opt/ros/hydro/include/cv_bridge
+
+Use the command below, unless the associated files locations are different.
+
+
+
+sudo mv /opt/ros/hydro/stacks/qbo_mjpeg_server/Dependincies/Cvbridge.h /opt/ros/hydro/include/cv_bridge
