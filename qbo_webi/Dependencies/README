@@ -1,0 +1,9 @@
+webi dependenies
+
+sudo apt-get install python-cherrypy3
+sudo apt-get install python-xmmsclient
+sudo apt-get install python-poster
+
+sudo apt-get install xmms2
+sudo apt-get install mpg123
+sudo apt-get install openssl
