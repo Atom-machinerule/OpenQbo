@@ -1,10 +1,9 @@
-Package: qboros-electric-qbo-talk
-Source: qboros-electric-qbo-talk
+
 Version: 1.0.1-openqbo1
 Priority: standard
 Architecture: amd64
 Section: OpenQbo
-Depends: festival, ros-electric-ros, qbo-voices-english, qbo-voices-spanish
+Depends: festival, ros-hydro-ros, qbo-voices-english, qbo-voices-spanish
 Maintainer: Miguel Angel Julian <miguel.a.j@openqbo.org>
 Homepage: http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_talk
 Description: This package is a wrapper for the festival service to provide a talk service.
