@@ -68,7 +68,7 @@ FaceDetector::~FaceDetector() {
 void FaceDetector::setROSParams()
 {
 	//Setting default path of the Haar cascade classifier
-	string default_classifier_path = "/usr/share/OpenCV-2.3.1/haarcascades/haarcascade_frontalface_alt2.xml";
+	string default_classifier_path = "/usr/share/opencv/haarcascades/haarcascade_frontalface_alt2.xml";
         //string alternative_classifier_path = "/usr/share/OpenCV-2.3.1/haarcascades/haarcascade_profileface.xml";
         string alternative_classifier_path = "none";
 
