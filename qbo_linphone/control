@@ -1,5 +1,4 @@
-Package: qboros-electric-qbo-linphone
-Source: qboros-electric-qbo-linphone
+
 Version: 1.0-openqbo0
 Section: OpenQbo
 Depends: python, ros-electric-ros, linphone-nox
