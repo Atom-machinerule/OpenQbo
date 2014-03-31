@@ -1,2 +1,2 @@
-sudo apt-get install ros-hydro-umd-camera
+sudo apt-get install ros-hydro-camera-umd
 sudo apt-get install ros-hydro-image-pipeline
