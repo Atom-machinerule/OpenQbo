@@ -6,4 +6,5 @@ Use the command below, unless the associated file locations are different.
 
 
 
-sudo mv /opt/ros/hydro/stacks/qbo_mjpeg_server/Dependincies/Cvbridge.h /opt/ros/hydro/include/cv_bridge
+sudo mv /opt/ros/hydro/stacks/qbo_mjpeg_server/Dependencies/CvBridge.h /opt/ros/hydro/include/cv_bridge
+
