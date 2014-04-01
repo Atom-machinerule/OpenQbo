@@ -19,4 +19,3 @@ if __name__ == '__main__':
             f = camera.get_frame()
             cv.ShowImage(ros_topic_name, f)
             cv.WaitKey(10)
-
