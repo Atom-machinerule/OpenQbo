@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2.6
 ##
 # This utility is used for publishing
 # OpenCV accessible camera images over
