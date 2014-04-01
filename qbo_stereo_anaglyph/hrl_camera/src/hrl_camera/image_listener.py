@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2.6
 import roslib
 roslib.load_manifest('hrl_camera')
 import ros_camera as rc
