@@ -1,6 +1,6 @@
 sudo apt-get install ros-hydro-mjpeg-server
 
-###  PATCH for running qbo_mjpgserver on HYDRO  ###
+###  PATCH for running mjpgserver on HYDRO  ###
 
 Add CvBridge.h to /opt/ros/hydro/include/cv_bridge
 
