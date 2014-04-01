@@ -155,4 +155,3 @@ echo(unsigned char ch);
 #endif /*KBHIT_H_*/
 
 #endif // _WIN32
-
