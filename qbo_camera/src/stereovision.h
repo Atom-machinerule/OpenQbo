@@ -34,17 +34,19 @@
 #include <ros/ros.h>
 #include "sensor_msgs/Image.h"
 #include "sensor_msgs/SetCameraInfo.h"
+#include <sensor_msgs/image_encodings.h>
 #include "image_transport/image_transport.h"
 #include <message_filters/subscriber.h>
 #include <message_filters/time_synchronizer.h>
 #include <message_filters/sync_policies/approximate_time.h>
 #include <message_filters/synchronizer.h>
-#include "cv_bridge/CvBridge.h"
+#include "cv_bridge/cv_bridge.h"
 #include <boost/signals2/mutex.hpp>
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <semaphore.h>
+
 
 class StereoVision {
 private:
@@ -56,7 +58,7 @@ private:
     std::string stereo_ns_;
 
     //Cliente para guardar los datos
-    sensor_msgs::CvBridge bridge_;
+    //sensor_msgs::CvBridge bridge_;
 
     cv::Size2i image_size_;
     cv::Size2i left_image_size_;
@@ -125,4 +127,3 @@ public:
 };
 
 #endif	/* _STEREOVISION_H */
-
