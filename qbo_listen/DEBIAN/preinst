@@ -1,5 +1,5 @@
 #!/bin/bash
-DIRNAME=/opt/ros/hydro/stacks/qbo_listen/config/LM
+DIRNAME=/opt/ros/electric/stacks/qbo_stack/qbo_listen/config/LM
 if [ -d "$DIRNAME" ]; then
     echo "Doing a backup of LM..."
     TIME=`date +%s`

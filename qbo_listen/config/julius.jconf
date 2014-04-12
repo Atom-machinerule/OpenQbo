@@ -3,7 +3,7 @@
 # Don't modify this file if you are not sure of what are you doing
 # Documentation: http://julius.sourceforge.jp/juliusbook/en/
 
--input stdin                      # live microphone
+-input mic                    # live microphone
 -48                            # 48kHz sampling > 16kHz conv. (16kHz only)
 -cutsilence                    # detection on
 -lv 2500                       # level threshold (0-32767)
@@ -69,5 +69,6 @@
 -gram LM/es/questions/questions
 
 -SR es_questions es esquestions
+
 
 
