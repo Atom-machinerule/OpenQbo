@@ -1,0 +1,16 @@
+<package>
+  <description brief="qbo_listen">
+
+     qbo_listen
+
+  </description>
+  <author>Sergio Merino Alonso</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <depend package="std_msgs"/>
+  <depend package="roscpp"/>
+  <depend package="rospy"/>
+  <depend package="qbo_talk"/>
+</package>
+
+

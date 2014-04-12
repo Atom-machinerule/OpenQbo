@@ -1,0 +1,9 @@
+<launch>
+         <!-- launch voice disabler-->
+         <include file="$(find qbo_audio_control)/launch/audio_control_listener.launch" /> 
+
+         <node name="qbo_listen" pkg="qbo_listen" type="qbo_listen" output="screen">
+            
+         </node> 
+</launch>
+

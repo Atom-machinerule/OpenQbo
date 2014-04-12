@@ -1,0 +1,11 @@
+Package: qboros-electric-qbo-listen
+Source: qboros-electric-qbo-listen
+Version: 1.3-openqbo0
+Section: OpenQbo
+Priority: standard
+Depends: julius (= 4.1.5.1-openqbo0), libjulius-dev (= 4.1.5.1-openqbo0), ros-electric-ros, libc6, qboros-electric-qbo-audio-control, qbo-julius-model
+Architecture: amd64
+Maintainer: Sergio Merino <s.merino@openqbo.org>
+Homepage: http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_listen
+Description: This package is a ros adapter for julius software
+ This package will publish in topics all the listen sentences.
