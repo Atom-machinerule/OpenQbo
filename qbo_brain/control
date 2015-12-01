@@ -1,10 +1,9 @@
-Package: qboros-electric-qbo-brain
-Source: qboros-electric-qbo-brain
+
 Version: 1.2-openqbo0
 Priority: standard
 Architecture: amd64
 Section: OpenQbo
-Depends: qboros-electric-qbo-listen, qboros-electric-qbo-talk, qboros-electric-qbo-face-vision, ros-electric-executive-smach, ros-electric-executive-smach-visualization, qboros-electric-qbo-music-player, qboros-electric-qbo-random-move
+Depends: qbo-listen, qbo-talk, qbo-face-vision, executive-smach, executive-smach-visualization, qbo-music-player, qbo-random-move
 Maintainer: Arturo Bajuelos <arturo@openqbo.org>
 Homepage: http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_stack:qbo_brain
 Description: Manages several Qbo apps, activating/deactivating dynamically ROS nodes in Qbo.

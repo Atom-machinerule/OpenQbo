@@ -7,7 +7,6 @@
 
   <depend package="image_transport"/>
   <depend package="cv_bridge"/>
-  <depend package="opencv2"/>
   <depend package="roscpp"/>
   <depend package="sensor_msgs"/>
 </package>

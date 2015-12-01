@@ -42,7 +42,7 @@
 #include <ctype.h>
 #include <ml.h>
 
-
+#include <opencv2/nonfree/nonfree.hpp>
 
 
 

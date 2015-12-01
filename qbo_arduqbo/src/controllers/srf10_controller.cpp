@@ -38,9 +38,10 @@
 CDistanceSensor::CDistanceSensor(std::string name, uint8_t address, std::string topic, ros::NodeHandle& nh, std::string type, std::string frame_id, float min_alert_distance, float max_alert_distance) :
     name_(name), address_(address), nh_(nh), type_(type), min_alert_distance_(min_alert_distance), max_alert_distance_(max_alert_distance), alert_(false)
 {
-    //cloud_.points.resize(1);
-    cloud_.set_points_size(1);
-    cloud_.set_channels_size(0);
+    cloud_.points.resize(1);
+    cloud_.channels.resize(1);
+    //cloud_.set_points_size(1);
+    //cloud_.set_channels_size(0);
     cloud_.header.frame_id=frame_id;
     cloud_.points[0].x=0;
     cloud_.points[0].y=0;

@@ -1,12 +1,11 @@
-Package: qboros-electric-qbo-launchers
-Source: qboros-electric-qbo-launchers
+
 Version: 1.0.1-openqbo0
 Section: OpenQbo
 Maintainer: Miguel Angel Julian <miguel.a.j82@openqbo.org>
 Homepage: http://openqbo.org/wiki/doku.php?id=qbo_apps:ros_pack:qbo_launchers
 Priority: optional
 Architecture: all
-Depends: qboros-electric-qbo-listen, qboros-electric-qbo-talk, qboros-electric-qbo-face-vision, qboros-electric-qbo-arduqbo, qboros-electric-qbo-music-player, qboros-electric-qbo-music-player, qboros-electric-qbo-object-recognition, qboros-electric-qbo-stereo-selector, qboros-electric-qbo-questions, qboros-electric-qbo-camera
+Depends: qbo-listen, qbo-talk, qbo-face-vision, qbo-arduqbo, qbo-music-player, qbo-music-player, qbo-object-recognition, qbo-stereo-selector, qbo-questions, qbo-camera
 Description: Startup script for the QBO brain
  This package installs the startup script for the QBO brain and essential packages
 

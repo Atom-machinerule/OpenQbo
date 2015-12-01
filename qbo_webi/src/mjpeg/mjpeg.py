@@ -27,7 +27,6 @@ import cherrypy
 import time
 import sys
 import rospy
-import cv
 from std_msgs.msg import String
 from sensor_msgs.msg import Image as RosImage
 from cv_bridge import CvBridge, CvBridgeError
@@ -35,6 +34,7 @@ import cStringIO
 import cv
 import threading
 import json
+import cv2
 
 class image_converter:
 
@@ -50,7 +50,7 @@ class image_converter:
   def callback(self,data):
     with self.img_lock:
       try:
-        self.cv_image = self.bridge.imgmsg_to_cv(data, "bgr8")
+        self.cv_image = self.bridge.imgmsg_to_cv2(data, "bgr8")
       except CvBridgeError, e:
         print e
 
@@ -62,11 +62,11 @@ class image_converter:
         time.sleep(0.1)
     image=cv.CreateMat(self.h, self.w, cv.CV_8UC3)
     cv.SetZero(image)
-    if not self.cv_image:
+    while self.cv_image==None:
       pass
     else:
       with self.img_lock:
-        cv.Resize(self.cv_image,image)
+        cv2.resize(self.cv_image,0 ,(image, (2,2)))
     return cv.EncodeImage(".jpeg", image, [cv.CV_IMWRITE_JPEG_QUALITY, self.quality]).tostring()
 
   def stop(self):

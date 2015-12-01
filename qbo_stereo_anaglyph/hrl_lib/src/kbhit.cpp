@@ -175,4 +175,3 @@ kb_getc_w(void)
 
 
 #endif // _WIN32
-

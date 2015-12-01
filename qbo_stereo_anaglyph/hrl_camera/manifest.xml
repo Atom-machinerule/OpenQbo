@@ -7,11 +7,10 @@
   <review status="unreviewed" notes=""/>
   <depend package="rospy"/>
   <depend package="hrl_lib"/>
-  <depend package="opencv2"/>
   <depend package="hrl_opencv"/>
   <depend package="cv_bridge"/>
   <depend package="sensor_msgs"/>
-  <depend package="polled_camera"/>
+
 </package>
 
 

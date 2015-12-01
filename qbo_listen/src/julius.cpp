@@ -384,7 +384,7 @@ main(int argc, char *argv[])
     if (param1=="" || param2=="")
     {
       param1="-C";
-      param2 = ros::package::getPath("qbo_listen")+"/config/julius.jconf";
+      param2 = "/opt/ros/hydro/stacks/qbo_listen/config/julius.jconf";
       arguments[0]=argv[0];
       arguments[1]=(char *)param1.c_str();
       arguments[2]=(char *)param2.c_str();

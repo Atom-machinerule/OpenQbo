@@ -28,8 +28,8 @@ import re
 import random
 
 #This function create the voca file
-LMdirectory="/opt/ros/hydro/stacks/qbo_listen/config/LM/"
-AMdirectory="/opt/ros/hydro/stacks/qbo_listen/config/AM/"
+LMdirectory="/opt/ros/jade/stacks/Qbo/qbo_listen/config/LM/"
+AMdirectory="/opt/ros/jade/stacks/Qbo/qbo_listen/config/AM/"
 def getRandomwords(wFile,num):
     f=open(wFile,"r")
     count=0
@@ -344,3 +344,4 @@ def main(argv):
 
 if __name__ == "__main__":
         main(sys.argv[1:])
+

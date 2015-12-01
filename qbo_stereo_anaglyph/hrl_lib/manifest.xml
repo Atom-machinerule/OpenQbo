@@ -11,7 +11,7 @@
     <depend package="visualization_msgs"/>
     <depend package="tf"/>
     <depend package="dynamic_reconfigure"/>
-    <depend package="kdl"/>
+    <depend package="orocos_kdl"/>
     
     <depend package="hrl_msgs"/>
     <depend package="hrl_srvs"/>
@@ -22,5 +22,4 @@
         <cpp cflags="-I${prefix}/msg/cpp -I${prefix}/include" lflags="-L${prefix}/lib -Wl,-rpath,-L${prefix}/lib -lhrl_lib"/>
     </export>
 </package>
-
 

@@ -7,7 +7,7 @@
   <depend package="std_msgs" />  
   <depend package="sensor_msgs" />  
   <depend package="rospy" />  
-  <depend package="opencv2" />  
+  <depend package="cv_bridge"/>
 </package>
 
 

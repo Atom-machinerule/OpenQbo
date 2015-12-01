@@ -101,7 +101,7 @@ void listenerCallback(const qbo_listen::ListenedConstPtr& msg);
 */
 int loadDictionary(string lang)
 {
-	string filename = ros::package::getPath("qbo_face_recognition") + "/config/lang/"+lang+".txt";	
+	string filename = "/opt/ros/hydro/stacks/qbo_face_vision/qbo_face_recognition/config/lang/"+lang+".txt";	
 
 	string line;
 	ifstream dict_file(filename.c_str());
@@ -434,4 +434,3 @@ int main(int argc, char **argv)
 
 	return 0;
 }
-

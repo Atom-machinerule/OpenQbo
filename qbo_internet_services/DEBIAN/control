@@ -1,8 +1,7 @@
-Package: qboros-electric-qbo-internet-services
-Source: qboros-electric-qbo-internet-services
+
 Version: 1.0-openqbo0
 Section: OpenQbo
-Depends: ros-electric-ros, python
+Depends: ros-hydro-ros, python
 Priority: standard
 Architecture: amd64
 Maintainer: Sergio Merino <s.merino@openqbo.org>

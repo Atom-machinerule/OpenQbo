@@ -4,7 +4,7 @@
 
          <node name="qbo_listen" pkg="qbo_listen" type="qbo_listen" output="screen">
              <param name="config" value="-C"/>
-             <param name="configfile" value="$(find qbo_listen)/config/julius.jconf"/>
+             <param name="configfile" value="/opt/ros/hydro/stacks/qbo_listen/config/julius.jconf"/>
          </node> 
 </launch>
 

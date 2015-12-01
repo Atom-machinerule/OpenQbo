@@ -32,8 +32,6 @@
 using namespace std;
 using namespace cv;
 
-namespace enc = sensor_msgs::image_encodings;
-
 //Constructor de la clase
 StereoVision::StereoVision () : n_("~"), it_(n_),
                                 mostrar_imagen_left_(false), mostrar_imagen_right_(false)
@@ -646,17 +644,14 @@ void StereoVision::leftImageCallback(const sensor_msgs::ImageConstPtr& msg_ptr, 
 	left_mutex_.lock();
   try
   {
-    cv_bridge::CvImagePtr cv_ptr;
-    cv_ptr = cv_bridge::toCvCopy(msg_ptr, enc::BGR8);
-    
-    //Mat temp(cv_ptr);
-    cv_ptr->image.copyTo(left);
+	  Mat temp(bridge_.imgMsgToCv(msg_ptr, "bgr8"));
+    temp.copyTo(left);
     mostrar_imagen_left_=true;
     left_image_size_=left.size();
     left_mutex_.unlock();
 
   }
-  catch (cv_bridge::Exception& error)
+  catch (sensor_msgs::CvBridgeException error)
   {
     ROS_ERROR("error");
     mostrar_imagen_left_=false;
@@ -668,16 +663,13 @@ void StereoVision::rightImageCallback(const sensor_msgs::ImageConstPtr& msg_ptr,
   right_mutex_.lock();
   try
   {
-    cv_bridge::CvImagePtr cv_ptr;
-    cv_ptr = cv_bridge::toCvCopy(msg_ptr, enc::BGR8);
-    
-    //Mat temp(cv_ptr);
-    cv_ptr->image.copyTo(right);
+	  Mat temp(bridge_.imgMsgToCv(msg_ptr, "bgr8"));
+    temp.copyTo(right);
     mostrar_imagen_right_=true;
     right_image_size_=right.size();
     right_mutex_.unlock();
   }
-  catch (cv_bridge::Exception& error)
+  catch (sensor_msgs::CvBridgeException error)
   {
     ROS_ERROR("error");
     mostrar_imagen_right_=false;

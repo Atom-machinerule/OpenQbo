@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2.6
 # -*- coding: utf-8 -*-
 #
 # Software License Agreement (GPLv2 License)
@@ -28,8 +28,8 @@ import re
 import random
 
 #This function create the voca file
-LMdirectory="/opt/qbo/ros_stacks/qbo_apps/qbo_listen/config/LM/"
-AMdirectory="/opt/qbo/ros_stacks/qbo_apps/qbo_listen/config/AM/"
+LMdirectory="/opt/ros/hydro/stacks/qbo_listen/config/LM/"
+AMdirectory="/opt/ros/hydro/stacks/qbo_listen/config/AM/"
 def getRandomwords(wFile,num):
     f=open(wFile,"r")
     count=0
@@ -344,4 +344,3 @@ def main(argv):
 
 if __name__ == "__main__":
         main(sys.argv[1:])
-

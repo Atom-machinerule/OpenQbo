@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2.6
 import roslib
 roslib.load_manifest('hrl_camera')
 import ros_camera as rc
@@ -19,4 +19,3 @@ if __name__ == '__main__':
             f = camera.get_frame()
             cv.ShowImage(ros_topic_name, f)
             cv.WaitKey(10)
-

@@ -9,7 +9,6 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/qbo_self_recognizer</url>
   <depend package="roscpp"/>
-  <depend package="opencv2"/>
   <depend package="sensor_msgs"/>
   <depend package="cv_bridge"/>
   <depend package="image_transport"/>

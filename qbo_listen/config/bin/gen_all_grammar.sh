@@ -21,9 +21,9 @@
 #
 # Authors: Sergio Merino <s.merino@openqbo.com>;
 
-dir="$ROS_PACKAGE_PATH/qbo_listen/"
+dir='/opt/ros/jade/stacks/Qbo/qbo_listen/'
 #dir="$ROS_PACKAGE_PATH/qbo_stack/qbo_listen"
-acousticdir="/usr/share/qbo-julius-model/"
+acousticdir=/usr/share/qbo-julius-model/
 tmpfile=/var/tmp/juliusdialog.tmp
 amdir=$acousticdir
 lmdir=$dir/config/LM/
@@ -109,10 +109,11 @@ done
 }
 
 
-cd "$ROS_PACKAGE_PATH/qbo_listen/config/bin"
+cd "$ROS_PACKAGE_PATH/qbo_stack/qbo_listen/config/bin"
 if [ "$1" == "-f" ]; then
     compileLMs "force"
 else
     compileLMs
 fi
 createConfFile
+

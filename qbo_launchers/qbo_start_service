@@ -14,8 +14,8 @@
 # Some things that run always
 
 
-source /opt/ros/electric/setup.bash
-source /opt/ros/electric/ros/tools/rosbash/rosbash
+source /opt/ros/hydro/setup.bash
+source /opt/ros/hydro/ros/tools/rosbash/rosbash
 
 export ROS_HOSTNAME=`/bin/hostname`
 LOCALUSER=`ls /home | awk 'NR==1{print $1}'`
@@ -46,7 +46,7 @@ case "$1" in
     
 	echo "Launching QBO base"
 
-  su -c "export HOME=/home/$LOCALUSER ; export DISPLAY=:0.0 ; source /opt/ros/electric/setup.bash ; source /opt/ros/electric/ros/tools/rosbash/rosbash ; xmms2-launcher ; roslaunch qbo_launchers qbo_startup.launch" -m $LOCALUSER  > /dev/tty8 2>/dev/tty9 &  
+  su -c "export HOME=/home/$LOCALUSER ; export DISPLAY=:0.0 ; source /opt/ros/hydro/setup.bash ; source /opt/ros/hydro/ros/tools/rosbash/rosbash ; xmms2-launcher ; roslaunch qbo_launchers qbo_startup.launch" -m $LOCALUSER  > /dev/tty8 2>/dev/tty9 &  
 
 #su -c "HOME=/home/$LOCALUSER ; export DISPLAY=:0.0 ; source /opt/ros/electric/setup.bash ; source /opt/ros/electric/ros/tools/rosbash/rosbash ; roslaunch qbo_launchers qbo_startup.launch" -m $LOCALUSER  > /dev/tty8 2>/dev/tty9 &
   #su -c "source /opt/ros/electric/setup.bash ; source /opt/ros/electric/ros/tools/rosbash/rosbash ; roslaunch qbo_launchers qbo_startup.launch" -m $LOCALUSER
@@ -62,7 +62,7 @@ case "$1" in
     done
 
     #stop roscore
-    kill `ps -ax | egrep electric | egrep -o -E \^\ ?[0-9]+\ ` # | cut -d \  -f2-`
+    kill `ps -ax | egrep hydro | egrep -o -E \^\ ?[0-9]+\ ` # | cut -d \  -f2-`
 
 
 	;;
@@ -75,7 +75,7 @@ case "$1" in
     done
 
     #stop roscore
-    kill `ps -ax | egrep electric | egrep -o -E \^\ ?[0-9]+\ ` # | cut -d \  -f2-`
+    kill `ps -ax | egrep hydro | egrep -o -E \^\ ?[0-9]+\ ` # | cut -d \  -f2-`
 
     #Wait for pulseaudio daemon
     echo "Waiting for pulse audio daemon"
@@ -95,7 +95,7 @@ case "$1" in
         echo "Launching QBO base"
 
   #su -c "HOME=/home/$LOCALUSER ; export DISPLAY=:0.0 ; source /opt/ros/electric/setup.bash ; source /opt/ros/electric/ros/tools/rosbash/rosbash ; roslaunch qbo_launchers qbo_startup.launch" -m $LOCALUSER  > /dev/tty8 2>/dev/tty9 &
-  su -c "export HOME=/home/$LOCALUSER ; export DISPLAY=:0.0 ; source /opt/ros/electric/setup.bash ; source /opt/ros/electric/ros/tools/rosbash/rosbash ; xmms2-launcher ; roslaunch qbo_launchers qbo_startup.launch" -m $LOCALUSER  > /dev/tty8 2>/dev/tty9 &
+  su -c "export HOME=/home/$LOCALUSER ; export DISPLAY=:0.0 ; source /opt/ros/hydro/setup.bash ; source /opt/ros/hydro/ros/tools/rosbash/rosbash ; xmms2-launcher ; roslaunch qbo_launchers qbo_startup.launch" -m $LOCALUSER  > /dev/tty8 2>/dev/tty9 &
   #su -c "source /opt/ros/electric/setup.bash ; source /opt/ros/electric/ros/tools/rosbash/rosbash ; roslaunch qbo_launchers qbo_startup.launch" -m $LOCALUSER
 
     ;;
