@@ -35,6 +35,7 @@ import cv
 import threading
 import json
 import cv2
+import numpy as np
 
 class image_converter:
 
@@ -60,14 +61,16 @@ class image_converter:
       while not self.cv_image and i<10:
         i+=1
         time.sleep(0.1)
-    image=cv.CreateMat(self.h, self.w, cv.CV_8UC3)
-    cv.SetZero(image)
+    #image=cv2.CreateMat(self.h, self.w, cv.CV_8UC3)
+    image = np.zeros((self.h, self.w, 3), np.uint8)
+    #cv.SetZero(image)
     while self.cv_image==None:
       pass
     else:
       with self.img_lock:
-        cv2.resize(self.cv_image,0 ,(image, (2,2)))
-    return cv.EncodeImage(".jpeg", image, [cv.CV_IMWRITE_JPEG_QUALITY, self.quality]).tostring()
+        cv2.resize(image, (2,2))
+        #mat_array = cv.fromarray(image)
+    return cv.EncodeImage(".jpeg", cv.fromarray(image), [cv.CV_IMWRITE_JPEG_QUALITY, self.quality]).tostring()
 
   def stop(self):
     self.image_sub.unregister()
@@ -163,4 +166,3 @@ class MjpegGrabber():
             yield "\n\r--"+self.boundary+"\r\n"+intermediateheader+imgData+"\r\n"+self.boundary+"\n\r"
         print 'End of content'
         #yield "\n\r--"+self.boundary+"\r\n"+intermediateheader+imgData+"\r\n"+self.boundary+"\n\r"
-
