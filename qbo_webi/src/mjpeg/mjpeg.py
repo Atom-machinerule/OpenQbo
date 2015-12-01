@@ -68,9 +68,11 @@ class image_converter:
       pass
     else:
       with self.img_lock:
-        cv2.resize(image, (2,2))
+        r = 200.0 / image.shape[1]
+        dim = (200, int(image.shape[0] * r))
+        resized = cv2.resize(self.cv_image, dim, interpolation = cv2.INTER_AREA)
         #mat_array = cv.fromarray(image)
-    return cv.EncodeImage(".jpeg", cv.fromarray(image), [cv.CV_IMWRITE_JPEG_QUALITY, self.quality]).tostring()
+    return cv.EncodeImage(".jpeg", cv.fromarray(resized), [cv.CV_IMWRITE_JPEG_QUALITY, self.quality]).tostring()
 
   def stop(self):
     self.image_sub.unregister()
