@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /opt/ros/jade/stacks/Qbo/image_common/camera_info_manager/build/devel/setup.sh

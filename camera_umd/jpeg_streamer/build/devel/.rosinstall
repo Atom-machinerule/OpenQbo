@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /opt/ros/jade/stacks/Qbo/camera_umd/jpeg_streamer/build/devel/setup.sh

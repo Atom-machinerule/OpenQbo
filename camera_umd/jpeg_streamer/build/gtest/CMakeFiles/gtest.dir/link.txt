@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -O2 -g -DNDEBUG   -shared -Wl,-soname,libgtest.so -o /opt/ros/jade/stacks/Qbo/camera_umd/jpeg_streamer/lib/libgtest.so CMakeFiles/gtest.dir/src/gtest-all.cc.o  -L/opt/ros/jade/stacks/Qbo/camera_umd/jpeg_streamer/build/gtest/src -lpthread -Wl,-rpath,/opt/ros/jade/stacks/Qbo/camera_umd/jpeg_streamer/build/gtest/src 
