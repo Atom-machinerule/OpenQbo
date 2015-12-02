@@ -47,3 +47,4 @@ rosbuild_add_library(irs_controller_lib src/controllers/infra_red_recievers_cont
 
 rosbuild_add_executable(qbo_arduqbo src/qbo_arduqbo.cpp)
 target_link_libraries(qbo_arduqbo cereal_port qboduino_driver_lib base_controller_lib battery_controller_lib joint_controller_lib lcd_controller_lib mics_controller_lib mouth_controller_lib nose_controller_lib srf10_controller_lib imu_controller_lib irs_controller_lib pthread dynamixel libdxl)
+
